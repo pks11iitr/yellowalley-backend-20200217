@@ -1,0 +1,24 @@
+<?php
+/*
+ * use this file to allow or disallow user types for login
+ * on the basis of their roles
+*/
+return [
+
+    /*
+     * Allow users for website login
+     * {role  => redirection path}
+     */
+    'admins'=>[
+        'admin'=>'admin.dashboard',
+        'customer'=>$_SERVER['HTTP_REFERER'],
+    ],
+
+    /*
+     * Allow users for api login
+     */
+    'apiusers'=>[
+        'student'
+    ]
+
+];
