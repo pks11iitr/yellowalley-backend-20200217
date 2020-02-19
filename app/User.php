@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Models\Configuration;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -76,6 +77,14 @@ class User extends Authenticatable implements JWTSubject
         if(!empty($this->subscription_expiry) && $currentdate<=$this->subscription_expiry)
             return 1;
         return 0;
+    }
+
+    public function activateSubscription(){
+        $validity=Configuration::where('param_name', 'plan_validity')->first();
+        $months=(int)$validity->param_value;
+        $expiry=date('Y-m-d H:i:s', strtotime("+$months months"));
+        $this->subscription_expiry=$expiry;
+        $this->save();
     }
 
 
