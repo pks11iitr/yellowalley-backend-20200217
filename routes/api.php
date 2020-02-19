@@ -13,7 +13,7 @@ use Illuminate\Http\Request;
 |
 */
 
-$api = app('Dingo\Api\Routing\Router');
+    $api = app('Dingo\Api\Routing\Router');
 
 
 
@@ -23,32 +23,12 @@ $api = app('Dingo\Api\Routing\Router');
 
 
     $api->group(['middleware' => ['auth:api','acl'], 'is'=>'customer'], function ($api) {
-        $api->get('home', ['as'=>'api.home', 'uses'=>'Auth\Api\LoginController@home']);
+        $api->get('home', ['as'=>'api.home', 'uses'=>'Customer\Api\HomeController@index']);
         $api->get('get-profile', ['as'=>'api.order.setprofile', 'uses'=>'Customer\Api\ProfileController@getProfile']);
         $api->post('update-profile', ['as'=>'api.order.setprofile', 'uses'=>'Customer\Api\ProfileController@updateProfile']);
-        $api->post('add-cart', ['as'=>'api.cart', 'uses'=>'Customer\Api\CartController@store']);
-        $api->get('cart-details', ['as'=>'api.cart.details', 'uses'=>'Customer\Api\CartController@getCartDetails']);
-        $api->get('make-order', ['as'=>'api.order', 'uses'=>'Customer\Api\OrderController@make']);
-        $api->get('order-details/{id}', ['as'=>'api.order.details', 'uses'=>'Customer\Api\OrderController@details']);
-        $api->get('order-history', ['as'=>'api.order.history', 'uses'=>'Customer\Api\OrderController@history']);
-        $api->get('cancel-order/{id}', ['as'=>'api.order.cancel', 'uses'=>'Customer\Api\OrderController@cancel']);
-        $api->get('return/{id}', ['as'=>'api.order.return', 'uses'=>'Customer\Api\OrderController@returnOrder']);
-        $api->get('get-address', ['as'=>'api.order.address', 'uses'=>'Customer\Api\OrderController@getAddress']);
-        $api->post('set-address/{id}', ['as'=>'api.order.setaddress', 'uses'=>'Customer\Api\OrderController@setAddress']);
-        $api->get('pay-now/{id}', ['as'=>'api.order.pay', 'uses'=>'Customer\Api\OrderController@paynow']);
-        $api->post('verify-payment', ['as'=>'api.order.verify', 'uses'=>'Customer\Api\OrderController@verifyPayment']);
+        $api->get('subscribe', ['as'=>'api.order', 'uses'=>'Customer\Api\PaymentController@subscribe']);
+        $api->post('verify-subscription', ['as'=>'api.order.verify', 'uses'=>'Customer\Api\PaymentController@verifyPayment']);
     });
-
-    $api->get('category/{id}/subcategory', ['as'=>'api.category', 'uses'=>'Customer\Api\CategoryController@subcategory']);
-
-    $api->get('home', ['as'=>'api.home', 'uses'=>'Customer\Api\HomeController@index']);
-    $api->get('search', ['as'=>'api.search', 'uses'=>'Customer\Api\HomeController@search']);
-
-    $api->get('category/{id}/product', ['as'=>'api.product', 'uses'=>'Customer\Api\CategoryController@cateproduct']);
-
-    $api->get('product/{id}', ['as'=>'api.product', 'uses'=>'Customer\Api\ProductController@details']);
-
-
 
 
 //Route::middleware('auth:api')->get('/user', function (Request $request) {

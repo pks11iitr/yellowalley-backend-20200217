@@ -15,7 +15,7 @@ class PaymentController extends Controller
         $this->payment=$payment;
     }
 
-    public function subscribe(Request $request, $id){
+    public function subscribe(Request $request){
         $user=auth()->user();
 
         $payment=Configuration::where('param_name','plan_charges')->first();
