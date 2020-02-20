@@ -100,7 +100,7 @@ class User extends Authenticatable implements JWTSubject
     }
 
     public function scores(){
-        return $this->hasMany('App\Models\UserScore', 'user_id');
+        return $this->hasMany('App\Models\Score', 'user_id');
     }
 
     public function totalScore(){

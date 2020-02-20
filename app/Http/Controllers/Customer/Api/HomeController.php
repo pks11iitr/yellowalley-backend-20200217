@@ -7,6 +7,8 @@ use App\Models\Category;
 use App\Models\Chapter;
 use App\Models\Partners;
 use App\Models\Products;
+use App\Models\Question;
+use App\Models\Score;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -15,6 +17,8 @@ class HomeController extends Controller
     public function index(Request $request){
         $user=auth()->user();
         $banners=Banner::active()->get();
+        $userscore=$user->totalScore();
+        $totalscore=Score::totalscore();
         if($user->isSubscriptionActive()){
             $lastvideo=$user->lastPlayedVideo;
             if($lastvideo){
@@ -39,7 +43,7 @@ class HomeController extends Controller
 
         return [
             'status'=>'success',
-            'data'=>compact('banners','lastvideo', 'videos')
+            'data'=>compact('banners','lastvideo', 'videos','userscore','totalscore')
         ];
     }
 }

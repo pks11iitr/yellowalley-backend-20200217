@@ -16,7 +16,7 @@ class Chapter extends Model
     ];
 
     public function scores(){
-        return $this->hasOne('App\Models\UserScore', 'chapter_id');
+        return $this->hasOne('App\Models\Score', 'chapter_id');
     }
 
     public function videos(){
@@ -52,4 +52,16 @@ class Chapter extends Model
     public function questions(){
         return $this->hasMany('App\Models\Question', 'chapter_id');
     }
+
+    public function startTest(){
+        $refid=date('YmdHis');
+        $test=new Test(['refid'=>$refid, 'user_id'=>auth()->user()->id]);
+        $this->tests()->save($test);
+        return $refid;
+    }
+
+    public function tests(){
+        return $this->hasMany('App\Models\Test', 'chapter_id');
+    }
+
 }

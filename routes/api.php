@@ -36,6 +36,12 @@ use Illuminate\Http\Request;
         //update last played video
         $api->post('update-video', ['as'=>'api.video.update', 'uses'=>'Customer\Api\ProfileController@updateLastPlayed']);
 
+        //test apis
+        $api->get('start-test/{id}', ['as'=>'api.start.test', 'uses'=>'Customer\Api\TestController@start']);
+        $api->post('get-question', ['as'=>'api.question.get', 'uses'=>'Customer\Api\TestController@getQuestion']);
+        $api->post('give-answer', ['as'=>'api.question.answer', 'uses'=>'Customer\Api\TestController@answer']);
+        $api->post('submit-test', ['as'=>'api.test.finalsubmit', 'uses'=>'Customer\Api\TestController@submitTest']);
+
 
     });
 
