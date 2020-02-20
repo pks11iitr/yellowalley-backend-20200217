@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Models\Configuration;
+use App\Models\Video;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -79,12 +80,49 @@ class User extends Authenticatable implements JWTSubject
         return 0;
     }
 
-    public function activateSubscription(){
+    public function activateSubscription($reset=true){
         $validity=Configuration::where('param_name', 'plan_validity')->first();
         $months=(int)$validity->param_value;
         $expiry=date('Y-m-d H:i:s', strtotime("+$months months"));
         $this->subscription_expiry=$expiry;
+
+        //reset user state
+        if($reset){
+            $this->last_qualified_chapter=2;
+            $this->last_played_video=null;
+        }
+
         $this->save();
+    }
+
+    public function lastPlayedVideo(){
+        return $this->belongsTo('App\Models\Video', 'last_played_video');
+    }
+
+    public function scores(){
+        return $this->hasMany('App\Models\UserScore', 'user_id');
+    }
+
+    public function totalScore(){
+        return $this->scores()->sum('score');
+    }
+
+    public function updateLastPlayedVideo($id){
+        $video=Video::with('chapter')->findOrFail($id);
+        if($this->isSubscriptionActive()){
+            if(in_array($video->chapter->sequence_no, [1,2]) || $video->chapter->sequence_no <= $this->last_qualified_chapter){
+                $this->last_played_video=$id;
+                $this->save();
+                return true;
+            }
+        }
+        //subscription is not active
+        if($video->chapter->sequence_no == 1){
+            $this->last_played_video=$id;
+            $this->save();
+            return true;
+        }
+        return false;
     }
 
 

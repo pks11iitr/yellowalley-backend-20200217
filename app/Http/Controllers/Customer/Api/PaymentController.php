@@ -91,4 +91,17 @@ class PaymentController extends Controller
             ], 200);
         }
     }
+
+
+    public function paymentInfo(Request $request){
+        $payment=Configuration::where('param_name','plan_charges')->first();
+        $amount=(int)$payment->param_value;
+        $validity=Configuration::where('param_name', 'plan_validity')->first();
+        $months=(int)$validity->param_value;
+        $message="Subscribe for $months months of unlimited access at Yellowalley";
+        return [
+            'status'=>'success',
+            'data'=>compact('message','amount')
+        ];
+    }
 }

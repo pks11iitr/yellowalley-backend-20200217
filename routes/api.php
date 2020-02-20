@@ -20,14 +20,22 @@ use Illuminate\Http\Request;
     $api->post('login', ['as'=>'api.login', 'uses'=>'Auth\Api\LoginController@login']);
     $api->post('complete-profile', ['as'=>'api.login.complete', 'uses'=>'Auth\Api\LoginController@completeProfile']);
     $api->post('verify-otp', ['as'=>'api.otp.verify', 'uses'=>'Auth\Api\LoginController@verifyOTP']);
+    $api->get('payment-info', ['as'=>'api.order', 'uses'=>'Customer\Api\PaymentController@paymentInfo']);
 
-
-    $api->group(['middleware' => ['auth:api','acl'], 'is'=>'customer'], function ($api) {
+    $api->group(['middleware' => ['auth:api','acl'], 'is'=>'student'], function ($api) {
         $api->get('home', ['as'=>'api.home', 'uses'=>'Customer\Api\HomeController@index']);
+        $api->get('chapters', ['as'=>'api.home', 'uses'=>'Customer\Api\ChapterController@index']);
         $api->get('get-profile', ['as'=>'api.order.setprofile', 'uses'=>'Customer\Api\ProfileController@getProfile']);
         $api->post('update-profile', ['as'=>'api.order.setprofile', 'uses'=>'Customer\Api\ProfileController@updateProfile']);
+
+        //Payments APIs
         $api->get('subscribe', ['as'=>'api.order', 'uses'=>'Customer\Api\PaymentController@subscribe']);
         $api->post('verify-subscription', ['as'=>'api.order.verify', 'uses'=>'Customer\Api\PaymentController@verifyPayment']);
+
+        //update last played video
+        $api->post('update-video', ['as'=>'api.video.update', 'uses'=>'Customer\Api\ProfileController@updateLastPlayed']);
+
+
     });
 
 
