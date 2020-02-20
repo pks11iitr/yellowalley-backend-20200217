@@ -24,7 +24,8 @@ use Illuminate\Http\Request;
 
     $api->group(['middleware' => ['auth:api','acl'], 'is'=>'student'], function ($api) {
         $api->get('home', ['as'=>'api.home', 'uses'=>'Customer\Api\HomeController@index']);
-        $api->get('chapters', ['as'=>'api.home', 'uses'=>'Customer\Api\ChapterController@index']);
+        $api->get('chapters', ['as'=>'api.chapters', 'uses'=>'Customer\Api\ChapterController@index']);
+        $api->get('chapter-questions/{id}', ['as'=>'api.chapter.videos', 'uses'=>'Customer\Api\ChapterController@questions']);
         $api->get('get-profile', ['as'=>'api.order.setprofile', 'uses'=>'Customer\Api\ProfileController@getProfile']);
         $api->post('update-profile', ['as'=>'api.order.setprofile', 'uses'=>'Customer\Api\ProfileController@updateProfile']);
 

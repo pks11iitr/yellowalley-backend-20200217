@@ -48,4 +48,8 @@ class Chapter extends Model
                 ];
         }
     }
+
+    public function questions(){
+        return $this->hasMany('App\Models\Question', 'chapter_id');
+    }
 }

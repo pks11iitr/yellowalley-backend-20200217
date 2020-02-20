@@ -20,6 +20,51 @@ class ChapterController extends Controller
             'status'=>'success',
             'data'=>compact('chapterarr')
         ];
+    }
 
+    public function questions(Request $request, $id){
+        $user=auth()->user();
+        $chapter=Chapter::active()->with('questions')->findOrFail($id);
+        if($user->isSubscriptionActive()){
+            if($chapter->sequence_no<=$user->last_qualified_chapter) {
+                return [
+                    'status'=>'success',
+                    'data'=>compact('chapter')
+                ];
+            }
+        }else{
+            if(in_array($chapter->sequence_no, [1,2]))
+                return [
+                    'status'=>'success',
+                    'data'=>compact('chapter')
+                ];
+        }
+        return [
+            'status'=>'failed',
+            'message'=>'invalid request'
+        ];
+    }
+
+    public function videos(Request $request, $id){
+        $user=auth()->user();
+        $chapter=Chapter::active()->with('videos')->findOrFail($id);
+        if($user->isSubscriptionActive()){
+            if($chapter->sequence_no<=$user->last_qualified_chapter) {
+                return [
+                    'status'=>'success',
+                    'data'=>compact('chapter')
+                ];
+            }
+        }else{
+            if(in_array($chapter->sequence_no, [1,2]))
+                return [
+                    'status'=>'success',
+                    'data'=>compact('chapter')
+                ];
+        }
+        return [
+            'status'=>'failed',
+            'message'=>'invalid request'
+        ];
     }
 }
