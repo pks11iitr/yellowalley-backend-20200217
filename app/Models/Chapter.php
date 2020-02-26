@@ -4,12 +4,14 @@ namespace App\Models;
 
 use App\Models\Traits\Active;
 use Illuminate\Database\Eloquent\Model;
-
+use Storage;
 class Chapter extends Model
 {
     use Active;
 
     protected $table='chapters';
+
+    protected $fillable=['title','description','image','isactive','sequence_no'];
 
     protected $hidden = [
         'created_at', 'deleted_at','updated_at'
@@ -62,6 +64,11 @@ class Chapter extends Model
 
     public function tests(){
         return $this->hasMany('App\Models\Test', 'chapter_id');
+    }
+
+    public function getImageAttribute($value)
+    {
+        return Storage::url($value);
     }
 
 }

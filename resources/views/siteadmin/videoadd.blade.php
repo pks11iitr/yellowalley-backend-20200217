@@ -12,7 +12,7 @@
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">Category</li>
+                            <li class="breadcrumb-item active">Video</li>
                         </ol>
                     </div>
                 </div>
@@ -28,31 +28,49 @@
                         <!-- jquery validation -->
                         <div class="card card-primary">
                             <div class="card-header">
-                                <h3 class="card-title">Partners Add</h3>
+                                <h3 class="card-title">Video Add</h3>
                             </div>
                             <!-- /.card-header -->
                             <!-- form start -->
-                            <form role="form" method="post" enctype="multipart/form-data" action="{{route('partners.update',['id'=>$partner->id])}}">
+                            <form role="form" method="post" enctype="multipart/form-data" action="{{route('video.store')}}">
                                 @csrf
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label for="exampleInputname">Name</label>
-                                        <input type="text" name="name" class="form-control" id="exampleInputName" placeholder="name" value="{{$partner->name}}">
+                                        <label for="exampleInputtitle">Name</label>
+                                        <input type="text" name="name" class="form-control" id="exampleInputName" placeholder="Name">
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputimage">Image</label>
-                                        <input type="file" name="partnersimage" class="form-control" id="exampleInputimage" placeholder="">
-                                        <img src="{{$partner->image}}">
+                                        <input type="file" name="image" class="form-control" id="exampleInputimage" placeholder="">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputimage">Video Url</label>
+                                        <input type="file" name="video_url" class="form-control" id="exampleInputimage" placeholder="">
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputistop">Is Active</label>
                                         <select name="isactive" class="form-control" id="exampleInputistop" placeholder="">
-                                            <option value="1" {{$partner->isactive==1?'selected':''}}>Yes</option>
-                                            <option value="0" {{$partner->isactive==0?'selected':''}}>No</option>
+                                            <option value="1">Yes</option>
+                                            <option value="0">No</option>
                                         </select>
                                     </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputtitle">ChapterID</label>
+                                        <select name="chapter_id" class="form-control" id="exampleInputistop" placeholder="">
+                                           @foreach($chapters as $chapter)
+                                            <option value="{{$chapter->id}}">{{$chapter->title}}</option>
+                                           @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputdescription">Description</label>
+                                        <textarea name="description" class="form-control" id="exampleInputdescription" placeholder="Description"></textarea>
+                                    </div>
+                                    <div  class="col-md-4">
+                                        <label for="exampleInputistop">Sequence No</label>
+                                        <input type="number" id="exampleInputistop" name="sequence_no" class="form-control" min="1" max="100">
+                                    </div>
                                 </div>
-                                <!-- /.card-body -->
                                 <div class="card-footer">
                                     <button type="submit" class="btn btn-primary">Submit</button>
                                 </div>
@@ -61,14 +79,9 @@
                         <!-- /.card -->
                     </div>
                     <!--/.col (left) -->
-                    <!-- right column -->
-                    <div class="col-md-6">
-
-                    </div>
-                    <!--/.col (right) -->
                 </div>
                 <!-- /.row -->
-            </div><!-- /.container-fluid -->
+            </div>
         </section>
         <!-- /.content -->
     </div>

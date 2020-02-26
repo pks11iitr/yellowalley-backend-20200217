@@ -13,7 +13,7 @@
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">Products</li>
+                            <li class="breadcrumb-item active">Chapter</li>
                         </ol>
                     </div>
                 </div>
@@ -26,40 +26,34 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Products Table</h3>
+                            <h3 class="card-title">Chapter Table</h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                 <tr>
-                                    <th>Name</th>
-                                    <th>Company</th>
-                                    <th>Price</th>
-                                    <th>Image</th>
-                                    <th>Isactive</th>
-                                    <th>Rating</th>
-                                    <th>Category Title</th>
+                                    <th>Title</th>
                                     <th>Description</th>
+                                    <th>image</th>
+                                    <th>Isactive</th>
+                                    <th>Sequence No</th>
                                     <th>Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($sel as $s)
+                                @foreach($chapters as $chapter)
                                     <tr>
-                                        <td>{{$s->name}}</td>
-                                        <td>{{$s->company}}</td>
-                                        <td>{{$s->price}}</td>
-                                        <td><img src="{{$s->image}}" height="50px" width="50px"/></td>
+                                        <td>{{$chapter->title}}</td>
+                                        <td>{{$chapter->description}}</td>
+                                        <td><img src="{{$chapter->image}}" height="50px" width="50px"/></td>
                                         <td>
-                                            @if($s->isactive==0){{'No'}}
-                                            @else{{'Yes'}}
-                                            @endif
+                                            @if($chapter->isactive==1){{'Yes'}}
+                                                @else{{'No'}}
+                                                @endif
                                         </td>
-                                        <td>{{$s->rating}}</td>
-                                        <td>{{$s->category->title}}</td>
-                                        <td>{{$s->description}}</td>
-                                        <td><a href="{{route('products.edit',['id'=>$s->id])}}" class="btn btn-success">Edit</a></td>
+                                        <td>{{$chapter->sequence_no}}</td>
+                                        <td><a href="{{route('chapter.edit',['id'=>$chapter->id])}}" class="btn btn-primary">Edit</a></td>
                                     </tr>
                                 @endforeach
                                 </tbody>

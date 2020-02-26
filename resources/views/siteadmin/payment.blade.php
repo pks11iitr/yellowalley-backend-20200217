@@ -13,7 +13,7 @@
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">Category</li>
+                            <li class="breadcrumb-item active">Payment</li>
                         </ol>
                     </div>
                 </div>
@@ -26,30 +26,26 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Category Table</h3>
+                            <h3 class="card-title">Payment Table</h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                 <tr>
-                                    <th>Title</th>
-                                    <th>Description</th>
-                                    <th>image</th>
-                                    <th>parent</th>
-                                    <th>Isactive</th>
-                                    <th>Action</th>
+                                    <th>UserID</th>
+                                    <th>refid</th>
+                                    <th>Amount</th>
+                                    <th>Status</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($sel as $s)
+                                @foreach($payments as $payment)
                                     <tr>
-                                        <td>{{$s->title}}</td>
-                                        <td>{{$s->description}}</td>
-                                        <td><img src="{{$s->image}}" height="50px" width="50px"/></td>
-                                        <td>{{$s->parentcategory->title??''}}</td>
-                                        <td>{{$s->statustext()}}</td>
-                                        <td><a href="{{route('category.edit',['id'=>$s->id])}}" class="btn btn-success">Edit</a></td>
+                                        <td>{{$payment->user->name}}</td>
+                                        <td>{{$payment->refid}}</td>
+                                        <td>{{$payment->amount}}</td>
+                                        <td>{{$payment->status}}</td>
                                     </tr>
                                 @endforeach
                                 </tbody>

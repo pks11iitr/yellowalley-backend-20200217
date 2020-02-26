@@ -13,7 +13,7 @@
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">Partners</li>
+                            <li class="breadcrumb-item active">Question</li>
                         </ol>
                     </div>
                 </div>
@@ -26,26 +26,42 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Partners Table</h3>
+                            <h3 class="card-title">Question Table</h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                 <tr>
-                                    <th>Name</th>
-                                    <th>Image</th>
+                                    <th>Question</th>
+                                    <th>Option1</th>
+                                    <th>Option2</th>
+                                    <th>Option3</th>
+                                    <th>Option4</th>
                                     <th>Isactive</th>
+                                    <th>Answer</th>
+                                    <th>ChapterID</th>
+                                    <th>SequenceNo</th>
                                     <th>Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($sel as $s)
+                                @foreach($questions as $question)
                                     <tr>
-                                        <td>{{$s->name}}</td>
-                                        <td><img src="{{Storage::url($s->image)}}" height="50px" width="50px"/></td>
-                                        <td>{{$s->isactive}}</td>
-                                        <td><a href="{{route('partners.edit',['id'=>$s->id])}}" class="btn btn-success">Edit</a></td>
+                                        <td>{{$question->question}}</td>
+                                        <td>{{$question->option1}}</td>
+                                        <td>{{$question->option2}}</td>
+                                        <td>{{$question->option3}}</td>
+                                        <td>{{$question->option4}}</td>
+                                        <td>
+                                            @if($question->isactive==1){{'Yes'}}
+                                                @else{{'No'}}
+                                                @endif
+                                        </td>
+                                        <td>{{$question->answer}}</td>
+                                        <td>{{$question->chapter->title}}</td>
+                                        <td>{{$question->sequence_no}}</td>
+                                        <td><a href="{{route('question.edit',['id'=>$question->id])}}" class="btn btn-primary">Edit</a></td>
                                     </tr>
                                 @endforeach
                                 </tbody>

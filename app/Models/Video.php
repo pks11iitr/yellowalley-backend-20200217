@@ -9,6 +9,8 @@ class Video extends Model
 {
     protected $table='videos';
 
+    protected $fillable=['name','image','video_url','isactive','chapter_id','description','sequence_no'];
+
     protected $hidden = [
         'created_at', 'deleted_at','updated_at'
     ];

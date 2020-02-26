@@ -18,4 +18,12 @@ class Score extends Model
         return Question::active()->count();
     }
 
+    public function user(){
+        return $this->belongsTo('App\User','user_id');
+    }
+
+    public function chapter(){
+        return $this->belongsTo('App\Models\Chapter','chapter_id');
+    }
+
 }

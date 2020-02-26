@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Packagespare</title>
+    <title>yellowalley</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Font Awesome -->
@@ -88,52 +88,49 @@
                             </p>
                         </a>
                     </li>
-
-
-
-                                        <li class="nav-item has-treeview">
-                                            <a href="#" class="nav-link">
-                                                <i class="nav-icon fas fa-table"></i>
-                                                <p>
-                                                    Banner
-                                                    <i class="fas fa-angle-left right"></i>
-                                                </p>
-                                            </a>
-                                            <ul class="nav nav-treeview">
-                                                <li class="nav-item">
-                                                    <a href="{{route('banners.create')}}" class="nav-link">
-                                                        <i class="far fa-circle nav-icon"></i>
-                                                        <p>Banner Add</p>
-                                                    </a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="{{route('banners.list')}}" class="nav-link">
-                                                        <i class="far fa-circle nav-icon"></i>
-                                                        <p>Banner Table</p>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </li>
-
                     <li class="nav-item has-treeview">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-table"></i>
                             <p>
-                                Category
+                                Banner
                                 <i class="fas fa-angle-left right"></i>
                             </p>
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="{{route('category.create')}}" class="nav-link">
+                                <a href="{{route('banners.create')}}" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>Category Add</p>
+                                    <p>Banner Add</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{route('category.list')}}" class="nav-link">
+                                <a href="{{route('banners.list')}}" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>Category Table</p>
+                                    <p>Banner Table</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item has-treeview">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-table"></i>
+                            <p>
+                                Chapters
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{route('chapter.create')}}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Chapters Add</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{route('chapter.list')}}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Chapters Table</p>
                                 </a>
                             </li>
                         </ul>
@@ -142,15 +139,21 @@
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-table"></i>
                             <p>
-                                Orders
+                                Videos
                                 <i class="fas fa-angle-left right"></i>
                             </p>
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="{{route('orders.list')}}" class="nav-link">
+                                <a href="{{route('video.create')}}" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>Orders Table</p>
+                                    <p>Videos Add</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{route('video.list')}}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Videos Tables</p>
                                 </a>
                             </li>
                         </ul>
@@ -159,21 +162,23 @@
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-table"></i>
                             <p>
-                                Products
+                                Question
                                 <i class="fas fa-angle-left right"></i>
                             </p>
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="{{route('products.create')}}" class="nav-link">
+                                <a href="{{route('question.create')}}" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>Products Add</p>
+                                    <p>Question Add</p>
                                 </a>
                             </li>
+                        </ul>
+                        <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="{{route('products.list')}}" class="nav-link">
+                                <a href="{{route('question.list')}}" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>Products Tables</p>
+                                    <p>Question Table</p>
                                 </a>
                             </li>
                         </ul>
@@ -207,15 +212,57 @@
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-table"></i>
                             <p>
+                                User Score
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{route('userscore.list')}}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>User Score Tables</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item has-treeview">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-table"></i>
+                            <p>
+                                Payment
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{route('payment.list')}}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Payment Table</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item has-treeview">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-table"></i>
+                            <p>
                                 Users
                                 <i class="fas fa-angle-left right"></i>
                             </p>
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="{{route('users')}}" class="nav-link">
+                                <a href="{{route('users.create')}}" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>Users Tables</p>
+                                    <p>Create Add</p>
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{route('users.list')}}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Users Table</p>
                                 </a>
                             </li>
                         </ul>
@@ -270,7 +317,7 @@
 
     @yield('content')
     <footer class="main-footer">
-        <strong>Copyright &copy; 2019 Fertilizers</strong>
+        <strong>Copyright &copy; 2019 yellowalley</strong>
         All rights reserved.
         <div class="float-right d-none d-sm-inline-block">
         </div>
