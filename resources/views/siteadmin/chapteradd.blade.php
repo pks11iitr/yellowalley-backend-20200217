@@ -12,7 +12,7 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Category</li>
+                        <li class="breadcrumb-item active">Chapter</li>
                     </ol>
                 </div>
             </div>
@@ -28,16 +28,16 @@
                     <!-- jquery validation -->
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">Category Add</h3>
+                            <h3 class="card-title">Chapter Add</h3>
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form role="form" method="post" enctype="multipart/form-data" action="{{route('category.store')}}">
+                        <form role="form" method="post" enctype="multipart/form-data" action="{{route('chapter.store')}}">
                             @csrf
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="exampleInputtitle">Title</label>
-                                    <input type="text" name="title" class="form-control" id="exampleInputEmail1" placeholder="Title">
+                                    <input type="text" name="title" class="form-control" id="exampleInputtitle" placeholder="Title">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputdescription">Description</label>
@@ -45,16 +45,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputimage">Image</label>
-                                    <input type="file" name="categoryimage" class="form-control" id="exampleInputimage" placeholder="">
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputparent">Parent Category(optional)</label>
-                                    <select name="parent" class="form-control" id="exampleInputistop" placeholder="">
-                                        <option value="">Select Parent Category</option>
-                                        @foreach($categories as $category)
-                                        <option value="{{$category->id}}">{{$category->title}}</option>
-                                        @endforeach
-                                    </select>
+                                    <input type="file" name="image" class="form-control" id="exampleInputimage" placeholder="">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputistop">Is Active</label>
@@ -63,13 +54,9 @@
                                         <option value="0">No</option>
                                     </select>
                                 </div>
-                                <div class="form-group">
-                                    <label for="exampleInputistop">Istop</label>
-                                    <select name="istop" class="form-control" id="exampleInputistop" placeholder="">
-
-                                        <option value="0">No</option>
-                                        <option value="1">Yes</option>
-                                    </select>
+                                <div  class="col-md-4">
+                                    <label for="exampleInputistop">Sequence No</label>
+                                    <input type="number" id="exampleInputistop" name="sequence_no" class="form-control" min="1" max="100">
                                 </div>
                             </div>
                             <!-- /.card-body -->

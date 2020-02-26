@@ -13,7 +13,7 @@
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">Users </li>
+                            <li class="breadcrumb-item active">Video</li>
                         </ol>
                     </div>
                 </div>
@@ -26,7 +26,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Users Table</h3>
+                            <h3 class="card-title">Video Table</h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -34,28 +34,32 @@
                                 <thead>
                                 <tr>
                                     <th>Name</th>
-                                    <th>Email</th>
-                                    <th>Gender</th>
-                                    <th>Mobile</th>
-                                    <th>Address</th>
-                                    <th>Status</th>
-                                    <th>City</th>
+                                    <th>Image</th>
+                                    <th>Video Url</th>
+                                    <th>Isactive</th>
+                                    <th>ChapterID</th>
+                                    <th>Description</th>
+                                    <th>Sequence No</th>
                                     <th>Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($users as $s)
-                                <tr>
-                                    <td>{{$s->name}}</td>
-                                    <td>{{$s->email}}</td>
-                                    <td>{{$s->gender}}</td>
-                                    <td>{{$s->mobile}}</td>
-                                    <td>{{$s->address}}</td>
-                                    <td>{{$s->status}}</td>
-                                    <td>{{$s->city}}</td>
-                                    <td><a href="{{route('users.edit',['id'=>$s->id])}}" class="btn btn-primary">Edit</a></td>
-                                </tr>
-                                    @endforeach
+                                @foreach($videos as $video)
+                                    <tr>
+                                        <td>{{$video->name}}</td>
+                                        <td><img src="{{$video->image}}" height="50px" width="50px"/></td>
+                                        <td><img src="{{$video->video_url}}" height="50px" width="50px"/></td>
+                                        <td>
+                                            @if($video->isactive==0){{'No'}}
+                                            @else{{'Yes'}}
+                                            @endif
+                                        </td>
+                                        <td>{{$video->chapter->title}}</td>
+                                        <td>{{$video->description}}</td>
+                                        <td>{{$video->sequence_no}}</td>
+                                        <td><a href="{{route('video.edit',['id'=>$video->id])}}" class="btn btn-primary">Edit</a></td>
+                                    </tr>
+                                @endforeach
                                 </tbody>
                             </table>
                         </div>

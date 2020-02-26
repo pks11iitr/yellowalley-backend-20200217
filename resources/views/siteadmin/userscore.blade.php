@@ -13,7 +13,7 @@
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">Orders</li>
+                            <li class="breadcrumb-item active">User Score</li>
                         </ol>
                     </div>
                 </div>
@@ -26,30 +26,24 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Orders Table</h3>
+                            <h3 class="card-title">User Score Table</h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                 <tr>
-                                    <th>User Name</th>
-                                    <th>Mobile</th>
-                                    <th>Amount</th>
-                                    <th>Status</th>
-                                    <th>Created Date</th>
-                                    <th>Detail</th>
+                                    <th>User(Name)</th>
+                                    <th>Chapter(Title)</th>
+                                    <th>Score</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($sel as $s)
+                                @foreach($userscores as $user)
                                     <tr>
-                                        <td>{{$s->user->name}}</td>
-                                        <td>{{$s->user->mobile}}</td>
-                                        <td>{{$s->total_paid}}</td>
-                                        <td>{{$s->ispaid==1?'paid':'payment pending'}}</td>
-                                        <td>{{$s->created_at}}</td>
-                                        <td><a href="{{route('orders.detail',['id'=>$s->id])}}" class="btn btn-block btn-primary">Detail</a></td>
+                                        <td>{{$user->user->name}}</td>
+                                        <td>{{$user->chapter->title}}</td>
+                                        <td>{{$user->score}}</td>
                                     </tr>
                                 @endforeach
                                 </tbody>
