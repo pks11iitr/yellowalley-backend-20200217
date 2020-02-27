@@ -29,7 +29,7 @@ class UsersController extends Controller
         $years = floor($diff_date / (365*60*60*24));
         $months = floor(($diff_date - $years * 365*60*60*24)/ (30*60*60*24));
 
-var_dump($months);die();*/
+        var_dump($months);die();*/
         $refrelcode= User::generateReferralCode();
         User::create(array_merge($request->only(['name','gender','email','mobile','address','status','dob',
             'pincode','city','qualification', 'referred_by','subscription_required',

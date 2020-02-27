@@ -105,14 +105,26 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputistop">Subscription Expiry</label>
+             {{--                        @if($useredit->subscription_expiry)
+                                            {{
 
-                                        <select name="subscription_expiry" class="form-control" id="exampleInputistop" placeholder="">
-                                            <option value="1" {{$useredit->subscription_expiry==1?'selected':''}}>Allowed For 1 Month</option>
-                                            <option value="2" {{$useredit->subscription_expiry==2?'selected':''}}>Allowed For 2 Month</option>
-                                            <option value="3" {{$useredit->subscription_expiry==3?'selected':''}}>Allowed For 3 Month</option>
-                                            <option value="4" {{$useredit->subscription_expiry==4?'selected':''}}>Allowed For 4 Month</option>
-                                            <option value="5" {{$useredit->subscription_expiry==5?'selected':''}}>Allowed For 5 Month</option>
-                                            <option value="6" {{$useredit->subscription_expiry==6?'selected':''}}>Allowed For 6 Month</option>
+floor(((abs((strtotime($useredit->subscription_expiry)) - (strtotime(date('Y-m-d', strtotime('-1 days', strtotime("now"))))))) - (floor((abs((strtotime($useredit->subscription_expiry)) - (strtotime(date('Y-m-d', strtotime('-1 days', strtotime("now"))))))) / (365*60*60*24))) * 365*60*60*24)/ (30*60*60*24))
+
+}}@endif--}}
+                                        <select name="subscription_expiry" class="form-control" id="exampleInputistop"
+                                                placeholder="">
+                                            <option value="1" {{floor(((abs((strtotime($useredit->subscription_expiry)) - (strtotime(date('Y-m-d', strtotime('-1 days', strtotime("now"))))))) - (floor((abs((strtotime($useredit->subscription_expiry)) - (strtotime(date('Y-m-d', strtotime('-1 days', strtotime("now"))))))) / (365*60*60*24))) * 365*60*60*24)/ (30*60*60*24))==1?'selected':''}}>Allowed For 1 Month
+                                            </option>
+                                            <option value="2" {{floor(((abs((strtotime($useredit->subscription_expiry)) - (strtotime(date('Y-m-d', strtotime('-1 days', strtotime("now"))))))) - (floor((abs((strtotime($useredit->subscription_expiry)) - (strtotime(date('Y-m-d', strtotime('-1 days', strtotime("now"))))))) / (365*60*60*24))) * 365*60*60*24)/ (30*60*60*24))==2?'selected':''}}>Allowed For 2 Month
+                                            </option>
+                                            <option value="3" {{floor(((abs((strtotime($useredit->subscription_expiry)) - (strtotime(date('Y-m-d', strtotime('-1 days', strtotime("now"))))))) - (floor((abs((strtotime($useredit->subscription_expiry)) - (strtotime(date('Y-m-d', strtotime('-1 days', strtotime("now"))))))) / (365*60*60*24))) * 365*60*60*24)/ (30*60*60*24))==3?'selected':''}}>Allowed For 3 Month
+                                            </option>
+                                            <option value="4" {{floor(((abs((strtotime($useredit->subscription_expiry)) - (strtotime(date('Y-m-d', strtotime('-1 days', strtotime("now"))))))) - (floor((abs((strtotime($useredit->subscription_expiry)) - (strtotime(date('Y-m-d', strtotime('-1 days', strtotime("now"))))))) / (365*60*60*24))) * 365*60*60*24)/ (30*60*60*24))==4?'selected':''}}>Allowed For 4 Month
+                                            </option>
+                                            <option value="5" {{floor(((abs((strtotime($useredit->subscription_expiry)) - (strtotime(date('Y-m-d', strtotime('-1 days', strtotime("now"))))))) - (floor((abs((strtotime($useredit->subscription_expiry)) - (strtotime(date('Y-m-d', strtotime('-1 days', strtotime("now"))))))) / (365*60*60*24))) * 365*60*60*24)/ (30*60*60*24))==5?'selected':''}}>Allowed For 5 Month
+                                            </option>
+                                            <option value="6" {{floor(((abs((strtotime($useredit->subscription_expiry)) - (strtotime(date('Y-m-d', strtotime('-1 days', strtotime("now"))))))) - (floor((abs((strtotime($useredit->subscription_expiry)) - (strtotime(date('Y-m-d', strtotime('-1 days', strtotime("now"))))))) / (365*60*60*24))) * 365*60*60*24)/ (30*60*60*24))==6?'selected':''}}>Allowed For 6 Month
+                                            </option>
                                         </select>
                                     </div>
                                 </div>
