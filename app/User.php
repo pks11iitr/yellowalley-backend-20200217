@@ -74,11 +74,11 @@ class User extends Authenticatable implements JWTSubject
 
     public function isSubscriptionActive(){
         if(!$this->subscription_required)
-            return 1;
+            return '1';
         $currentdate=date('Y-m-d H:i:s');
         if(!empty($this->subscription_expiry) && $currentdate<=$this->subscription_expiry)
-            return 1;
-        return 0;
+            return '1';
+        return '0';
     }
 
     public function activateSubscription($reset=true){
