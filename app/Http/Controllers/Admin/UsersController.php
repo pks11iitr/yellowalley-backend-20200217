@@ -49,4 +49,10 @@ class UsersController extends Controller
         return redirect(route('users.list'))->with('success','users has been updated');
     }
 
+    public function referral(Request $request){
+        $referrals =User::get();
+        return view('siteadmin.referral',['referrals'=>$referrals]);
+
+    }
+
 }

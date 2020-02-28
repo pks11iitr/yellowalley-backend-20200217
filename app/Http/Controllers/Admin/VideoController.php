@@ -23,7 +23,7 @@ class VideoController extends Controller
 
         $request->validate([
             'image' => 'image',
-            'video_url' => 'image'
+            'video_url' => 'mimes:mp4,mov,ogg,qt,flv,m3u8,ts,3gp,avi,wmv'
 
         ]);
         if (isset($request->image)) {
@@ -72,7 +72,7 @@ class VideoController extends Controller
 
         $request->validate([
             'image'=>'image',
-            'video_url'=>'image'
+            'video_url'=>'mimes:mp4,mov,ogg,qt,flv,m3u8,ts,3gp,avi,wmv'
         ]);
 
         $category=Video::findOrFail($id);

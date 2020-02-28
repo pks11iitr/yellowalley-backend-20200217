@@ -126,6 +126,8 @@ class User extends Authenticatable implements JWTSubject
         return false;
     }
 
-
+    public function referrals(){
+        return User::where('referred_by',$this->referral_code)->count();
+    }
 
 }
