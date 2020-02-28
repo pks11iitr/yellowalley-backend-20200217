@@ -4,21 +4,21 @@
 
 Auth::routes();
 
-Route::get('/', 'Website\HomeController@home')->name('website.home');
-Route::get('category','Website\HomeController@category')->name('website.category');
-Route::get('product/{id}', 'Website\ProductController@index')->name('website.product.details');
-Route::get('product-summary','Website\ProductController@productsummary')->name('website.product.summary');
-Route::get('specials-offer','Website\ProductController@specialsoffer')->name('website.specials.offer');
-Route::get('category/{id}', 'Website\CategoryController@products')->name('website.category.product');
-Route::post('add-cart', 'Website\CartController@addcart')->name('website.addcart');
-Route::get('cart-details', 'Website\CartController@cartDetails')->name('website.cartdetails');
-Route::get('contact','Website\ContactController@contact')->name('website.contact');
-Route::get('myorder','Website\MyorderController@index')->name('Website.myorder');
-
-Route::get('make-order', 'Website\MyorderController@make')->name('website.make.order');
-Route::get('confirm-n-pay/{id}', 'Website\MyorderController@setAddress')->name('website.confirmnpay');
-Route::post('verify-payment', 'Website\MyorderController@verifyPayment')->name('website.verifypayment');
-Route::get('order-history', 'Website\MyorderController@history')->name('website.order.history');
+//Route::get('/', 'Website\HomeController@home')->name('website.home');
+//Route::get('category','Website\HomeController@category')->name('website.category');
+//Route::get('product/{id}', 'Website\ProductController@index')->name('website.product.details');
+//Route::get('product-summary','Website\ProductController@productsummary')->name('website.product.summary');
+//Route::get('specials-offer','Website\ProductController@specialsoffer')->name('website.specials.offer');
+//Route::get('category/{id}', 'Website\CategoryController@products')->name('website.category.product');
+//Route::post('add-cart', 'Website\CartController@addcart')->name('website.addcart');
+//Route::get('cart-details', 'Website\CartController@cartDetails')->name('website.cartdetails');
+//Route::get('contact','Website\ContactController@contact')->name('website.contact');
+//Route::get('myorder','Website\MyorderController@index')->name('Website.myorder');
+//
+//Route::get('make-order', 'Website\MyorderController@make')->name('website.make.order');
+//Route::get('confirm-n-pay/{id}', 'Website\MyorderController@setAddress')->name('website.confirmnpay');
+//Route::post('verify-payment', 'Website\MyorderController@verifyPayment')->name('website.verifypayment');
+//Route::get('order-history', 'Website\MyorderController@history')->name('website.order.history');
 
 
 //this will be removed after setting proper redirection
