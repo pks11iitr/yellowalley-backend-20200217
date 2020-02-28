@@ -29,9 +29,9 @@
                         <!-- small box -->
                         <div class="small-box bg-info">
                             <div class="inner">
-                                <h3>{{$userscore}}</h3>
+                                <h3>{{$chapters}}</h3>
 
-                                <p>Score</p>
+                                <p>Chapters</p>
                             </div>
                             <div class="icon">
                                 <i class="ion ion-bag"></i>
@@ -44,9 +44,9 @@
                         <!-- small box -->
                         <div class="small-box bg-success">
                             <div class="inner">
-                                <h3>00</h3>
+                                <h3>{{$videos}}</h3>
 
-                                <p>Products</p>
+                                <p>Videos</p>
                             </div>
                             <div class="icon">
                                 <i class="ion ion-stats-bars"></i>
@@ -70,20 +70,6 @@
                         </div>
                     </div>
                     <!-- ./col -->
-                    <div class="col-lg-3 col-6">
-                        <!-- small box -->
-                        <div class="small-box bg-danger">
-                            <div class="inner">
-                                <h3>00</h3>
-
-                                <p>Partners</p>
-                            </div>
-                            <div class="icon">
-                                <i class="ion ion-pie-graph"></i>
-                            </div>
-                            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-                        </div>
-                    </div>
                 </div>
                 <!-- /.row -->
             </div><!-- /.container-fluid -->
