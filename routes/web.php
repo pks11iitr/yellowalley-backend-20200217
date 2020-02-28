@@ -56,7 +56,7 @@ Route::group(['middleware'=>['auth', 'acl'], 'prefix'=>'admin', 'is'=>'admin'], 
         Route::get('create','Admin\VideoController@create')->name('video.create');
         Route::post('store','Admin\VideoController@store')->name('video.store');
         Route::get('edit/{id}','Admin\VideoController@edit')->name('video.edit');
-        Route::post('update/{id}','Admin\videoController@update')->name('video.update');
+        Route::post('update/{id}','Admin\VideoController@update')->name('video.update');
     });
 
     Route::group(['prefix'=>'payment'],function (){
