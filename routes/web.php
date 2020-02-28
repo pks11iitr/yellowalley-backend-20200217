@@ -33,6 +33,7 @@ Route::group(['middleware'=>['auth', 'acl'], 'prefix'=>'admin', 'is'=>'admin'], 
         Route::post('store','Admin\UsersController@store')->name('users.store');
         Route::get('edit/{id}','Admin\UsersController@edit')->name('users.edit');
         Route::post('update/{id}','Admin\UsersController@update')->name('users.update');
+        Route::get('referral','Admin\UsersController@referral')->name('users.referral');
     });
 
     Route::group(['prefix'=>'chapter'], function(){

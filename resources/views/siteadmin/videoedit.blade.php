@@ -46,7 +46,8 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputimage">Video Url</label>
-                                        <input type="file" name="video_url" class="form-control" id="exampleInputimage" placeholder="">
+                                        <input type="file" name="video_url" class="form-control" id="exampleInputimage" placeholder=""><br>
+                                        <td><a href="{{$videoedit->video_url}}" class="btn btn-warning">Video View</a></td>
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputistop">Is Active</label>

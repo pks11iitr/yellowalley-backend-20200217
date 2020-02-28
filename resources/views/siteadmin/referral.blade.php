@@ -13,7 +13,7 @@
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">Video</li>
+                            <li class="breadcrumb-item active">Referral </li>
                         </ol>
                     </div>
                 </div>
@@ -26,7 +26,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Video Table</h3>
+                            <h3 class="card-title">Referral Table</h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -34,32 +34,16 @@
                                 <thead>
                                 <tr>
                                     <th>Name</th>
-                                    <th>Image</th>
-                                    <th>Video Url</th>
-                                    <th>Isactive</th>
-                                    <th>ChapterID</th>
-                                    <th>Description</th>
-                                    <th>Sequence No</th>
-                                    <th>Action</th>
+                                    <th>Referral Code</th>
+                                    <th>Number of Referrals</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($videos as $video)
+                                @foreach($referrals as $referral)
                                     <tr>
-                                        <td>{{$video->name}}</td>
-                                        <td><img src="{{$video->image}}" height="50px" width="50px"/></td>
-                                        <td>
-                                        <a href="{{$video->video_url}}" class="btn btn-warning">View</a>
-                                        </td>
-                                        <td>
-                                            @if($video->isactive==0){{'No'}}
-                                            @else{{'Yes'}}
-                                            @endif
-                                        </td>
-                                        <td>{{$video->chapter->title}}</td>
-                                        <td>{{$video->description}}</td>
-                                        <td>{{$video->sequence_no}}</td>
-                                        <td><a href="{{route('video.edit',['id'=>$video->id])}}" class="btn btn-primary">Edit</a></td>
+                                        <td>{{$referral->name}}</td>
+                                        <td>{{$referral->referral_code}}</td>
+                                        <td>{{$referral->referrals()}}</td>
                                     </tr>
                                 @endforeach
                                 </tbody>
