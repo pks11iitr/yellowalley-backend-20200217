@@ -2,11 +2,13 @@
 
 namespace App\Models;
 
+use App\Models\Traits\Active;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 
 class Video extends Model
 {
+    use Active;
     protected $table='videos';
 
     protected $fillable=['name','image','video_url','isactive','chapter_id','description','sequence_no'];
