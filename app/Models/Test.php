@@ -24,7 +24,7 @@ class Test extends Model
     }
 
     public function giveAnswer($sequence_no, $answer){
-        $question=$this->chapter->questions()->where('sequence_no', $sequence_no)->firstOrFail();
+        $question=$this->chapter->questions()->where('questions.sequence_no', $sequence_no)->firstOrFail();
         Answer::updateOrCreate([
             'test_id'=>$this->id,
             'question_id'=>$question->id,
