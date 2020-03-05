@@ -15,7 +15,7 @@ class QuestionController extends Controller
     }
     public function create(Request $request){
         $chapters =Chapter::get();
-        return view('siteadmin.Questionadd',['chapters'=>$chapters]);
+        return view('siteadmin.questionadd',['chapters'=>$chapters]);
     }
     public function store(Request $request){
         Question::create($request->only(['question','option1','option2','option3','option4',
@@ -25,7 +25,7 @@ class QuestionController extends Controller
     public function edit(Request $request,$id){
         $chapteredit =Question::find($id);
         $chapters =Chapter::get();
-        return view('siteadmin.Questionedit',['chapters'=>$chapters,'chapteredit'=>$chapteredit]);
+        return view('siteadmin.questionedit',['chapters'=>$chapters,'chapteredit'=>$chapteredit]);
     }
     public function update(Request $request,$id){
         $chapteredit =Question::find($id);
