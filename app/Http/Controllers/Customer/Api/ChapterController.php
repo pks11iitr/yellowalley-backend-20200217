@@ -33,7 +33,7 @@ class ChapterController extends Controller
                 ];
             }
         }else{
-            if(in_array($chapter->sequence_no, [1,2]))
+            if(in_array($chapter->sequence_no, [1]))
                 return [
                     'status'=>'success',
                     'data'=>compact('chapter')
@@ -56,7 +56,7 @@ class ChapterController extends Controller
                 ];
             }
         }else{
-            if(in_array($chapter->sequence_no, [1,2]))
+            if(in_array($chapter->sequence_no, [1]))
                 return [
                     'status'=>'success',
                     'data'=>compact('chapter')

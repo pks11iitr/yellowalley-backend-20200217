@@ -10,23 +10,31 @@ use App\Http\Controllers\Controller;
 
 class TestController extends Controller
 {
-    public function start(Request $request, $id){
-        $chapter=Chapter::active()->findOrFail($id);
-        $testid=$chapter->startTest();
-        if($testid){
-            return [
-                'status'=>'success',
-                'data'=>[
-                    'testid'=>$testid,
-                    'questions_count'=>$chapter->questions()->count()
-                ]
-            ];
+    public function start(Request $request, $id)
+    {
+        $user = auth()->user();
+        $chapter = Chapter::active()->with('questions')->findOrFail($id);
+        if ($user->isSubscriptionActive()) {
+            if ($chapter->sequence_no <= $user->last_qualified_chapter+1) {
+                $testid = $chapter->startTest();
+                if ($testid) {
+                    return [
+                        'status' => 'success',
+                        'data' => [
+                            'testid' => $testid,
+                            'questions_count' => $chapter->questions()->count(),
+                            'chapter'=>$chapter
+                        ]
+                    ];
+                }
+            }
         }
         return [
-            'status'=>'failed',
-            'data'=>[]
+            'status' => 'failed',
+            'data' => []
         ];
     }
+
 
 
     public function getQuestion(Request $request){
