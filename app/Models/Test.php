@@ -43,6 +43,8 @@ class Test extends Model
         ],[
             'score'=>$score,
         ]);
+
+        return $score;
     }
 
 }

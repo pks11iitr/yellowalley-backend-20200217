@@ -63,9 +63,10 @@ class TestController extends Controller
         ]);
         $user=auth()->user();
         $test=Test::where('user_id', $user->id)->where('refid', $request->test_id)->firstOrFail();
-        $test->setScore();
+        $score=$test->setScore();
         return [
-            'status'=>'success'
+            'status'=>'success',
+            'score'=>$score
         ];
     }
 }
