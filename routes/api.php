@@ -28,6 +28,7 @@ use Illuminate\Http\Request;
         $api->get('chapter-questions/{id}', ['as'=>'api.chapter.videos', 'uses'=>'Customer\Api\ChapterController@questions']);
         $api->get('get-profile', ['as'=>'api.order.setprofile', 'uses'=>'Customer\Api\ProfileController@getProfile']);
         $api->post('update-profile', ['as'=>'api.order.setprofile', 'uses'=>'Customer\Api\ProfileController@updateProfile']);
+        $api->get('get-subscription-status', ['as'=>'api.subscription.status', 'uses'=>'Customer\Api\HomeController@checkSubscription']);
 
         //Payments APIs
         $api->get('subscribe', ['as'=>'api.order', 'uses'=>'Customer\Api\PaymentController@subscribe']);

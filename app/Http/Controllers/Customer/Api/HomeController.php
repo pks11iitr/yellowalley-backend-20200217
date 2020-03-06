@@ -46,4 +46,19 @@ class HomeController extends Controller
             'data'=>compact('banners','lastvideo', 'videos','userscore','totalscore')
         ];
     }
+
+
+    public function checkSubscription(Request $request){
+        $user=auth()->user();
+        if($user->isSubscriptionActive()){
+            return [
+                'status'=>'success',
+                'subscription'=>'active'
+            ];
+        }
+        return [
+            'status'=>'success',
+            'subscription'=>'active'
+        ];
+    }
 }
