@@ -74,7 +74,9 @@ class TestController extends Controller
         $score=$test->setScore();
         return [
             'status'=>'success',
-            'score'=>$score
+            'score'=>$score,
+            'pass_status'=>'yes',
+            'next_chapter_id'=>2
         ];
     }
 }

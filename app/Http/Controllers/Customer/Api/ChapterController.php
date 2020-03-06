@@ -11,7 +11,7 @@ class ChapterController extends Controller
     public function index(Request $request){
         $user=auth()->user();
         $chapters=Chapter::active()->get();
-        $chaptersarr=[];
+        $chapterarr=[];
         foreach($chapters as $c){
             $c->lock_status=$c->isLockedForUser($user);
             $chapterarr[]=$c;
