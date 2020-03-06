@@ -58,7 +58,7 @@ class HomeController extends Controller
         }
         return [
             'status'=>'success',
-            'subscription'=>'active'
+            'subscription'=>'inactive'
         ];
     }
 }
