@@ -8,11 +8,9 @@ use GuzzleHttp;
 class RazorPayService
 {
 
-    public $merchantkey='';
-//    protected $api_key='';
-//    protected $api_secret='';
-    public $api_key='';
-    protected $api_secret='';
+    public $merchantkey='EPGSjVVzv07F0l';
+    public $api_key='rzp_test_x8wFaxFW3KL1d7';
+    protected $api_secret='s6zlFAgYXFm5MemLZny4dBCY';
 
     protected $endpoint='https://api.razorpay.com/v1/orders';
 
