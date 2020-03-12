@@ -42,7 +42,7 @@ class PaymentController extends Controller
                 'status'=>'success',
                 'message'=>'success',
                 'data'=>[
-                    'orderid'=> $payment->order_id,
+                    'orderid'=> $payment->razorpay_order_id,
                     'total'=>$payment_amount*100,
                     'id'=>$payment->id
                 ],
