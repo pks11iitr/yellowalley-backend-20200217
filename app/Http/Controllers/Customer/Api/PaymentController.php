@@ -31,7 +31,7 @@ class PaymentController extends Controller
         ]);
         $responsearr=json_decode($response);
         if(isset($responsearr->id)){
-            Payment::create([
+            $payment=Payment::create([
                 'refid'=>$refid,
                 'user_id'=>$user->id,
                 'amount'=>$payment_amount,
