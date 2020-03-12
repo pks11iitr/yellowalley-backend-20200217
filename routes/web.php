@@ -80,3 +80,4 @@ Route::group(['middleware'=>['auth', 'acl'], 'prefix'=>'admin', 'is'=>'admin'], 
 Route::get('privacy','Admin\TermController@privacy');
 Route::get('term','Admin\TermController@term');
 Route::get('abouts','Admin\TermController@abouts');
+Route::get('chat','Admin\TermController@chat');

@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
 /*
  * use this file to allow or disallow user types for login
  * on the basis of their roles
