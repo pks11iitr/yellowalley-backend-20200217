@@ -44,7 +44,7 @@ class ProfileController extends Controller
 
             return [
                 'status'=>'success',
-                'message'=>'Please verify otp to continue'
+                'message'=>'Profile has been updated'
             ];
         }
 
