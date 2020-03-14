@@ -71,6 +71,9 @@ Route::group(['middleware'=>['auth', 'acl'], 'prefix'=>'admin', 'is'=>'admin'], 
         Route::get('edit/{id}','Admin\QuestionController@edit')->name('question.edit');
         Route::post('update/{id}','Admin\QuestionController@update')->name('question.update');
     });
+    Route::group(['prefix'=>'doubts'],function (){
+        Route::get('/','Admin\DoubtController@index')->name('doubts.list');
+    });
     Route::group(['prefix'=>'userscore'],function (){
         Route::get('/','Admin\UserscoresController@index')->name('userscore.list');
     });
