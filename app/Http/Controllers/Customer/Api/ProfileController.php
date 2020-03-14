@@ -54,5 +54,13 @@ class ProfileController extends Controller
         ];
     }
 
+    public function view(Request $request){
+        return [
+            'status'=>'success',
+            'user'=>auth()->user()->only(['name','email','address','city','gender','pincode','qualification','dob','mobile'])
+        ];
+
+    }
+
 
 }
