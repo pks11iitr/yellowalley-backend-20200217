@@ -23,6 +23,7 @@ use Illuminate\Http\Request;
     $api->get('payment-info', ['as'=>'api.order', 'uses'=>'Customer\Api\PaymentController@paymentInfo']);
 
     $api->group(['middleware' => ['auth:api','acl'], 'is'=>'student'], function ($api) {
+        $api->post('update-profile', ['as'=>'api.profile.update', 'uses'=>'Customer\Api\ProfileController@updateProfile']);
         $api->get('home', ['as'=>'api.home', 'uses'=>'Customer\Api\HomeController@index']);
         $api->get('chapters', ['as'=>'api.chapters', 'uses'=>'Customer\Api\ChapterController@index']);
         $api->get('chapter-questions/{id}', ['as'=>'api.chapter.questions', 'uses'=>'Customer\Api\ChapterController@questions']);
@@ -43,6 +44,7 @@ use Illuminate\Http\Request;
         $api->post('get-question', ['as'=>'api.question.get', 'uses'=>'Customer\Api\TestController@getQuestion']);
         $api->post('give-answer', ['as'=>'api.question.answer', 'uses'=>'Customer\Api\TestController@answer']);
         $api->post('submit-test', ['as'=>'api.test.finalsubmit', 'uses'=>'Customer\Api\TestController@submitTest']);
+        $api->post('submit-doubt', ['as'=>'api.submit.doubt', 'uses'=>'Customer\Api\ChapterController@submitDoubt']);
 
 
     });
