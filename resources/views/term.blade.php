@@ -3,7 +3,6 @@
 </head>
 <body>
     <div style="margin-left:15px;">
-        <h2 align="center" >Terms of Use</h2>
 
         These Terms of Use <strong>("Terms")</strong> were last updated on February 20, 2020 .<br><br>
         Yellow Alley’s mission is to improve lives through learning. We enable anyone anywhere to create and share educational courses and to enrol in these educational courses to learn (students). We consider our marketplace model the best way to offer valuable educational content to our users. We need rules to keep our platform and services safe for you, us and our student community. These Terms apply to all your activities on the Yellow Alley website, the Yellow Alley mobile applications, our TV applications, our APIs and other related services <strong>(“Services”)</strong>.<br><br>

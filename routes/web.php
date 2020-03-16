@@ -84,3 +84,4 @@ Route::get('privacy','Admin\TermController@privacy');
 Route::get('term','Admin\TermController@term');
 Route::get('abouts','Admin\TermController@abouts');
 Route::get('chat','Admin\TermController@chat');
+Route::get('faq','Admin\TermController@faq');
