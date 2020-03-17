@@ -128,10 +128,23 @@ class TestController extends Controller
         $score=$user->totalScore();
         $totalscore=Score::totalscore();
         $img = Image::make(public_path('certificate.jpg'));
-        $img->text('This is a example ', 120, 100);
+        $img->text(ucwords($user->name), 1200, 1200, function($font) {
+            $font->file(public_path('fonts.otf'));
+            $font->size(100);
+            $font->color('#4285F4');
+            $font->align('center');
+            $font->angle(0);
+        });
+        $img->text(date('D,d M Y'), 800, 2150, function($font) {
+            $font->file(public_path('fonts.otf'));
+            $font->size(80);
+            $font->color('#4285F4');
+            $font->align('center');
+            $font->angle(0);
+        });
         $img->save(public_path("uploads/certificates/$code.jpg"));
 
-        return Response::download(Storage::url("certificates/$code.jpg"));
+        return response()->download(public_path("uploads/certificates/$code.jpg"));
 
     }
 }
