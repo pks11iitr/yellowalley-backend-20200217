@@ -61,18 +61,22 @@ class Test extends Model
     }
 
     public static function isAllTestComplete($user){
-        $chapters=Chapter::active()->where('hasTest', true)->select('id')->get();
+        $chapters=Chapter::active()->where('hasTest', true)->where('sequence_no','>', 1)->select('id')->get();
         $chapter_ids=[];
         foreach($chapters as $c){
             $chapter_ids[]=$c->id;
         }
-        $tests=$user->tests()->select('user_attempts.id')->get();
+        //var_dump($user->scores->toArray());die;
+        $tests=$user->scores()->select('user_scores.chapter_id')->get();
+        //var_dump($tests->toArray());die;
         $test_chapters=[];
         foreach($tests as $t){
-            if(in_array($t->id, $test_chapters)){
-                $test_chapters[]=$t->id;
+            if(!in_array($t->chapter_id, $test_chapters)){
+                $test_chapters[]=$t->chapter_id;
             }
         }
+        //var_dump($chapter_ids);
+        //var_dump($test_chapters);
         if(empty(array_diff($chapter_ids,$test_chapters)) && empty(array_diff($test_chapters,$chapter_ids))){
             return true;
         }

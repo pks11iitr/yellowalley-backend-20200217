@@ -47,9 +47,11 @@ use Illuminate\Http\Request;
         $api->post('submit-test', ['as'=>'api.test.finalsubmit', 'uses'=>'Customer\Api\TestController@submitTest']);
         $api->post('submit-doubt', ['as'=>'api.submit.doubt', 'uses'=>'Customer\Api\ChapterController@submitDoubt']);
 
-        $api->post('download-certificate', ['as'=>'api.certificate.download', 'uses'=>'Customer\Api\TestController@downloadCertificate']);
+        $api->get('certificate-information', ['as'=>'api.certificate.info', 'uses'=>'Customer\Api\TestController@getCertificateInfo']);
 
     });
+
+$api->get('download-certificate/{code}', ['as'=>'api.certificate.download', 'uses'=>'Customer\Api\TestController@downloadCertificate']);
 
 
 //Route::middleware('auth:api')->get('/user', function (Request $request) {

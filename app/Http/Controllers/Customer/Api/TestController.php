@@ -5,8 +5,12 @@ namespace App\Http\Controllers\Customer\Api;
 use App\Models\Chapter;
 use App\Models\Score;
 use App\Models\Test;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
 
 class TestController extends Controller
 {
@@ -89,7 +93,7 @@ class TestController extends Controller
 
         if($result['next_chapter_id']!='completed') {
             $nextchaper = Chapter::active()->where('sequence_no', $result['next_chapter_id'])->firstOrFail();
-            $result['next_chapter_id']=$nextchaper->id;
+            $result['next_chapter_id']="$nextchaper->id";
         }
 
         $result['totalscore']=$score['total'];
@@ -100,19 +104,34 @@ class TestController extends Controller
     }
 
 
-    public function downloadCertificate(Request $request){
+    public function getCertificateInfo(Request $request){
 
         $user=auth()->user();
-        if(Test::canDownloadCertificate($user)){
-
+        if(Test::isAllTestComplete($user)){
+            return [
+                'status'=>'success',
+                'message'=>'Click download button to continue',
+                'url'=>route('api.certificate.download', ['code'=>$user->referral_code])
+            ];
         }
 
         return [
             'status'=>'failed',
             'message'=>'Please complete all tests to download certificate'
         ];
+    }
 
 
+    public function downloadCertificate(Request $request, $code){
+        $user=User::where('referral_code', $code)->firstOrFail();
+
+        $score=$user->totalScore();
+        $totalscore=Score::totalscore();
+        $img = Image::make(public_path('certificate.jpg'));
+        $img->text('This is a example ', 120, 100);
+        $img->save(public_path("uploads/certificates/$code.jpg"));
+
+        return Response::download(Storage::url("certificates/$code.jpg"));
 
     }
 }
