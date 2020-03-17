@@ -32,12 +32,22 @@ class ChapterController extends Controller
                     'status'=>'success',
                     'data'=>compact('chapter')
                 ];
+            }else{
+                return [
+                    'status'=>'failed',
+                    'message'=>'Please complete chapter '.($chapter->sequence_no-1).' first'
+                ];
             }
         }else{
             if(in_array($chapter->sequence_no, [1]))
                 return [
                     'status'=>'success',
                     'data'=>compact('chapter')
+                ];
+            else
+                return [
+                    'status'=>'failed',
+                    'message'=>'Please subscribe to view this chapter'
                 ];
         }
         return [
@@ -55,12 +65,22 @@ class ChapterController extends Controller
                     'status'=>'success',
                     'data'=>compact('chapter')
                 ];
+            }else{
+                return [
+                    'status'=>'failed',
+                    'message'=>'Please complete chapter '.($chapter->sequence_no-1).' first'
+                ];
             }
         }else{
             if(in_array($chapter->sequence_no, [1]))
                 return [
                     'status'=>'success',
                     'data'=>compact('chapter')
+                ];
+            else
+                return [
+                    'status'=>'failed',
+                    'message'=>'Please subscribe to view this chapter'
                 ];
         }
         return [

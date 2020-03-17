@@ -130,4 +130,13 @@ class User extends Authenticatable implements JWTSubject
         return User::where('referred_by',$this->referral_code)->count();
     }
 
+    public function tests(){
+        return $this->hasMany('App\Models\Test', 'user_id');
+    }
+
+    public function qualifyForNextChapter($next_chapter_sequence){
+        $this->last_qualified_chapter=$next_chapter_sequence;
+        $this->save();
+    }
+
 }
