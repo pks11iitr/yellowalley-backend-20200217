@@ -101,7 +101,7 @@
     <h4>20. What is the future of Digital Marketing?</h4>
     Digital Marketers are expected to take full control of the customer experience in the coming years. here are things
     that will change the shape of Digital Marketing in future.<br><br>
-    <img src="{{asset('Capture.png')}}" alt="Girl in a jacket" style="width:800px;height:400px;">
+    <img src="{{asset('Capture.png')}}" alt="Girl in a jacket" style="width:450px;height:300px;">
 
 
     <h4>21. Where do you provide Digital Marketing Training?</h4>

@@ -37,6 +37,7 @@
                                     <th>Description</th>
                                     <th>image</th>
                                     <th>Isactive</th>
+                                    <th>Hastest</th>
                                     <th>Sequence No</th>
                                     <th>Action</th>
                                 </tr>
@@ -51,6 +52,11 @@
                                             @if($chapter->isactive==1){{'Yes'}}
                                                 @else{{'No'}}
                                                 @endif
+                                        </td>
+                                        <td>
+                                            @if($chapter->hastest==1){{'Yes'}}
+                                            @else{{'No'}}
+                                            @endif
                                         </td>
                                         <td>{{$chapter->sequence_no}}</td>
                                         <td><a href="{{route('chapter.edit',['id'=>$chapter->id])}}" class="btn btn-primary">Edit</a></td>

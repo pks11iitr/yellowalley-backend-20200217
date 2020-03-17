@@ -55,6 +55,13 @@
                                             <option value="0" {{$chapters->isactive==0?'selected':''}}>No</option>
                                         </select>
                                     </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputistop">Hastest</label>
+                                        <select name="hastest" class="form-control" id="exampleInputistop" placeholder="">
+                                            <option value="1" {{$chapters->hastest==1?'selected':''}}>Yes</option>
+                                            <option value="0" {{$chapters->hastest==0?'selected':''}}>No</option>
+                                        </select>
+                                    </div>
                                     <div  class="col-md-4">
                                         <label for="exampleInputistop">Sequence No</label>
                                         <input type="number" id="exampleInputistop" name="sequence_no" value="{{$chapters->sequence_no}}" class="form-control" min="1" max="100">
@@ -69,14 +76,10 @@
                         <!-- /.card -->
                     </div>
                     <!--/.col (left) -->
-                    <!-- right column -->
-                    <div class="col-md-6">
 
-                    </div>
-                    <!--/.col (right) -->
                 </div>
                 <!-- /.row -->
-            </div><!-- /.container-fluid -->
+            </div>
         </section>
         <!-- /.content -->
     </div>

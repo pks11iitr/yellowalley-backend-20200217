@@ -11,7 +11,7 @@ class Chapter extends Model
 
     protected $table='chapters';
 
-    protected $fillable=['title','description','image','isactive','sequence_no'];
+    protected $fillable=['title','description','image','isactive','sequence_no','hastest'];
 
     protected $hidden = [
         'created_at', 'deleted_at','updated_at'
