@@ -87,8 +87,10 @@ class TestController extends Controller
             $result['next_chapter_id']='completed';
         }
 
-
-
+        if($result['next_chapter_id']!='completed') {
+            $nextchaper = Chapter::active()->where('sequence_no', $result['next_chapter_id'])->firstOrFail();
+            $result['next_chapter_id']=$nextchaper->id;
+        }
 
         $result['totalscore']=$score['total'];
         $result['status']='success';
