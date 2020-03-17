@@ -15,7 +15,7 @@ class TestController extends Controller
         $user = auth()->user();
         $chapter = Chapter::active()->with('questions')->findOrFail($id);
         if ($user->isSubscriptionActive()) {
-            if ($chapter->sequence_no <= $user->last_qualified_chapter+1) {
+            if ($chapter->sequence_no <= $user->last_qualified_chapter) {
                 $testid = $chapter->startTest();
                 if ($testid) {
                     return [
@@ -37,19 +37,19 @@ class TestController extends Controller
 
 
 
-    public function getQuestion(Request $request){
-        $request->validate([
-            'test_id'=>'required|integer',
-            'question_no'=>'required|integer'
-        ]);
-        $user=auth()->user();
-        $test=Test::with('chapter')->where('user_id', $user->id)->where('refid', $request->test_id)->firstOrFail();
-        $question=$test->getQuestion($request->question_no);
-        return [
-            'status'=>'success',
-            'data'=>compact('question')
-        ];
-    }
+//    public function getQuestion(Request $request){
+//        $request->validate([
+//            'test_id'=>'required|integer',
+//            'question_no'=>'required|integer'
+//        ]);
+//        $user=auth()->user();
+//        $test=Test::with('chapter')->where('user_id', $user->id)->where('refid', $request->test_id)->firstOrFail();
+//        $question=$test->getQuestion($request->question_no);
+//        return [
+//            'status'=>'success',
+//            'data'=>compact('question')
+//        ];
+//    }
 
     public function answer(Request $request){
         $request->validate([
@@ -65,18 +65,54 @@ class TestController extends Controller
         ];
     }
 
-    public function submitTest(Request $request){
+    public function submitTest(Request $request)
+    {
         $request->validate([
-            'test_id'=>'required|integer',
+            'test_id' => 'required|integer',
         ]);
+        $user = auth()->user();
+        $test = Test::with('chapter')->where('user_id', $user->id)->where('refid', $request->test_id)->firstOrFail();
+        $score = $test->setScore($user);
+        $totalchapters = Chapter::active()->count();
+        $result = [];
+        if ($score['isqualify'] == 'yes')
+            if ($user->last_qualified_chapter <= $test->chapter->sequence_no && $user->last_qualified_chapter < $totalchapters) {
+                $user->qualifyForNextChapter($test->chapter->sequence_no + 1);
+                $result['next_chapter_id'] = $user->last_qualified_chapter;
+            }
+
+        if($user->last_qualified_chapter < $totalchapters && $test->chapter->sequence_no < $totalchapters)
+            $result['next_chapter_id']=$user->last_qualified_chapter;
+        else{
+            $result['next_chapter_id']='completed';
+        }
+
+        if($result['next_chapter_id']!='completed') {
+            $nextchaper = Chapter::active()->where('sequence_no', $result['next_chapter_id'])->firstOrFail();
+            $result['next_chapter_id']=$nextchaper->id;
+        }
+
+        $result['totalscore']=$score['total'];
+        $result['status']='success';
+        $result['score']=$score['score'];
+        $result['pass_status']=$score['isqualify'];
+        return $result;
+    }
+
+
+    public function downloadCertificate(Request $request){
+
         $user=auth()->user();
-        $test=Test::where('user_id', $user->id)->where('refid', $request->test_id)->firstOrFail();
-        $score=$test->setScore();
+        if(Test::canDownloadCertificate($user)){
+
+        }
+
         return [
-            'status'=>'success',
-            'score'=>$score,
-            'pass_status'=>'yes',
-            'next_chapter_id'=>2
+            'status'=>'failed',
+            'message'=>'Please complete all tests to download certificate'
         ];
+
+
+
     }
 }

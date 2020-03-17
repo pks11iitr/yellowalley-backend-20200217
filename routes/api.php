@@ -42,11 +42,12 @@ use Illuminate\Http\Request;
 
         //test apis
         $api->get('start-test/{id}', ['as'=>'api.start.test', 'uses'=>'Customer\Api\TestController@start']);
-        $api->post('get-question', ['as'=>'api.question.get', 'uses'=>'Customer\Api\TestController@getQuestion']);
+        //$api->post('get-question', ['as'=>'api.question.get', 'uses'=>'Customer\Api\TestController@getQuestion']);
         $api->post('give-answer', ['as'=>'api.question.answer', 'uses'=>'Customer\Api\TestController@answer']);
         $api->post('submit-test', ['as'=>'api.test.finalsubmit', 'uses'=>'Customer\Api\TestController@submitTest']);
         $api->post('submit-doubt', ['as'=>'api.submit.doubt', 'uses'=>'Customer\Api\ChapterController@submitDoubt']);
 
+        $api->post('download-certificate', ['as'=>'api.certificate.download', 'uses'=>'Customer\Api\TestController@downloadCertificate']);
 
     });
 
