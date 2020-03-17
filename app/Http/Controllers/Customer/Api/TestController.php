@@ -88,7 +88,10 @@ class TestController extends Controller
         if($user->last_qualified_chapter < $totalchapters && $test->chapter->sequence_no < $totalchapters)
             $result['next_chapter_id']=$user->last_qualified_chapter;
         else{
-            $result['next_chapter_id']='completed';
+            if($score['isqualify']=='yes')
+                $result['next_chapter_id']='completed';
+            else
+                $result['next_chapter_id']=$user->last_qualified_chapter;
         }
 
         if($result['next_chapter_id']!='completed') {
