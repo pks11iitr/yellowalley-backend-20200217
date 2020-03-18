@@ -37,6 +37,7 @@ class ChapterController extends Controller
             'description' => $request->description,
             'image' => $path,
             'isactive'=>$request->isactive,
+            'hastest'=>$request->hastest,
             'sequence_no'=>$request->sequence_no]);
 
         return redirect(route('chapter.list'));
@@ -65,12 +66,14 @@ class ChapterController extends Controller
                 'description' => $request->description,
                 'image' => $path,
                 'isactive'=>$request->isactive,
+                               'hastest'=>$request->hastest,
                 'sequence_no'=>$request->sequence_no]);
 
         }else{
             $chapters->update(['title' => $request->title,
                 'description' => $request->description,
                 'isactive'=>$request->isactive,
+                               'hastest'=>$request->hastest,
                 'sequence_no'=>$request->sequence_no]);
         }
 

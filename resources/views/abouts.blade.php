@@ -3,7 +3,7 @@
 </head>
 <body>
 <div style="margin-left:15px;">
-    <h2 align="center" >ABOUT US</h2>
+
     We are a group of passionate people with a vision to disseminate knowledge among students rather teaching. Yellow Alley is fueled by wisdom and motivation of its pioneer faculty members who teaches with all the dedication in their specialized field. The organization has been established with a goal to strengthen the capabilities and empower a student’s practical knowledge through our courses.<br><br>
     Unlike most of the institutes we are not limited to theory and study materials rather we focus on individual learning by providing practical guidance and hand on experience with real life examples. Established by a team of highly motivated and enthusiastic industry experts, Yellow Alley aspire to make their student’s dream come true.<br><br>
     We are a group of passionate people who have the potential to understand the context of education era in the education world. Yellow Alley has been formed with an idea to change the concept of education. We are true believers of avant-garde education on the web which results in virality!<br><br>

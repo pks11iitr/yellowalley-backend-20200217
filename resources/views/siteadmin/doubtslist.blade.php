@@ -13,7 +13,7 @@
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">Chapter</li>
+                            <li class="breadcrumb-item active">Doubts</li>
                         </ol>
                     </div>
                 </div>
@@ -26,40 +26,26 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Chapter Table</h3>
+                            <h3 class="card-title">Doubts Table</h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                 <tr>
-                                    <th>Title</th>
+                                    <th>Name</th>
+                                    <th>Mobile</th>
+                                    <th>Subject</th>
                                     <th>Description</th>
-                                    <th>image</th>
-                                    <th>Isactive</th>
-                                    <th>Hastest</th>
-                                    <th>Sequence No</th>
-                                    <th>Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($chapters as $chapter)
+                                @foreach($doubts as $doubt)
                                     <tr>
-                                        <td>{{$chapter->title}}</td>
-                                        <td>{{$chapter->description}}</td>
-                                        <td><img src="{{$chapter->image}}" height="50px" width="50px"/></td>
-                                        <td>
-                                            @if($chapter->isactive==1){{'Yes'}}
-                                                @else{{'No'}}
-                                                @endif
-                                        </td>
-                                        <td>
-                                            @if($chapter->hastest==1){{'Yes'}}
-                                            @else{{'No'}}
-                                            @endif
-                                        </td>
-                                        <td>{{$chapter->sequence_no}}</td>
-                                        <td><a href="{{route('chapter.edit',['id'=>$chapter->id])}}" class="btn btn-primary">Edit</a></td>
+                                        <td>{{$doubt->name}}</td>
+                                        <td>{{$doubt->mobile}}</td>
+                                        <td>{{$doubt->subject}}</td>
+                                        <td>{{$doubt->description}}</td>
                                     </tr>
                                 @endforeach
                                 </tbody>
