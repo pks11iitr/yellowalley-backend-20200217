@@ -39,7 +39,7 @@ class Test extends Model
         $score=$this->answers()->where('iscorrect', true)->sum('iscorrect');
         $count=Question::active()->where('chapter_id', $this->chapter_id)->count();
 
-        if((int)$count/2 < $score){
+        if((int)$count/2 <=$score){
             Score::updateOrCreate([
                 'user_id'=>$user->id,
                 'chapter_id'=>$this->chapter_id
