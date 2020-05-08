@@ -56,6 +56,17 @@ class ChapterController extends Controller
         ];
     }
 
+    public function details(Request $request, $id){
+        $user=auth()->user();
+        $chapter=Chapter::active()->with(['videos'=>function($videos){
+
+            $videos->orderBy('videos.sequence_no', 'asc');
+
+        }])->findOrFail($id);
+        return $chapter;
+    }
+
+
     public function videos(Request $request, $id){
         $user=auth()->user();
         $chapter=Chapter::active()->with('videos')->findOrFail($id);

@@ -27,6 +27,7 @@ use Illuminate\Http\Request;
         $api->get('profile', ['as'=>'api.profile', 'uses'=>'Customer\Api\ProfileController@view']);
         $api->get('home', ['as'=>'api.home', 'uses'=>'Customer\Api\HomeController@index']);
         $api->get('chapters', ['as'=>'api.chapters', 'uses'=>'Customer\Api\ChapterController@index']);
+        $api->get('chapter-details/{id}', ['as'=>'api.chapters.details', 'uses'=>'Customer\Api\ChapterController@details']);
         $api->get('chapter-questions/{id}', ['as'=>'api.chapter.questions', 'uses'=>'Customer\Api\ChapterController@questions']);
         $api->get('chapter-videos/{id}', ['as'=>'api.chapter.videos', 'uses'=>'Customer\Api\ChapterController@videos']);
         $api->get('get-profile', ['as'=>'api.order.setprofile', 'uses'=>'Customer\Api\ProfileController@getProfile']);
