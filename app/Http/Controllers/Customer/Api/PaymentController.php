@@ -98,7 +98,7 @@ class PaymentController extends Controller
         $amount=(int)$payment->param_value;
         $validity=Configuration::where('param_name', 'plan_validity')->first();
         $months=(int)$validity->param_value;
-        $message="Subscribe for $months months of unlimited access at Yellowalley";
+        $message="Pay now to access the full course";
         return [
             'status'=>'success',
             'data'=>compact('message','amount')
