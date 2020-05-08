@@ -19,4 +19,7 @@ class TermController extends Controller
     public function chat(Request $request){
         return view('chat');
     }
+    public function faq(Request $request){
+        return view('faq');
+    }
 }

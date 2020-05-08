@@ -54,6 +54,13 @@
                                         <option value="0">No</option>
                                     </select>
                                 </div>
+                                <div class="form-group">
+                                    <label for="exampleInputistop">Hastest</label>
+                                    <select name="hastest" class="form-control" id="exampleInputistop" placeholder="">
+                                        <option value="1">Yes</option>
+                                        <option value="0">No</option>
+                                    </select>
+                                </div>
                                 <div  class="col-md-4">
                                     <label for="exampleInputistop">Sequence No</label>
                                     <input type="number" id="exampleInputistop" name="sequence_no" class="form-control" min="1" max="100">
