@@ -2,7 +2,7 @@
 <head>
 </head>
 <body>
-<div style="margin-left:15px;text-align:justify">
+<div style="margin-left:10px;margin-right:10px;text-align:justify">
 
     We are a group of passionate people with a vision to disseminate knowledge among students rather teaching. Yellow Alley is fueled by wisdom and motivation of its pioneer faculty members who teaches with all the dedication in their specialized field. The organization has been established with a goal to strengthen the capabilities and empower a student’s practical knowledge through our courses.<br><br>
     Unlike most of the institutes we are not limited to theory and study materials rather we focus on individual learning by providing practical guidance and hand on experience with real life examples. Established by a team of highly motivated and enthusiastic industry experts, Yellow Alley aspire to make their student’s dream come true.<br><br>

@@ -11,7 +11,7 @@
     </style>
 </head>
 <body>
-<div style="margin-left:15px;text-align:justify">
+<div style="margin-left:10px;margin-right:10px;text-align:justify">
 
     Thank you for joining Yellow Alley. We at Yellow Alley <strong>(“Yellow Alley”, “we”, “us”)</strong> respect your privacy and want you to understand how we collect, use, and share data about you. This Privacy Policy covers our data collection practices and describes your rights to access, correct, or restrict our use of your personal data.<br><br>
     Unless we link to a different policy or state otherwise, this Privacy Policy applies when you visit or use the Yellow Alley website, mobile applications, APIs or related services (the <strong>“Services”</strong>).<br><br>
