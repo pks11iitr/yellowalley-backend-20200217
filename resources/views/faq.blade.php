@@ -2,7 +2,7 @@
 <head>
 </head>
 <body>
-<div style="margin-left:15px;justify-content: center;">
+<div style="margin-left:15px;text-align:justify">
 
     <h4>1. What is Digital Marketing Training?</h4>
     Digital Marketing is the new age marketing platform, this platform focus on the business prospects utilizing the
