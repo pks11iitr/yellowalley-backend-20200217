@@ -8,5 +8,5 @@ class Doubt extends Model
 {
     protected $table='doubts';
 
-    protected $fillable=['name','mobile','subject','description','user_id'];
+    protected $fillable=['name','mobile','subject','description','user_id','email'];
 }

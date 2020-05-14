@@ -106,10 +106,11 @@ class ChapterController extends Controller
             'name'=>'required|string|max:150',
             'mobile'=>'required|string|digits:10',
             'subject'=>'required|max:100',
+            'email'=>'required|max:100',
             'description'=>'required|string|max:1000',
         ]);
 
-        if(Doubt::create(array_merge($request->only(['name','mobile','subject','description']), ['user_id'=>auth()->user()->id]))){
+        if(Doubt::create(array_merge($request->only(['name','mobile','subject','description','email']), ['user_id'=>auth()->user()->id]))){
             return [
                 'status'=>'success',
                 'message'=>'Your doubt has been submitted successfully'
