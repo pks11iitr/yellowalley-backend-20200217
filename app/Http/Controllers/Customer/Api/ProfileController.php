@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Customer\Api;
 
+use App\Models\Contact;
+use App\Models\Doubt;
 use App\Models\OTPModel;
 use App\Services\SMS\Msg91;
 use App\User;
@@ -58,6 +60,29 @@ class ProfileController extends Controller
         return [
             'status'=>'success',
             'user'=>auth()->user()->only(['name','email','address','city','gender','pincode','qualification','dob','mobile'])
+        ];
+
+    }
+
+
+    public function sendMessage(Request $request){
+        $request->validate([
+            'name'=>'required|string|max:150',
+            'mobile'=>'required|string|digits:10',
+            'message'=>'required|max:1000',
+            'email'=>'required|max:100',
+        ]);
+
+        if(Contact::create(array_merge($request->only(['name','mobile','message','email']), ['user_id'=>auth()->user()->id]))){
+            return [
+                'status'=>'success',
+                'message'=>'Your message has been sent successfully'
+            ];
+        }
+
+        return [
+            'status'=>'failed',
+            'message'=>'invalid request'
         ];
 
     }

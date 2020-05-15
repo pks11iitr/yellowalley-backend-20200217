@@ -47,6 +47,7 @@ use Illuminate\Http\Request;
         $api->post('give-answer', ['as'=>'api.question.answer', 'uses'=>'Customer\Api\TestController@answer']);
         $api->post('submit-test', ['as'=>'api.test.finalsubmit', 'uses'=>'Customer\Api\TestController@submitTest']);
         $api->post('submit-doubt', ['as'=>'api.submit.doubt', 'uses'=>'Customer\Api\ChapterController@submitDoubt']);
+        $api->post('send-message', ['as'=>'api.submit.message', 'uses'=>'Customer\Api\ProfileController@sendMessage']);
 
         $api->get('certificate-information', ['as'=>'api.certificate.info', 'uses'=>'Customer\Api\TestController@getCertificateInfo']);
 
