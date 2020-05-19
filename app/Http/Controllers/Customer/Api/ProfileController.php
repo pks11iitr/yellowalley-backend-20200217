@@ -32,7 +32,7 @@ class ProfileController extends Controller
             'address'=>'required|string|max:150',
             'name'=>'required|string|max:100',
             'email'=>'required|email|max:60',
-            'gender'=>'required|in:male,female,other',
+            'gender'=>'required|in:male,female,others',
             'city'=>'required|string|max:50',
             'pincode'=>'required|string|max:10',
             'qualification'=>'required|string|max:50',
