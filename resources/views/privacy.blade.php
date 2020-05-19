@@ -154,7 +154,7 @@
 
     We use appropriate security based on the type and sensitivity of data being stored. As with any internet-enabled system, there is always a risk of unauthorized access, so it’s important to protect your password and to contact us if you suspect any unauthorized access to your account.<br><br>
 
-    Yellow Alley takes appropriate security measures to protect against unauthorized access, alteration, disclosure, or destruction of your personal data that we collect and store. These measures vary based on the type and sensitivity of the data. Unfortunately, however, no system can be 100% secured, so we cannot guarantee that communications between you and Yellow Alley, the Services, or any information provided to us in connection with the data we collect through the Services will be free from unauthorized access by third parties. Your password & Mobile Number is an important part of our security system, and it is your responsibility to protect it. You should not share your password or Mobile Number with any third party, and if you believe your password or account has been compromised, you should change it immediately and contact support@yellowalley.org with any concerns.
+        Yellow Alley takes appropriate security measures to protect against unauthorized access, alteration, disclosure, or destruction of your personal data that we collect and store. These measures vary based on the type and sensitivity of the data. Unfortunately, however, no system can be 100% secured, so we cannot guarantee that communications between you and Yellow Alley, the Services, or any information provided to us in connection with the data we collect through the Services will be free from unauthorized access by third parties. Your password & Mobile Number is an important part of our security system, and it is your responsibility to protect it. You should not share your password or Mobile Number with any third party, and if you believe your password or account has been compromised, you should change it immediately and contact <span style="color:blue">support@yellowalley.org</span> with any concerns.
 
         <h4>6. Your Rights</h4>
 
@@ -165,14 +165,14 @@
             <li>To stop receiving promotional communications from us, you can opt out by using the unsubscribe mechanism in the promotional communication you receive or by changing the email preferences in your account. Note that regardless of your email preference settings, we will send you transactional and relationship messages regarding the Services, including administrative confirmations, important updates about the Services and notices about our policies.</li>
             <li>The browser or device you use may allow you to control cookies and other types of local data storage. Your wireless device may also allow you to control whether location or other data is collected and shared.</li>
             <li>To get information and control cookies used for tailored advertising from participating companies, see the consumer opt-out pages for the Network Advertising Initiative and Digital Advertising platforms.</li></ul>
-    If you have any questions about your data, our use of it, or your rights, contact us at info@yellowalley.org.
+        If you have any questions about your data, our use of it, or your rights, contact us at <span style="color:blue">info@yellowalley.org</span>.
         <h4>6.2 Accessing, Updating and Deleting Your Personal Data</h4>
     You can access and update your personal data that Yellow Alley collects and maintains as follows:
     To update data you provide directly, log into your account and update your account at any time.
     Please note that we retain certain data where we have a lawful basis to do so, including for mandatory record-keeping and to complete transactions.
         <h4>6.3 Our Policy Concerning Children</h4>
     We recognize the privacy interests of children and encourage parents and guardians to take an active role in their children’s online activities and interests. Children under 13 should not use the Services. If we learn that we’ve collected personal data from a child under those age, we will take reasonable steps to delete it.<br><br>
-    Parents who believe that Yellow Alley may have collected personal data from a child under those ages can submit a request that it be removed to info@yellowalley.org.
+        Parents who believe that Yellow Alley may have collected personal data from a child under those ages can submit a request that it be removed to <span style="color:blue">info@yellowalley.org</span>.
         <h4> 7. Jurisdiction-Specific Rules</h4>
 
     Since the internet industry is still working on Do Not Track standards, solutions and implementations, we do not currently recognize or respond to browser-initiated Do Not Track signals.
@@ -186,7 +186,7 @@
         <h4>8.2 Interpretation</h4>
     Any capitalized terms not defined in this policy are defined as specified in Yellow Alley’s Terms of Use. If there is any conflict with a non-English version, you agree that the English language version will control.
         <h4>8.3 Questions</h4>
-    If you have any questions, concerns or disputes regarding our Privacy Policy, please feel free to contact our privacy team at info@yellowalley.org.
+        If you have any questions, concerns or disputes regarding our Privacy Policy, please feel free to contact our privacy team at <span style="color:blue">info@yellowalley.org</span>.
         <h4>Cookie Policy</h4>
     This Cookie Policy was last updated on January 1, 2020
         <h4>What are cookies?</h4>
@@ -253,7 +253,7 @@
         </ul>
         <h4>Updates & Contact Info</h4>
     From time to time, we may update this Cookie Policy. If we do, we’ll notify you by posting the policy on our site with a new effective date. If we make any material changes, we’ll take reasonable steps to notify you in advance of the planned change.<br><br>
-    If you have any questions about our use of cookies, please email us at info@yellowalley.org.
+        If you have any questions about our use of cookies, please email us at <span style="color:blue">info@yellowalley.org</span>.
 
 
 
