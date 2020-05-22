@@ -23,7 +23,7 @@
 
     <h4>4. What topics are included in the Digital Marketing training Program?</h4>
     We cover almost everything in our Digital Marketing Training Program, here is the list of Digital Marketing Training
-    Course <a style="color:olivedrab;">(Link to our course Curriculum)</a> which we cover in the training.
+    Course <a style="color:olivedrab;">Course Curriculum</a> which we cover in the training.
 
     <h4>5. How long does it take to get a job after completion of the course?</h4>
     Well, it depends. It might take from 1 week to several months depending upon various factors such as your past
@@ -101,7 +101,7 @@
     <h4>20. What is the future of Digital Marketing?</h4>
     Digital Marketers are expected to take full control of the customer experience in the coming years. here are things
     that will change the shape of Digital Marketing in future.<br><br>
-    <img src="{{asset('Capture.PNG')}}" alt="Girl in a jacket" style="width:450px;height:300px;">
+{{--    <img src="{{asset('Capture.PNG')}}" alt="Girl in a jacket" style="width:450px;height:300px;">--}}
 
 
     <h4>21. Where do you provide Digital Marketing Training?</h4>
