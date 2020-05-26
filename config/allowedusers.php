@@ -12,7 +12,7 @@ return [
      */
     'admins'=>[
         'admin'=>'admin.dashboard',
-        'customer'=>$_SERVER['HTTP_REFERER'],
+        'customer'=>$_SERVER['HTTP_REFERER']??env('APP_URL'),
     ],
 
     /*

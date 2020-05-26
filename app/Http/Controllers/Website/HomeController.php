@@ -14,12 +14,7 @@ use Illuminate\Support\Facades\Storage;
 class HomeController extends Controller
 {
     public function home(Request $request){
-        $categorys =[];
-    	$featured = [];
-    	$latest = [];
-    	$banners = Banner::active()->get();
-
-        return view('website.home',compact(['categorys','featured','latest', 'banners', 'cart']));
+        return view('website.home');
     }
 
 }

@@ -4,24 +4,23 @@
 
 Auth::routes();
 
-//Route::get('/', 'Website\HomeController@home')->name('website.home');
-//Route::get('category','Website\HomeController@category')->name('website.category');
-//Route::get('product/{id}', 'Website\ProductController@index')->name('website.product.details');
-//Route::get('product-summary','Website\ProductController@productsummary')->name('website.product.summary');
-//Route::get('specials-offer','Website\ProductController@specialsoffer')->name('website.specials.offer');
-//Route::get('category/{id}', 'Website\CategoryController@products')->name('website.category.product');
-//Route::post('add-cart', 'Website\CartController@addcart')->name('website.addcart');
-//Route::get('cart-details', 'Website\CartController@cartDetails')->name('website.cartdetails');
-//Route::get('contact','Website\ContactController@contact')->name('website.contact');
-//Route::get('myorder','Website\MyorderController@index')->name('Website.myorder');
-//
-//Route::get('make-order', 'Website\MyorderController@make')->name('website.make.order');
-//Route::get('confirm-n-pay/{id}', 'Website\MyorderController@setAddress')->name('website.confirmnpay');
-//Route::post('verify-payment', 'Website\MyorderController@verifyPayment')->name('website.verifypayment');
-//Route::get('order-history', 'Website\MyorderController@history')->name('website.order.history');
+//admin login routes
+Route::group( ['prefix'=>'admin'], function(){
+    Route::group(['middleware'=>['guest']], function(){
+        Route::get('login', '\App\Http\Controllers\Auth\LoginController@showLoginForm')->name('admin.login');
+        Route::post('login', '\App\Http\Controllers\Auth\LoginController@login');
+        Route::get('password/reset', '\App\Http\Controllers\Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
+        Route::post('password/reset', '\App\Http\Controllers\Auth\ForgotPasswordController@showLinkRequestForm')->name('password.update');
+    });
+    Route::post('logout', '\App\Http\Controllers\Auth\LoginController@logout')->name('admin.logout');
+});
 
 
-//this will be removed after setting proper redirection
+/*
+ * *************************
+ * Admin Panel Routes Starts
+ * *************************
+ */
 
 Route::group(['middleware'=>['auth', 'acl'], 'prefix'=>'admin', 'is'=>'admin'], function(){
     Route::get('dashboard', 'Admin\DashboardController@index')->name('admin.dashboard');
@@ -79,6 +78,26 @@ Route::group(['middleware'=>['auth', 'acl'], 'prefix'=>'admin', 'is'=>'admin'], 
     });
 
 });
+
+/*
+ * *************************
+ * Admin Panel Routes Ends
+ * *************************
+ */
+
+/*
+ * *************************
+ * Website Routes Starts
+ * *************************
+ */
+
+Route::get('/', 'Website\HomeController@home');
+Route::get('course-curriculam', 'Website\ChapterController@home');
+Route::get('chapter-contents', 'Website\ChapterController@home');
+Route::get('chapter-videos', 'Website\ChapterController@home');
+
+
+
 
 Route::get('privacy','Admin\TermController@privacy');
 Route::get('term','Admin\TermController@term');

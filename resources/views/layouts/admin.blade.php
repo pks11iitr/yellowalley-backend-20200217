@@ -49,10 +49,10 @@
                 <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                     <a class="dropdown-item dropdown-header">Settings</a>
                     <div class="dropdown-divider"></div>
-                    <a href="{{ route('logout') }}"
+                    <a href="{{ route('admin.logout') }}"
                        onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();" class="dropdown-item dropdown-header">Logout</a>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
                         @csrf
                     </form>
                 </div>

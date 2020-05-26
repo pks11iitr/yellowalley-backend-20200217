@@ -129,7 +129,7 @@ class TestController extends Controller
 
         return [
             'status'=>'failed',
-            'message'=>'Please complete all tests to download certificate'
+            'message'=>'Please complete all tests to download Certificate'
         ];
     }
 

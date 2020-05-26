@@ -1,77 +1,144 @@
 @extends('website.layout')
 
-@section('mainbody')
-    <div id="mainBody">
-        <div class="container">
-            <div class="row">
-                <!-- Sidebar ================================================== -->
-                @include('website.sidebar')
-                <!-- Sidebar end=============================================== -->
-                <div class="span9">
-                     <h4 class="heading">Featured Products </h4>
-                    <ul class="thumbnails">
-                        @foreach($featured as $product)
+@section('contents')
 
-                        <li class="span3">
-                            <form class="form-horizontal qtyFrm" action="{{route('website.addcart')}}" method="post" id="list-cart-form-{{$product->id}}">
-                                @csrf
-                                <input type="hidden" name="quantity" value="1" class="span1" placeholder="Qty."/>
-                                <input type="hidden" name="product_id" value="{{$product->id}}" class="span1" placeholder="Qty."/>
-                            <div class="thumbnail">
-                                <a  href="{{route('website.product.details', ['id'=>$product->id])}}"><img src="{{asset($product->image)}}" alt=""/></a>
-                                <div class="caption">
-                                    <h5><a href="{{route('website.product.details', ['id'=>$product->id])}}">{{$product->name}}</a></h5>
-									<p><span class="pricenew">₹ {{$product->price}}</span><span class="priceold">₹ {{$product->cut_price}}</span> {{!empty($product->cut_price)?'('.intval(100-$product->price*100/($product->cut_price)).'% OFF)':''}}</p>
-									<p class="text-center">
-										<a href="javascript:void(0)" class="btn" onclick="submitlistaddcart({{$product->id}})"> Add to <i class=" icon-shopping-cart"></i></a>
-										<a class="btn" href="{{route('website.product.details', ['id'=>$product->id])}}">Buy Now</a>
-									</p>
-								</div>
-                            </div>
-                            </form>
-                        </li>
-                        @endforeach
-                    </ul>
+    <!-- Slider Section Starts -->
+    <section class="carousel">
+        <div id="light-slider" class="carousel slide">
+            <div id="carousel-area">
+                <div id="carousel-slider" class="carousel slide" data-ride="carousel">
 
-                    <h4 class="heading">Latest Products </h4>
-                    <ul class="thumbnails">
-                        @foreach($latest as $product)
-                        <li class="span3">
-                            <form class="form-horizontal qtyFrm" action="{{route('website.addcart')}}" method="post" id="list-cart-form-{{$product->id}}">
-                            @csrf
-                            <input type="hidden" name="quantity" value="1" class="span1" placeholder="Qty."/>
-                            <input type="hidden" name="product_id" value="{{$product->id}}" class="span1" placeholder="Qty."/>
-                            <div class="thumbnail">
-                                <a  href="{{route('website.product.details', ['id'=>$product->id])}}"><img src="{{asset($product->image)}}" alt=""/></a>
-                                <div class="caption">
-									<h5><a href="{{route('website.product.details', ['id'=>$product->id])}}">{{$product->name}}</a></h5>
-									<p><span class="pricenew">₹ {{$product->price}}</span><span class="priceold">₹ {{$product->cut_price}}</span> {{!empty($product->cut_price)?'('.intval(100-$product->price*100/($product->cut_price)).'% OFF)':''}}</p>
-									<p class="text-center">
-										<a href="javascript:void(0)" class="btn" onclick="submitlistaddcart({{$product->id}})"> Add to <i class=" icon-shopping-cart"></i></a>
-										<a class="btn" href="{{route('website.product.details', ['id'=>$product->id])}}">Buy Now</a>
-									</p>
-                                    <!---<h5>{{$product->name}}</h5>
-                                    <p>{{$product->company}}</p>
-                                    <h4 style="text-align:center"><a class="btn" href="{{route('website.product.details', ['id'=>$product->id])}}"> <i class="icon-zoom-in"></i></a> <a class="btn" href="#">Add to <i class="icon-shopping-cart"></i></a> <a class="btn btn-primary" href="#">{{$product->price}}</a></h4> ---->
-                                </div>
-                            </div>
-                            </form>
-                        </li>
-                        @endforeach
-                    </ul>
-					<p class="pull-right"><a href="" class="btn  btn-primary btn-small">View More</a></p>
+                    <ol class="carousel-indicators">
+                        <li data-target="#carousel-slider" data-slide-to="1" class="active"></li>
+                        <li data-target="#carousel-slider" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner" role="listbox">
+                        <div class="carousel-item slider-img active">
+                            <img src="img/slider/bg1.jpg" alt="">
+
+                        </div>
+                        <div class="carousel-item slider-img active">
+                            <img src="img/slider/bg2.jpg" alt="">
+
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <script>
+    </section>
+    <!-- video-testimonial-section -->
+    <section  class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                    <!-- section-title -->
+                    <div class="section-title">
+                        <span class="h2">Recent View</h2></span><span class="pull-right"></span>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                    <div class="big-video-testimonial-block">
+                        <div class="video-thumbnail"><img src="img/glry/img1.jpg" alt="" class="img-fluid"></div>
+                        <div class="video">
+                            <iframe src="https://www.youtube.com/embed/KEiAVv1UNac" allowfullscreen>
+                            </iframe>
+                        </div>
+                        <a href="#" class="video-icon"><i class="fa fa-play"></i></a>
+                    </div>
+                    <div class="video-testimonial-content py-3">
+                        <h4 class="mb10">Harlan M. Williams</h4>
+                        <p>Student Loan</p>
+                    </div>
+                </div>
+                <div class="col-md-6 pull-left p-2 d-flex justify-content-center">
+                    <div class="circle-block py-5"style="height=250px; width:250px;">
+                        <div class="circle">
+                            9/10
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+    <!-- video-testimonial-section -->
+    <!-- video-testimonial-section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                    <!-- section-title -->
+                    <div class="section-title">
+                        <span class="h2">Chapter</h2></span><span class="pull-right"><a href="">See All</a></h2></span>
+                    </div>
+                </div>
+                <!-- /.section-title -->
+            </div>
+            <div class="row">
+                <!-- video-testimonail -->
 
-        function submitlistaddcart(id){
-            $("#list-cart-form-"+id).submit()
-        }
-        function submitgridaddcart(id){
-            $("#grid-cart-form-"+id).submit()
-        }
+                <!-- /.video-testimonail -->
+                <!-- video-testimonail -->
+                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 py-2 mb-3">
+                    <div class="video-testimonial-block">
+                        <div class="video-thumbnail"><img src="img/glry/img1.jpg" alt="" class="img-fluid"></div>
+                        <div class="video">
+                            <iframe src="https://www.youtube.com/embed/KEiAVv1UNac" allowfullscreen>
+                            </iframe>
+                        </div>
+                        <a href="#" class="video-icon-lock"><i class="fa fa-lock"></i></a>
+                    </div>
+                    <div class="video-testimonial-content">
+                        <h4 class="mb10">Harlan M. Williams</h4>
+                        <p>Student Loan</p>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 py-2 mb-3">
+                    <div class="video-testimonial-block">
+                        <div class="video-thumbnail"><img src="img/glry/img1.jpg" alt="" class="img-fluid"></div>
+                        <div class="video">
+                            <iframe src="https://www.youtube.com/embed/KEiAVv1UNac" allowfullscreen>
+                            </iframe>
+                        </div>
+                        <a href="#" class="video-icon"><i class="fa fa-play"></i></a>
+                    </div>
+                    <div class="video-testimonial-content">
+                        <h4 class="mb10">Harlan M. Williams</h4>
+                        <p>Student Loan</p>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 py-2 mb-3">
+                    <div class="video-testimonial-block">
+                        <div class="video-thumbnail"><img src="img/glry/img1.jpg" alt="" class="img-fluid"></div>
+                        <div class="video">
+                            <iframe src="https://www.youtube.com/embed/KEiAVv1UNac" allowfullscreen>
+                            </iframe>
+                        </div>
+                        <a href="#" class="video-icon-lock"><i class="fa fa-lock"></i></a>
+                    </div>
+                    <div class="video-testimonial-content">
+                        <h4 class="mb10">Harlan M. Williams</h4>
+                        <p>Student Loan</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /.video-testimonial-section -->
+
+@endsection
+
+@section('scripts')
+
+    <script>
+        $(document).ready(function() {
+            $("#posts-carousel-3col").owlCarousel({
+                items: 3,
+                itemsDesktop: [1199, 3],
+                itemsDesktopSmall: [979, 3]
+            });
+
+        });
     </script>
 
 @endsection
