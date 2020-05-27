@@ -91,8 +91,8 @@ Route::group(['middleware'=>['auth', 'acl'], 'prefix'=>'admin', 'is'=>'admin'], 
  * *************************
  */
 
-Route::get('/', 'Website\HomeController@home');
-Route::get('course-curriculam', 'Website\ChapterController@home');
+Route::get('/', 'Website\HomeController@home')->name('website.home');
+Route::get('course-curriculam', 'Website\ChapterController@index')->name('website.chapters');
 Route::get('chapter-contents', 'Website\ChapterController@home');
 Route::get('chapter-videos', 'Website\ChapterController@home');
 

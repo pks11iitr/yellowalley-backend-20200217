@@ -26,6 +26,12 @@ class Chapter extends Model
     }
 
     public function isLockedForUser($user){
+        if(!$user){
+            return [
+                'status'=>'locked',
+                'reason'=>'nologin'
+            ];
+        }
         if($user->isSubscriptionActive()){
             if($this->sequence_no <= $user->last_qualified_chapter)
                 return [

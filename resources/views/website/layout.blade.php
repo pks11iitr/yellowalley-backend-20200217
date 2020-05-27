@@ -72,7 +72,7 @@
 
                     <div class="collapse navbar-right navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav ml-auto">
-                            <li class="nav-item active"><a class="nav-link" href="#">Courses</a></li>
+                            <li class="nav-item active"><a class="nav-link" href="{{route('website.chapters')}}">Courses</a></li>
                             <li class="nav-item"><a class="nav-link" href="#">Certificate</a></li>
                             <!--<li class="nav-item">
                               <a class="btn btn-blms" href="#" data-target="#pricequote" data-image-id="" data-toggle="modal" tabindex="-1" aria-disabled="true">Submit Your Doubt</a>
