@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Customer\Api;
 
+use App\Http\Controllers\Controller;
 use App\Models\Configuration;
 use App\Models\Payment;
 use App\Services\Payment\RazorPayService;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
 class PaymentController extends Controller
 {
@@ -76,7 +76,8 @@ class PaymentController extends Controller
 
             return response()->json([
                 'status'=>'success',
-                'message'=>'Payment is successfull',
+                'refid'=>$order->refid,
+                'message'=>'Your access to full course is active now',
                 'errors'=>[
 
                 ],
@@ -84,6 +85,7 @@ class PaymentController extends Controller
         }else{
             return response()->json([
                 'status'=>'failed',
+                'refid'=>'',
                 'message'=>'Payment is not successfull',
                 'errors'=>[
 

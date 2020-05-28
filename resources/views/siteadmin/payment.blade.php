@@ -34,7 +34,8 @@
                                 <thead>
                                 <tr>
                                     <th>UserID</th>
-                                    <th>refid</th>
+                                    <th>Ref Id</th>
+                                    <th>Razorpay Id</th>
                                     <th>Amount</th>
                                     <th>Status</th>
                                 </tr>
@@ -44,6 +45,7 @@
                                     <tr>
                                         <td>{{$payment->user->name}}</td>
                                         <td>{{$payment->refid}}</td>
+                                        <td>{{$payment->razorpay_order_id}}</td>
                                         <td>{{$payment->amount}}</td>
                                         <td>{{$payment->status}}</td>
                                     </tr>
