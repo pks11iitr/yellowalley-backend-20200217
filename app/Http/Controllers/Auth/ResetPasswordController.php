@@ -59,7 +59,7 @@ class ResetPasswordController extends Controller
 //            ? $this->sendResetResponse($request, $response)
 //            : $this->sendResetFailedResponse($request, $response);
 
-        $user=Users::where('mobile', $request->mobile)->first();
+        $user=User::where('mobile', $request->mobile)->first();
         if(!$user) {
             return redirect()->back()->with('error', 'invalid login attempt');
         }else if(!in_array($user->status, [0 , 1])){

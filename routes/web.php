@@ -2,15 +2,19 @@
 
 
 
-Auth::routes();
+//Auth::routes();
 
 //admin login routes
 Route::group( ['prefix'=>'admin'], function(){
     Route::group(['middleware'=>['guest']], function(){
         Route::get('login', '\App\Http\Controllers\Auth\LoginController@showLoginForm')->name('admin.login');
         Route::post('login', '\App\Http\Controllers\Auth\LoginController@login');
-        Route::get('password/reset', '\App\Http\Controllers\Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
-        Route::post('password/reset', '\App\Http\Controllers\Auth\ForgotPasswordController@showLinkRequestForm')->name('password.update');
+        Route::get('password/reset', '\App\Http\Controllers\Auth\ForgotPasswordController@showLinkRequestForm')->name('admin.password.request');
+        Route::get('password/reset/otp', '\App\Http\Controllers\Auth\ForgotPasswordController@showResetForm')->name('admin.password.reset');
+        Route::post('password/reset', '\App\Http\Controllers\Auth\ResetPasswordController@reset')->name('admin.password.update');
+        Route::post('password/email', '\App\Http\Controllers\Auth\ForgotPasswordController@sendResetLinkEmail')->name('admin.password.email');
+
+
     });
     Route::post('logout', '\App\Http\Controllers\Auth\LoginController@logout')->name('admin.logout');
 });

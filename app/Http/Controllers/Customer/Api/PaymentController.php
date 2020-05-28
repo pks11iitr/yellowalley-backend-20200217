@@ -76,7 +76,7 @@ class PaymentController extends Controller
 
             return response()->json([
                 'status'=>'success',
-                'refid'=>$order->refid,
+                'refid'=>'Reference Id: '.$order->refid,
                 'message'=>'Your access to full course is active now',
                 'errors'=>[
 
