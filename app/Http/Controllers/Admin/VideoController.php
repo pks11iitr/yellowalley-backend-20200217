@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\Chapter;
 use App\Models\Video;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 
 class VideoController extends Controller
@@ -22,8 +22,8 @@ class VideoController extends Controller
     {
 
         $request->validate([
-            'image' => 'image',
-            'video_url' => 'mimes:mp4,mov,ogg,qt,flv,m3u8,ts,3gp,avi,wmv'
+            'image' => 'required|image',
+            'video_url' => 'required|mimes:mp4,mov,ogg,qt,flv,m3u8,ts,3gp,avi,wmv'
 
         ]);
         if (isset($request->image)) {
