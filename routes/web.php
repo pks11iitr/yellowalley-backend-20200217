@@ -13,8 +13,6 @@ Route::group( ['prefix'=>'admin'], function(){
         Route::get('password/reset/otp', '\App\Http\Controllers\Auth\ForgotPasswordController@showResetForm')->name('admin.password.reset');
         Route::post('password/reset', '\App\Http\Controllers\Auth\ResetPasswordController@reset')->name('admin.password.update');
         Route::post('password/email', '\App\Http\Controllers\Auth\ForgotPasswordController@sendResetLinkEmail')->name('admin.password.email');
-
-
     });
     Route::post('logout', '\App\Http\Controllers\Auth\LoginController@logout')->name('admin.logout');
 });
@@ -94,6 +92,18 @@ Route::group(['middleware'=>['auth', 'acl'], 'prefix'=>'admin', 'is'=>'admin'], 
  * Website Routes Starts
  * *************************
  */
+
+
+Route::group(['middleware'=>['websiteguest']], function(){
+    Route::get('login', 'Website\Auth\LoginController@showLoginForm')->name('admin.login');
+    Route::post('login', 'Website\Auth\LoginController@login');
+    Route::get('password/reset', 'Website\Auth\ForgotPasswordController@showLinkRequestForm')->name('admin.password.request');
+    Route::get('password/reset/otp', 'Website\Auth\ForgotPasswordController@showResetForm')->name('admin.password.reset');
+    Route::post('password/reset', 'Website\Auth\ResetPasswordController@reset')->name('admin.password.update');
+    Route::post('password/email', 'Website\Auth\ForgotPasswordController@sendResetLinkEmail')->name('admin.password.email');
+});
+Route::post('logout', 'Website\Auth\LoginController@logout')->name('admin.logout');
+
 
 Route::get('/', 'Website\HomeController@home')->name('website.home');
 Route::get('course-curriculam', 'Website\ChapterController@index')->name('website.chapters');

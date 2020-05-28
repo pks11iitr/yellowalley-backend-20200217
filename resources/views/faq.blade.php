@@ -23,7 +23,7 @@
 
     <h4>4. What topics are included in the Digital Marketing training Program?</h4>
     We cover almost everything in our Digital Marketing Training Program, here is the list of Digital Marketing Training
-     <a style="color:olivedrab;">Course Curriculum</a> which we cover in the training.
+     <a style="color:olivedrab;" href="course-curriculum">Course Curriculum</a> which we cover in the training.
 
     <h4>5. How long does it take to get a job after completion of the course?</h4>
     Well, it depends. It might take from 1 week to several months depending upon various factors such as your past
