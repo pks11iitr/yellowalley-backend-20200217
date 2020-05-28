@@ -86,7 +86,7 @@ class PaymentController extends Controller
             return response()->json([
                 'status'=>'failed',
                 'refid'=>'',
-                'message'=>'Payment is not successfull',
+                'message'=>'Your payment at Yellow Alley is not successfull',
                 'errors'=>[
 
                 ],
