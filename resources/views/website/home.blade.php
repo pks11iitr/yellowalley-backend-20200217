@@ -11,16 +11,16 @@
                     <ol class="carousel-indicators">
                         <li data-target="#carousel-slider" data-slide-to="1" class="active"></li>
                         <li data-target="#carousel-slider" data-slide-to="2"></li>
+                        <li data-target="#carousel-slider" data-slide-to="3"></li>
                     </ol>
                     <div class="carousel-inner" role="listbox">
-                        <div class="carousel-item slider-img active">
-                            <img src="img/slider/bg1.jpg" alt="">
+                        @foreach($banners as $banner)
+
+                        <div class="carousel-item slider-img @if($loop->iteration==1){{'active'}}@endif">
+                            <img src="{{$banner->doc_path}}" alt="">
 
                         </div>
-                        <div class="carousel-item slider-img active">
-                            <img src="img/slider/bg2.jpg" alt="">
-
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -53,7 +53,7 @@
                 <div class="col-md-6 pull-left p-2 d-flex justify-content-center">
                     <div class="circle-block py-5"style="height=250px; width:250px;">
                         <div class="circle">
-                            9/10
+                            {{$userscore}}/{{$totalscore}}
                         </div>
                     </div>
                 </div>
@@ -79,9 +79,12 @@
 
                 <!-- /.video-testimonail -->
                 <!-- video-testimonail -->
+                @foreach($videos->videos as $video)
                 <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 py-2 mb-3">
                     <div class="video-testimonial-block">
-                        <div class="video-thumbnail"><img src="img/glry/img1.jpg" alt="" class="img-fluid"></div>
+                        <div class="video-thumbnail">
+                            <img src="{{$video->image}}" alt="" class="img-fluid">
+                        </div>
                         <div class="video">
                             <iframe src="https://www.youtube.com/embed/KEiAVv1UNac" allowfullscreen>
                             </iframe>
@@ -93,34 +96,7 @@
                         <p>Student Loan</p>
                     </div>
                 </div>
-                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 py-2 mb-3">
-                    <div class="video-testimonial-block">
-                        <div class="video-thumbnail"><img src="img/glry/img1.jpg" alt="" class="img-fluid"></div>
-                        <div class="video">
-                            <iframe src="https://www.youtube.com/embed/KEiAVv1UNac" allowfullscreen>
-                            </iframe>
-                        </div>
-                        <a href="#" class="video-icon"><i class="fa fa-play"></i></a>
-                    </div>
-                    <div class="video-testimonial-content">
-                        <h4 class="mb10">Harlan M. Williams</h4>
-                        <p>Student Loan</p>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 py-2 mb-3">
-                    <div class="video-testimonial-block">
-                        <div class="video-thumbnail"><img src="img/glry/img1.jpg" alt="" class="img-fluid"></div>
-                        <div class="video">
-                            <iframe src="https://www.youtube.com/embed/KEiAVv1UNac" allowfullscreen>
-                            </iframe>
-                        </div>
-                        <a href="#" class="video-icon-lock"><i class="fa fa-lock"></i></a>
-                    </div>
-                    <div class="video-testimonial-content">
-                        <h4 class="mb10">Harlan M. Williams</h4>
-                        <p>Student Loan</p>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
