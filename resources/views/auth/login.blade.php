@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -26,7 +25,7 @@
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Mobile') }}</label>
 
                             <div class="col-md-6">
-                                <input id="mobile" type="text" class="form-control @error('mobile') is-invalid @enderror" name="mobile" value="{{ old('mobile') }}" required autocomplete="mobile" autofocus>
+                                <input id="mobile" type="text" class="form-control @error('mobile') is-invalid @enderror" name="mobile" value="{{ old('mobile') }}" required autocomplete="mobile" autofocus maxlength="10" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -81,4 +80,7 @@
         </div>
     </div>
 </div>
+@endsection
+@section('scripts')
+    var redirect_path='{{$_SERVER['HTTP_REFERER']??''}}'
 @endsection

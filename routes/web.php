@@ -94,15 +94,23 @@ Route::group(['middleware'=>['auth', 'acl'], 'prefix'=>'admin', 'is'=>'admin'], 
  */
 
 
-Route::group(['middleware'=>['websiteguest']], function(){
-    Route::get('login', 'Website\Auth\LoginController@showLoginForm')->name('admin.login');
+Route::group(['middleware'=>['webguest']], function(){
+    Route::get('login', 'Website\Auth\LoginController@showLoginForm')->name('login');
     Route::post('login', 'Website\Auth\LoginController@login');
-    Route::get('password/reset', 'Website\Auth\ForgotPasswordController@showLinkRequestForm')->name('admin.password.request');
-    Route::get('password/reset/otp', 'Website\Auth\ForgotPasswordController@showResetForm')->name('admin.password.reset');
-    Route::post('password/reset', 'Website\Auth\ResetPasswordController@reset')->name('admin.password.update');
-    Route::post('password/email', 'Website\Auth\ForgotPasswordController@sendResetLinkEmail')->name('admin.password.email');
+    Route::get('complete-profile/{code}', 'Website\Auth\LoginController@login')->name('website.complete.profile');
+    Route::post('complete-profile/{code}', 'Website\Auth\LoginController@login');
+    Route::get('verify-otp', 'Website\Auth\LoginController@verifyOTP')->name('website.verify.otp');
+    Route::post('verify-otp', 'Website\Auth\LoginController@verifyOTP');
+    Route::get('password/reset', 'Website\Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
+    Route::get('password/reset/otp', 'Website\Auth\ForgotPasswordController@showResetForm')->name('password.reset');
+    Route::post('password/reset', 'Website\Auth\ResetPasswordController@reset')->name('password.update');
+    Route::post('password/email', 'Website\Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
 });
-Route::post('logout', 'Website\Auth\LoginController@logout')->name('admin.logout');
+Route::post('logout', 'Website\Auth\LoginController@logout')->name('logout');
+
+Route::group(['middleware'=>['webauth']], function(){
+    Route::get('profile', 'Website\ProfileController@profile')->name('website.profile');
+});
 
 
 Route::get('/', 'Website\HomeController@home')->name('website.home');
