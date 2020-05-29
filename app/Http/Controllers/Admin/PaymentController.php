@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class PaymentController extends Controller
 {
     public function index(Request $request){
-        if(isset($request->status))
+        if(isset($request->status) && !empty($request->status))
             $payments =Payment::where('status',$request->status)->paginate(20);
         else
             $payments =Payment::paginate(20);

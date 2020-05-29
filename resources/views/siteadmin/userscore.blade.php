@@ -49,6 +49,7 @@
                                 </tbody>
                             </table>
                         </div>
+                        {{$userscores->links()}}
                         <!-- /.card-body -->
                     </div>
                     <!-- /.card -->
