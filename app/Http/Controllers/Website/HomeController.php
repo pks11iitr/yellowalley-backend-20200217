@@ -15,9 +15,9 @@ class HomeController extends Controller
     public function home(Request $request){
         $user=auth()->user();
         $banners=Banner::active()->get();
-        $userscore=$user->totalScore();
+        $userscore=$user?$user->totalScore():0;
         $totalscore=Score::totalscore();
-        if($user->isSubscriptionActive()){
+        if($user && $user->isSubscriptionActive()){
             $lastvideo=$user->lastPlayedVideo;
             if($lastvideo){
                 $chapter=$lastvideo->chapter_id;
