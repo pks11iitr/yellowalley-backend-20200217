@@ -6,9 +6,11 @@ use App\Http\Controllers\Controller;
 use App\Models\OTPModel;
 use App\Services\SMS\Msg91;
 use App\User;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Validator;
 
 class LoginController extends Controller
 {
@@ -23,7 +25,7 @@ class LoginController extends Controller
     |
     */
 
-    use AuthenticatesUsers;
+    //use AuthenticatesUsers;
 
     /**
      * Where to redirect users after login.
@@ -49,7 +51,11 @@ class LoginController extends Controller
 
     public function showOTPForm()
     {
-        return view('website.auth.verify');
+        //var_dump(old('mobile'));die;
+        if(Session::get('mobile') || old('mobile'))
+            return view('website.auth.verify');
+        else
+            return redirect()->route('login');
     }
 
     public function showProfileForm()
@@ -57,11 +63,10 @@ class LoginController extends Controller
         return view('website.auth.login');
     }
 
-    protected function validateLogin(Request $request)
+    protected function validator(array $data)
     {
-        $request->validate([
-            $this->username() => 'required|integer|digits:10',
-            'password' => 'required|string',
+        return Validator::make($data, [
+            'mobile' => ['required', 'integer', 'digits:10'],
         ]);
     }
 
@@ -95,7 +100,8 @@ class LoginController extends Controller
                     $msg=config('sms-templates.login-otp');
                     $msg=str_replace('{{otp}}', $otp, $msg);
                     if(Msg91::send($request->mobile, $msg)){
-                        return redirect()->route('website.verify.otp')->with('success', 'Please verify OTP to continue');
+
+                        return redirect()->route('website.verify.otp')->with('success', 'Please verify OTP to continue')->with('mobile', $user->mobile);
                     }
                 }
             }else{
@@ -115,34 +121,17 @@ class LoginController extends Controller
             'mobile' => ['required', 'integer', 'digits:10'],
             'otp' => ['required', 'integer'],
         ]);
-
         $user=User::where('mobile', $request->mobile)->first();
 
         if(!$user){
-            return response()->json([
-                'status'=>'failed',
-                'message'=>'invalid login attempt',
-                'errors'=>[
-                ],
-            ], 200);
+            return redirect()->back()->with('error', 'Invalid Request');
         }else if(!($user->status==0 || $user->status==1)){
-            return response()->json([
-                'status'=>'failed',
-                'message'=>'account is not active',
-                'errors'=>[
-
-                ],
-            ], 200);
+            return redirect()->back()->with('error', 'Invalid Request');
         }
 
         if(!OTPModel::verifyOTP($user->id, 'login', $request->otp)){
-            return response()->json([
-                'status'=>'failed',
-                'message'=>'Incorrect OTP',
-                'errors'=>[
-
-                ],
-            ], 200);
+            //die('sd');
+            return redirect()->back()->with('error', 'Otp is not correct')->with('mobile', $user->mobile);
         }
 
         //activate user if not activated
@@ -152,12 +141,9 @@ class LoginController extends Controller
             $user->save();
         }
 
-        return [
-            'status'=>'success',
-            'message'=>'Login Successfull',
-            'token'=>$this->jwt->fromUser($user),
-            'subscription_active'=>$user->isSubscriptionActive()
-        ];
+        Auth::loginUsingId($user->id);
+
+        return redirect()->route('website.home');
     }
 
     public function completeProfile(Request $request){
@@ -189,4 +175,14 @@ class LoginController extends Controller
         }
         return redirect()->back()->with('error', 'This request is not valid');
     }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+
+        $request->session()->invalidate();
+
+        return redirect('/');
+    }
+
 }

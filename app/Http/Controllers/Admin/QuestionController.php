@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\Chapter;
 use App\Models\Question;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
 class QuestionController extends Controller
 {
     public function index(Request $request){
-        $questions =Question::get();
+        $questions =Question::paginate(20);
         return view('siteadmin.question',['questions'=>$questions]);
     }
     public function create(Request $request){

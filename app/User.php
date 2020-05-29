@@ -4,11 +4,10 @@ namespace App;
 
 use App\Models\Configuration;
 use App\Models\Video;
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Tymon\JWTAuth\Contracts\JWTSubject;
+use Illuminate\Notifications\Notifiable;
 use Kodeine\Acl\Traits\HasRole;
+use Tymon\JWTAuth\Contracts\JWTSubject;
 
 class User extends Authenticatable implements JWTSubject
 {
@@ -62,7 +61,7 @@ class User extends Authenticatable implements JWTSubject
         return [];
     }
 
-    public static function generateReferralCode(){
+    /*public static function generateReferralCode(){
         $chars=['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
         $flag=true;
             while($flag){
@@ -70,7 +69,24 @@ class User extends Authenticatable implements JWTSubject
                 if(!User::where('referral_code', $referral_code)->first())
                     return $referral_code;
             }
+    }*/
+
+    public static function generateReferralCode(){
+        $prefix='YAL';
+        $count=User::count();
+        if($count<10){
+            $referral_code='000'.$count;
+        }else if($count<100){
+            $referral_code='00'.$count;
+        }else if($count<1000){
+            $referral_code='0'.$count;
+        }else{
+            $referral_code=''.$count;
+        }
+        return $prefix.$referral_code;
+
     }
+
 
     public function isSubscriptionActive(){
         if(!$this->subscription_required)

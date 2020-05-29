@@ -1,12 +1,12 @@
 <?php
 
 namespace App\Http\Controllers\Auth\Api;
-use App\Services\SMS\Msg91;
-use Illuminate\Contracts\Auth\Factory as Auth;
-use App\Models\OTPModel;
-use App\User;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\OTPModel;
+use App\Services\SMS\Msg91;
+use App\User;
+use Illuminate\Contracts\Auth\Factory as Auth;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Tymon\JWTAuth\JWTAuth;
@@ -181,7 +181,7 @@ class LoginController extends Controller
 
     public function completeProfile(Request $request){
         $request->validate([
-            'code'=>'required|string|max:7',
+            'code'=>'required|string|max:10',
             'address'=>'required|string|max:150',
             'name'=>'required|string|max:100',
             'email'=>'required|email|max:60',

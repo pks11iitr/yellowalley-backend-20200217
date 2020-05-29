@@ -26,7 +26,17 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Payment Table</h3>
+                            <h3 class="card-title">Total Payments: {{$payments->total()}}</h3>
+                        </div>
+                        <div class="card-header">
+                            <form>
+                                <label>Select Status: </label>
+                                <select name="status">
+                                    <option value="pending">Pending</option>
+                                    <option value="paid">Paid</option>
+                                </select>
+                                <button type="submit">Apply</button>
+                            </form>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -53,6 +63,7 @@
                                 </tbody>
                             </table>
                         </div>
+                        {{$payments->links()}}
                         <!-- /.card-body -->
                     </div>
                     <!-- /.card -->

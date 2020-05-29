@@ -49,6 +49,7 @@
                                 </tbody>
                             </table>
                         </div>
+                        {{$referrals->links()}}
                         <!-- /.card-body -->
                     </div>
                     <!-- /.card -->

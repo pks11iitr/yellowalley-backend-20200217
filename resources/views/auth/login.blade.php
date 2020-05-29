@@ -27,7 +27,7 @@
                             <div class="col-md-6">
                                 <input id="mobile" type="text" class="form-control @error('mobile') is-invalid @enderror" name="mobile" value="{{ old('mobile') }}" required autocomplete="mobile" autofocus maxlength="10" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
 
-                                @error('email')
+                                @error('mobile')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -80,7 +80,4 @@
         </div>
     </div>
 </div>
-@endsection
-@section('scripts')
-    var redirect_path='{{$_SERVER['HTTP_REFERER']??''}}'
 @endsection

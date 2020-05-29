@@ -49,11 +49,15 @@
 				  <a class="dropdown">
                       @if(auth()->user())
 					  <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						<i class="fa fa-user"></i> Hi {{auth()->user()->name}}
+						<i class="fa fa-user"></i> Hi {{ucwords(auth()->user()->name)}}
 					  </a>
 					  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="transform: translate3d(641px, 30px, 0px);">
 						<a class="dropdown-item" href="#"><i class="fa fa-user-circle-o" aria-hidden="true"></i> My Profile</a>
-						<a class="dropdown-item" href="#"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
+						<a class="dropdown-item" href="{{ route('logout') }}"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            <i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a>
+                          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
 					  </div>
                       @else
                           <a class="dropdown-toggle" href="{{route('login')}}" aria-haspopup="true" aria-expanded="false">

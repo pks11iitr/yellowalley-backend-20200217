@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\Chapter;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use Storage;
+
 class ChapterController extends Controller
 {
     public function index(Request $request){
-        $chapters =Chapter::get();
+        $chapters =Chapter::paginate(20);
         return view('siteadmin.chapter',['chapters'=>$chapters]);
     }
     public function create(Request $request){

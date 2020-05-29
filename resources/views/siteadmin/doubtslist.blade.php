@@ -26,7 +26,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Doubts Table</h3>
+                            <h3 class="card-title">Total Doubts: {{$doubts->total()}}</h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -35,6 +35,7 @@
                                 <tr>
                                     <th>Name</th>
                                     <th>Mobile</th>
+                                    <th>Email</th>
                                     <th>Subject</th>
                                     <th>Description</th>
                                 </tr>
@@ -44,6 +45,7 @@
                                     <tr>
                                         <td>{{$doubt->name}}</td>
                                         <td>{{$doubt->mobile}}</td>
+                                        <td>{{$doubt->email}}</td>
                                         <td>{{$doubt->subject}}</td>
                                         <td>{{$doubt->description}}</td>
                                     </tr>
@@ -51,6 +53,7 @@
                                 </tbody>
                             </table>
                         </div>
+                        {{$doubts->links()}}
                         <!-- /.card-body -->
                     </div>
                     <!-- /.card -->

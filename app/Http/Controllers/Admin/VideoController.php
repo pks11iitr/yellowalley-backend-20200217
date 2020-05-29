@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Storage;
 class VideoController extends Controller
 {
     public function index(Request $request){
-        $videos =Video::get();
+        $videos =Video::paginate(20);
         return view('siteadmin.videolist',['videos'=>$videos]);
     }
     public function create(Request $request){

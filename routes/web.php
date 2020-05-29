@@ -99,7 +99,7 @@ Route::group(['middleware'=>['webguest']], function(){
     Route::post('login', 'Website\Auth\LoginController@login');
     Route::get('complete-profile/{code}', 'Website\Auth\LoginController@login')->name('website.complete.profile');
     Route::post('complete-profile/{code}', 'Website\Auth\LoginController@login');
-    Route::get('verify-otp', 'Website\Auth\LoginController@verifyOTP')->name('website.verify.otp');
+    Route::get('verify-otp', 'Website\Auth\LoginController@showOTPForm')->name('website.verify.otp');
     Route::post('verify-otp', 'Website\Auth\LoginController@verifyOTP');
     Route::get('password/reset', 'Website\Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
     Route::get('password/reset/otp', 'Website\Auth\ForgotPasswordController@showResetForm')->name('password.reset');

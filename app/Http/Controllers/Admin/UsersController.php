@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class UsersController extends Controller
 {
     public function index(Request $request){
-        $users = User::get();
+        $users = User::paginate(20);
         return view('siteadmin.users',['users'=>$users]);
     }
     public function create(Request $request){
@@ -50,7 +50,7 @@ class UsersController extends Controller
     }
 
     public function referral(Request $request){
-        $referrals =User::get();
+        $referrals =User::paginate(20);
         return view('siteadmin.referral',['referrals'=>$referrals]);
 
     }

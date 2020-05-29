@@ -28,12 +28,15 @@
                                 @endif
                             </div>
                             <input type="text" id="mobile" class="form-control form-blms" @error('mobile') is-invalid @enderror name="mobile" value="{{ old('mobile') }}" required autocomplete="mobile" autofocus placeholder="Enter Your Mobile" maxlength="10" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
-                            <small id="tet" class="form-text text-center">You will get an OTP on this number</small>
-                            @error('email')
-                            <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                            @error('mobile')
+                            <span class="invalid-feedback" role="alert" style="display:block">
+                                <strong>{{$message}}</strong>
+                            </span>
                             @enderror
+                            <small id="tet" class="form-text text-center">You will get an OTP on this number</small>
+
+
+
                         </div>
 
                         <div class="form-group text-center">
