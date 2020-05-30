@@ -43,7 +43,12 @@
                                     <tr>
                                         <td>{{$referral->name}}</td>
                                         <td>{{$referral->referral_code}}</td>
-                                        <td><a href="{{route('users.list', ['rcode'=>$referral->referral_code])}}" target="_blank">{{$referral->referrals()}}</a></td>
+                                        <td>@if(!empty($referral->referral_code))
+                                            <a href="{{route('users.list', ['rcode'=>$referral->referral_code])}}" target="_blank">{{$referral->referrals()}}</a>
+                                            @else
+                                                0
+                                            @endif
+                                        </td>
                                     </tr>
                                 @endforeach
                                 </tbody>
