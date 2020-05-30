@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
-use App\Models\Banner;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -63,7 +62,7 @@ class UsersController extends Controller
     }
 
     public function delete(Request $request, $id){
-        Banner::where('id', $id)->where('id','!=',1)->delete();
+        User::where('id', $id)->where('id','!=',1)->delete();
         return redirect()->back()->with('success', 'User has been deleted');
     }
 }
