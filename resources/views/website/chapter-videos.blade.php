@@ -21,7 +21,7 @@
                         <div class="col-md-12">
                             <div class="big-video-testimonial-block">
 {{--                                <div class="video-thumbnail"><img src="img/glry/img1.jpg" alt="" class="img-fluid"></div>--}}
-                                <div id="my_video" data-video="{{$video->video_url}}" data-type="video/mp4" data-poster="{{$video->image}}">
+                                <div class="myVideo" id="my_video" data-video="{{$video->video_url}}" data-type="video/mp4" data-poster="{{$video->image}}">
                                 </div>
                             </div>
                         </div>
@@ -39,10 +39,10 @@
                 <div class="col-md-4">
                     <h4 class="py-2">Chapter Videos</h4>
                     @foreach($chapter->videos as $v)
-                    <a href="#">
+                        <a href="{{route('website.chapter.videos', ['id'=>$v->id])}}">
                         <div class="row course-strip">
                             <div class="col-md-8">
-                                <a href="{{route('website.chapter.videos', ['id'=>$v->id])}}"><h6>{{$v->name}}</h6></a>
+                                <h6>{{$v->name}}</h6>
 {{--                                <p>Basic of controllers</p>--}}
                             </div>
                         </div>
@@ -65,7 +65,8 @@
             $("#my_video").RTOP_VideoPlayer({
                 showFullScreen: true,
                 showTimer: true,
-                showSoundControl: true
+                showSoundControl: true,
+                autoPlay:true
             });
         });
 

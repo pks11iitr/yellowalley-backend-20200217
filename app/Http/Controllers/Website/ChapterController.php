@@ -29,7 +29,7 @@ class ChapterController extends Controller
             $videos->orderBy('videos.sequence_no', 'asc');
 
         }])->findOrFail($id);
-        return $chapter;
+        return view('website.chapter-contents', compact('chapter'));
     }
 
     public function videos(Request $request, $id){
@@ -40,20 +40,14 @@ class ChapterController extends Controller
             if($chapter->sequence_no<=$user->last_qualified_chapter) {
                 return view('website.chapter-videos', compact('chapter','video'));
             }else{
-                return [
-                    'status'=>'failed',
-                    'message'=>'Please complete chapter '.($chapter->sequence_no-1).' first'
-                ];
+                return view('website.chapter-videos', compact('chapter','video'))->with('error', 'Please complete chapter '.($chapter->sequence_no-1).' first');
             }
         }else{
             if(in_array($chapter->sequence_no, [1])){
                 return view('website.chapter-videos', compact('chapter','video'));
             }
             else{
-                return [
-                    'status'=>'failed',
-                    'message'=>'Please subscribe to view this chapter'
-                ];
+                return view('website.chapter-videos', compact('chapter','video'))->with('error', 'Please subscribe to view this chapter');
             }
 
         }

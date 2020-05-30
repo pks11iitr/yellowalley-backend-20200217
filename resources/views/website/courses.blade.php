@@ -21,12 +21,12 @@
                 <div class="video-testimonial-block">
                     <div class="video-thumbnail"><a href="{{route('website.chapter.details', ['id'=>$chapter->id])}}"><img src="{{$chapter->image}}" alt="" class="img-fluid"></a></div>
                     @if($chapter->lock_status['status']=='locked')
-                        <a href="#" class="video-icon-lock"><i class="fa fa-lock"></i></a>
+                        <a href="{{route('website.chapter.details', ['id'=>$chapter->id])}}" class="video-icon-lock"><i class="fa fa-lock"></i></a>
                     @endif
 {{--                        <a href="#" class="video-icon"><i class="fa fa-eye"></i></a>--}}
                 </div>
                 <div class="video-testimonial-content">
-                    <h6 class="mb10">{{$chapter->title}}</h6>
+                    <a href="{{route('website.chapter.details', ['id'=>$chapter->id])}}"><h6 class="mb10">{{$chapter->title}}</h6></a>
                 </div>
             </div>
             @endforeach
