@@ -11,7 +11,7 @@ class UsersController extends Controller
         $users = User::leftjoin('payments', 'users.id','=', 'payments.user_id')->select('users.*', 'payments.status');
 
         if(isset($request->rcode)){
-            $users=$users->where('referral_code', $request->rcode);
+            $users=$users->where('referred_by', $request->rcode);
         }
 
         if(isset($request->user)){
