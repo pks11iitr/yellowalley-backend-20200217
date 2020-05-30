@@ -16,7 +16,7 @@ class UsersController extends Controller
             });
         }
 
-        $users=$users->where('id','!=',1)->paginate(20);
+        $users=$users->where('users.id','!=',1)->paginate(20);
         return view('siteadmin.users',['users'=>$users]);
     }
     public function create(Request $request){
