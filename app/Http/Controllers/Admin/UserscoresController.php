@@ -11,7 +11,9 @@ class UserscoresController extends Controller
 {
     public function index(Request $request){
         if(isset($request->user)){
-            $userscores =Score::where('user_id', $request->user)->paginate(20);
+            $userscores =Score::with('user')->whereHas('user', function($user) use ($request){
+                $user->where('name', 'like', "%".$request->user."%");
+            })->paginate(20);
         }else{
             $userscores =Score::paginate(20);
         }

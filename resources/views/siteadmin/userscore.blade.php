@@ -31,12 +31,10 @@
                         <div class="card-header">
                             <form>
                                 <label>Select Chapter: </label>
-                                <select name="user">
-                                    <option value=""></option>
-                                    @foreach($users as $user)
-                                        <option value="{{$user->id}}" @if(request('user')== $user->id){{'selected'}}@endif>{{$user->name}}</option>
-                                    @endforeach
-                                </select>
+
+                                        <input type="text" name="user" value="{{request('user')}}">
+
+
                                 <button type="submit">Apply</button>
                             </form>
                         </div>
