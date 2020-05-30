@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Website;
 
 use App\Http\Controllers\Controller;
 use App\Models\Chapter;
+use App\Models\Video;
 use Illuminate\Http\Request;
 
 class ChapterController extends Controller
@@ -29,5 +30,32 @@ class ChapterController extends Controller
 
         }])->findOrFail($id);
         return $chapter;
+    }
+
+    public function videos(Request $request, $id){
+        $user=auth()->user();
+        $video=Video::findOrFail($id);
+        $chapter=Chapter::active()->with('videos')->findOrFail($video->chapter_id);
+        if($user && $user->isSubscriptionActive()){
+            if($chapter->sequence_no<=$user->last_qualified_chapter) {
+                return view('website.chapter-videos', compact('chapter','video'));
+            }else{
+                return [
+                    'status'=>'failed',
+                    'message'=>'Please complete chapter '.($chapter->sequence_no-1).' first'
+                ];
+            }
+        }else{
+            if(in_array($chapter->sequence_no, [1])){
+                return view('website.chapter-videos', compact('chapter','video'));
+            }
+            else{
+                return [
+                    'status'=>'failed',
+                    'message'=>'Please subscribe to view this chapter'
+                ];
+            }
+
+        }
     }
 }

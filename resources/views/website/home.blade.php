@@ -38,16 +38,14 @@
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
                     <div class="big-video-testimonial-block">
-                        <div class="video-thumbnail"><img src="img/glry/img1.jpg" alt="" class="img-fluid"></div>
+                        <div class="video-thumbnail"><img src="{{$lastvideo->image}}" alt="" class="img-fluid"></div>
                         <div class="video">
-                            <iframe src="https://www.youtube.com/embed/KEiAVv1UNac" allowfullscreen>
-                            </iframe>
+
                         </div>
-                        <a href="#" class="video-icon"><i class="fa fa-play"></i></a>
+                        <a href="{{route('website.chapter.videos', [$lastvideo->id])}}" class="video-icon"><i class="fa fa-play"></i></a>
                     </div>
                     <div class="video-testimonial-content py-3">
-                        <h4 class="mb10">Harlan M. Williams</h4>
-                        <p>Student Loan</p>
+                        <h4 class="mb10">{{$lastvideo->name}}</h4>
                     </div>
                 </div>
                 <div class="col-md-6 pull-left p-2 d-flex justify-content-center">
@@ -69,7 +67,7 @@
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                     <!-- section-title -->
                     <div class="section-title">
-                        <span class="h2">Chapter</h2></span><span class="pull-right"><a href="">See All</a></h2></span>
+                        <span class="h2">Chapter</h2></span><span class="pull-right"><a href="{{route('website.chapters')}}">See All</a></h2></span>
                     </div>
                 </div>
                 <!-- /.section-title -->
@@ -85,15 +83,10 @@
                         <div class="video-thumbnail">
                             <img src="{{$video->image}}" alt="" class="img-fluid">
                         </div>
-                        <div class="video">
-                            <iframe src="https://www.youtube.com/embed/KEiAVv1UNac" allowfullscreen>
-                            </iframe>
-                        </div>
-                        <a href="#" class="video-icon-lock"><i class="fa fa-lock"></i></a>
+                        <a href="{{route('website.chapter.videos', [$lastvideo->id])}}" class="video-icon"><i class="fa fa-play"></i></a>
                     </div>
                     <div class="video-testimonial-content">
-                        <h4 class="mb10">Harlan M. Williams</h4>
-                        <p>Student Loan</p>
+                        <h4 class="mb10">{{$video->name}}</h4>
                     </div>
                 </div>
                 @endforeach

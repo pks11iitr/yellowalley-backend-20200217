@@ -116,7 +116,7 @@ Route::group(['middleware'=>['webauth']], function(){
 Route::get('/', 'Website\HomeController@home')->name('website.home');
 Route::get('course-curriculam', 'Website\ChapterController@index')->name('website.chapters');
 Route::get('chapter-contents/{id}', 'Website\ChapterController@details')->name('website.chapter.details');
-Route::get('chapter-videos/{id}', 'Website\ChapterController@home');
+Route::get('chapter-videos/{id}', 'Website\ChapterController@videos')->name('website.chapter.videos');
 
 
 
