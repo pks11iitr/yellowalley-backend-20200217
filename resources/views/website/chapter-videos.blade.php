@@ -1,5 +1,8 @@
 @extends('website.layout')
-
+@section('spreadsheets')
+    <link rel="stylesheet" href="{{asset('css/rtop.videoPlayer.1.0.2.min.css')}}"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"crossorigin="anonymous"/>
+@endsection
 @section('contents')
     <section class="breadcrumb m-0 bg-blms py-4">
         <div class="container">
@@ -17,12 +20,9 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="big-video-testimonial-block">
-                                <div class="video-thumbnail"><img src="img/glry/img1.jpg" alt="" class="img-fluid"></div>
-                                <div class="video">
-                                    <iframe src="https://www.youtube.com/embed/KEiAVv1UNac" allowfullscreen>
-                                    </iframe>
+{{--                                <div class="video-thumbnail"><img src="img/glry/img1.jpg" alt="" class="img-fluid"></div>--}}
+                                <div id="my_video" data-video="{{$video->video_url}}" data-type="video/mp4" data-poster="{{$video->image}}">
                                 </div>
-                                <a href="#" class="video-icon"><i class="fa fa-play"></i></a>
                             </div>
                         </div>
                         <div class="col-md-12 py-4">
@@ -42,7 +42,7 @@
                     <a href="#">
                         <div class="row course-strip">
                             <div class="col-md-8">
-                                <h6>{{$v->name}}</h6>
+                                <a href="{{route('website.chapter.videos', ['id'=>$v->id])}}"><h6>{{$v->name}}</h6></a>
 {{--                                <p>Basic of controllers</p>--}}
                             </div>
                         </div>
@@ -58,5 +58,16 @@
 
 
 @section('scripts')
+    <script src="{{asset('js/rtop.videoPlayer.1.0.2.min.js')}}"></script>
+    <script>
 
+        $(document).ready(function(){
+            $("#my_video").RTOP_VideoPlayer({
+                showFullScreen: true,
+                showTimer: true,
+                showSoundControl: true
+            });
+        });
+
+    </script>
 @endsection

@@ -23,7 +23,7 @@
     <!-- Fonts icons -->
     <link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}}">
 
-
+    @yield('spreadsheets')
 
     <!-- =======================================================
       Theme Name: Yellow Alley
@@ -182,7 +182,7 @@
 <script src="{{asset('js/main.js')}}"></script>
 <script src="{{asset('js/webscript.js')}}"></script>
 
-@yield('sscripts')
+@yield('scripts')
 
 </body>
 
