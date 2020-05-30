@@ -28,6 +28,13 @@
                         <div class="card-header">
                             <h3 class="card-title">Referral Table</h3>
                         </div>
+                        <div class="card-header">
+                            <form>
+                                <label>Search by name: </label>
+                                <input type="text" name="user" value="{{request('user')}}">
+                                <button type="submit">Apply</button>
+                            </form>
+                        </div>
                         <!-- /.card-header -->
                         <div class="card-body">
                             <table id="example1" class="table table-bordered table-striped">

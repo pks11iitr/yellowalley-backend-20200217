@@ -62,7 +62,13 @@ class UsersController extends Controller
     }
 
     public function referral(Request $request){
-        $referrals =User::where('id','!=',1)->paginate(20);
+
+        if(isset($request->user)){
+            $referrals=User::where('id','!=',1)->where('name', 'like', "%".$request->user."%")->paginate(20);
+        }else{
+            $referrals =User::where('id','!=',1)->paginate(20);
+        }
+
         return view('siteadmin.referral',['referrals'=>$referrals]);
     }
 

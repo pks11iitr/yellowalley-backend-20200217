@@ -34,6 +34,7 @@
                                 <input type="text" name="user" value="{{request('user')}}">
                                 <button type="submit">Apply</button>
                             </form>
+                        </div>
                         <!-- /.card-header -->
                         <div class="card-body">
                             <table id="example1" class="table table-bordered table-striped">
