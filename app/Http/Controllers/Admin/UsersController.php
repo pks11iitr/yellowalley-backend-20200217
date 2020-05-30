@@ -9,6 +9,11 @@ class UsersController extends Controller
 {
     public function index(Request $request){
         $users = User::leftjoin('payments', 'users.id','=', 'payments.user_id')->select('users.*', 'payments.status');
+
+        if(isset($request->rcode)){
+            $users=$users->where('referral_code', $request->rcode);
+        }
+
         if(isset($request->user)){
             $users=$users->where(function($users) use ($request){
                 $users=$users->where('name', 'like', "%".$request->user."%")->orWhere('email', 'like', "%".$request->user."%")->orWhere('mobile', 'like', "%".$request->user."%");
