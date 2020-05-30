@@ -16,7 +16,7 @@ class UsersController extends Controller
             });
         }
 
-        $users=$users->paginate(20);
+        $users=$users->where('id','!=',1)->paginate(20);
         return view('siteadmin.users',['users'=>$users]);
     }
     public function create(Request $request){
@@ -58,12 +58,12 @@ class UsersController extends Controller
     }
 
     public function referral(Request $request){
-        $referrals =User::paginate(20);
+        $referrals =User::where('id','!=',1)->paginate(20);
         return view('siteadmin.referral',['referrals'=>$referrals]);
     }
 
     public function delete(Request $request, $id){
-        Banner::where('id', $id)->delete();
+        Banner::where('id', $id)->where('id','!=',1)->delete();
         return redirect()->back()->with('success', 'User has been deleted');
     }
 }
