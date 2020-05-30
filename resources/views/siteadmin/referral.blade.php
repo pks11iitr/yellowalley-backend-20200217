@@ -43,7 +43,7 @@
                                     <tr>
                                         <td>{{$referral->name}}</td>
                                         <td>{{$referral->referral_code}}</td>
-                                        <td><a href="{{route('users.list', ['rcode'=>$referral->id])}}" target="_blank">{{$referral->referrals()}}</a></td>
+                                        <td><a href="{{route('users.list', ['rcode'=>$referral->referral_code])}}" target="_blank">{{$referral->referrals()}}</a></td>
                                     </tr>
                                 @endforeach
                                 </tbody>
