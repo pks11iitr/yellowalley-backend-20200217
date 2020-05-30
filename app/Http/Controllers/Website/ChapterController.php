@@ -29,6 +29,9 @@ class ChapterController extends Controller
             $videos->orderBy('videos.sequence_no', 'asc');
 
         }])->findOrFail($id);
+
+        $chapter->lock_status=$chapter->isLockedForUser($user);
+
         return view('website.chapter-contents', compact('chapter'));
     }
 
