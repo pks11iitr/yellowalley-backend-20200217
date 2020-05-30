@@ -28,6 +28,12 @@
                         <div class="card-header">
                             <h3 class="card-title">Total Users: {{$users->total()}}</h3>
                         </div>
+                        <div class="card-header">
+                            <form>
+                                <label>Search by name/email/mobile: </label>
+                                <input type="text" name="user" value="{{request('user')}}">
+                                <button type="submit">Apply</button>
+                            </form>
                         <!-- /.card-header -->
                         <div class="card-body">
                             <table id="example1" class="table table-bordered table-striped">
@@ -41,6 +47,7 @@
                                     <th>Status</th>
                                     <th>City</th>
                                     <th>Action</th>
+                                    <th></th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -54,6 +61,7 @@
                                     <td>{{$s->status}}</td>
                                     <td>{{$s->city}}</td>
                                     <td><a href="{{route('users.edit',['id'=>$s->id])}}" class="btn btn-primary">Edit</a></td>
+                                    <td><a href="{{route('users.delete',['id'=>$s->id])}}" class="btn btn-primary">Delete</a></td>
                                 </tr>
                                     @endforeach
                                 </tbody>

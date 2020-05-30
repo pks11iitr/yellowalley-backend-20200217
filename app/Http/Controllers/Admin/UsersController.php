@@ -2,13 +2,21 @@
 
 namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
+use App\Models\Banner;
 use App\User;
 use Illuminate\Http\Request;
 
 class UsersController extends Controller
 {
     public function index(Request $request){
-        $users = User::paginate(20);
+        $users = User::leftjoin('payments', 'users.id','=', 'payments.user_id')->select('users.*', 'payments.status');
+        if(isset($request->user)){
+            $users=$users->where(function($users) use ($request){
+                $users=$users->where('name', 'like', "%".$request->user."%")->orWhere('email', 'like', "%".$request->user."%")->orWhere('mobile', 'like', "%".$request->user."%");
+            });
+        }
+
+        $users=$users->paginate(20);
         return view('siteadmin.users',['users'=>$users]);
     }
     public function create(Request $request){
@@ -52,5 +60,10 @@ class UsersController extends Controller
     public function referral(Request $request){
         $referrals =User::paginate(20);
         return view('siteadmin.referral',['referrals'=>$referrals]);
+    }
+
+    public function delete(Request $request, $id){
+        Banner::where('id', $id)->delete();
+        return redirect()->back()->with('success', 'User has been deleted');
     }
 }

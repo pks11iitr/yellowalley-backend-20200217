@@ -36,6 +36,7 @@ Route::group(['middleware'=>['auth', 'acl'], 'prefix'=>'admin', 'is'=>'admin'], 
         Route::post('update/{id}','Admin\UsersController@update')->name('users.update');
         Route::get('referral','Admin\UsersController@referral')->name('users.referral');
         Route::get('referral-details/{id}','Admin\UsersController@referralDetails')->name('users.referral.details');
+        Route::get('delete/{id}','Admin\UsersController@delete')->name('users.delete');
     });
 
     Route::group(['prefix'=>'chapter'], function(){

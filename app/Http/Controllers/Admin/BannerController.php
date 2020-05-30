@@ -94,7 +94,7 @@ class BannerController extends Controller
 
           public function delete(Request $request, $id){
               Banner::where('id', $id)->delete();
-              return redirect()->back()->with('success', 'BAnner has been deleted');
+              return redirect()->back()->with('success', 'Banner has been deleted');
           }
 
   }
