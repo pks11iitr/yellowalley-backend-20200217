@@ -35,6 +35,7 @@ Route::group(['middleware'=>['auth', 'acl'], 'prefix'=>'admin', 'is'=>'admin'], 
         Route::get('edit/{id}','Admin\UsersController@edit')->name('users.edit');
         Route::post('update/{id}','Admin\UsersController@update')->name('users.update');
         Route::get('referral','Admin\UsersController@referral')->name('users.referral');
+        Route::get('referral-details/{id}','Admin\UsersController@referralDetails')->name('users.referral.details');
     });
 
     Route::group(['prefix'=>'chapter'], function(){
@@ -51,6 +52,7 @@ Route::group(['middleware'=>['auth', 'acl'], 'prefix'=>'admin', 'is'=>'admin'], 
         Route::post('store','Admin\BannerController@store')->name('banners.store');
         Route::get('edit/{id}','Admin\BannerController@edit')->name('banners.edit');
         Route::post('update/{id}','Admin\BannerController@update')->name('banners.update');
+        Route::get('delete/{id}','Admin\BannerController@delete')->name('banners.delete');
     });
 
     Route::group(['prefix'=>'video'],function (){
@@ -111,20 +113,14 @@ Route::post('logout', 'Website\Auth\LoginController@logout')->name('logout');
 
 Route::get('/', 'Website\HomeController@home')->name('website.home');
 Route::get('course-curriculam', 'Website\ChapterController@index')->name('website.chapters');
+
 Route::group(['middleware'=>['webauth']], function(){
     Route::get('profile', 'Website\ProfileController@profile')->name('website.profile');
     Route::get('chapter-contents/{id}', 'Website\ChapterController@details')->name('website.chapter.details');
     Route::get('chapter-videos/{id}', 'Website\ChapterController@videos')->name('website.chapter.videos');
+    Route::get('chapter-videos/{id}', 'Website\ChapterController@videos')->name('website.chapter.videos');
+
 });
-
-
-
-
-
-
-
-
-
 
 Route::get('privacy','Admin\TermController@privacy');
 Route::get('term','Admin\TermController@term');

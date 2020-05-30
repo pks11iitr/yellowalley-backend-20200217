@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Banner;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use\App\Models\Banner;
 use Storage;
 
 class BannerController extends Controller
@@ -91,5 +91,10 @@ class BannerController extends Controller
              	return redirect()->back()->with('error', 'Banner update failed');
 
                           }
+
+          public function delete(Request $request, $id){
+              Banner::where('id', $id)->delete();
+              return redirect()->back()->with('success', 'BAnner has been deleted');
+          }
 
   }

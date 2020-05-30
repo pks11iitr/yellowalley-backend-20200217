@@ -10,8 +10,16 @@ use Illuminate\Http\Request;
 class QuestionController extends Controller
 {
     public function index(Request $request){
-        $questions =Question::paginate(20);
-        return view('siteadmin.question',['questions'=>$questions]);
+        $questions =Question::orderBy('chapter_id','asc')->orderBy('sequence_no','asc');
+
+        if(isset($request->chapter))//die;
+            $questions=$questions->where('chapter_id', $request->chapter);
+        if(isset($request->search))
+            $questions=$questions->where('question', 'like', "%".$request->search."%");
+        $questions=$questions->paginate(20);
+
+        $chapters=Chapter::active()->get();
+        return view('siteadmin.question',['questions'=>$questions, 'chapters'=>$chapters]);
     }
     public function create(Request $request){
         $chapters =Chapter::get();

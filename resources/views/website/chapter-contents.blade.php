@@ -18,7 +18,7 @@
                     <div class="big-video-testimonial-block">
                         <div class="video-thumbnail"><img src="{{$chapter->image}}" alt="" class="img-fluid"></div>
                         @if($chapter->lock_status['status']=='locked')
-                        <div class="video-icon"><i class="fa fa-play"></i></div>
+                        <div class="video-icon"><i class="fa fa-lock"></i></div>
                         @endif
                     </div>
                 </div>
@@ -51,6 +51,7 @@
                 @foreach($chapter->videos as $video)
                 <div class="col-md-12">
                     <div class="row course-strip">
+                        <a href="{{route('website.chapter.videos', ['id'=>$video->id])}}">
                         <div class="col-md-4">
                             <h6>{{$video->name}}</h6>
                         </div>
@@ -60,9 +61,6 @@
                     </div>
                 </div>
                 @endforeach
-                <div class="col-md-12 text-center mt-4">
-                    <a href="" class="btn btn-blms">Take Test</a>
-                </div>
             </div>
         </div>
     </section>

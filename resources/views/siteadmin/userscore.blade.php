@@ -28,6 +28,18 @@
                         <div class="card-header">
                             <h3 class="card-title">User Score Table</h3>
                         </div>
+                        <div class="card-header">
+                            <form>
+                                <label>Select Chapter: </label>
+                                <select name="user">
+                                    <option value=""></option>
+                                    @foreach($users as $user)
+                                        <option value="{{$user->id}}" @if(request('user')== $user->id){{'selected'}}@endif>{{$user->name}}</option>
+                                    @endforeach
+                                </select>
+                                <button type="submit">Apply</button>
+                            </form>
+                        </div>
                         <!-- /.card-header -->
                         <div class="card-body">
                             <table id="example1" class="table table-bordered table-striped">
@@ -36,6 +48,7 @@
                                     <th>User(Name)</th>
                                     <th>Chapter(Title)</th>
                                     <th>Score</th>
+                                    <th>Date</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -44,6 +57,7 @@
                                         <td>{{$user->user->name}}</td>
                                         <td>{{$user->chapter->title}}</td>
                                         <td>{{$user->score}}</td>
+                                        <td>{{$user->updated_at}}</td>
                                     </tr>
                                 @endforeach
                                 </tbody>

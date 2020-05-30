@@ -11,8 +11,16 @@ use Illuminate\Support\Facades\Storage;
 class VideoController extends Controller
 {
     public function index(Request $request){
-        $videos =Video::paginate(20);
-        return view('siteadmin.videolist',['videos'=>$videos]);
+
+        $videos =Video::orderBy('chapter_id','asc')->orderBy('sequence_no','asc');
+        if(isset($request->chapter))//die;
+            $videos=$videos->where('chapter_id', $request->chapter);
+        if(isset($request->search))
+            $videos=$videos->where('name', 'like', "%".$request->search."%");
+        $videos=$videos->paginate(20);
+
+        $chapters=Chapter::active()->get();
+        return view('siteadmin.videolist',['videos'=>$videos, 'chapters'=>$chapters]);
     }
     public function create(Request $request){
         $chapters =Chapter::get();

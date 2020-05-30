@@ -28,6 +28,19 @@
                         <div class="card-header">
                             <h3 class="card-title">Total Videos: {{$videos->total()}}</h3>
                         </div>
+                        <div class="card-header">
+                        <form>
+                            <label>Select Chapter: </label>
+                            <select name="chapter">
+                                <option value=""></option>
+                                @foreach($chapters as $chapter)
+                                <option value="{{$chapter->id}}" @if(request('chapter')== $chapter->id){{'selected'}}@endif>{{$chapter->title}}</option>
+                                @endforeach
+                            </select>
+                            <label>Text To Search:</label> <input type="text" name="search" value="{{request('search')}}">
+                            <button type="submit">Apply</button>
+                        </form>
+                        </div>
                         <!-- /.card-header -->
                         <div class="card-body">
                             <table id="example1" class="table table-bordered table-striped">

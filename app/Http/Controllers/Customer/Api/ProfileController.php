@@ -2,13 +2,9 @@
 
 namespace App\Http\Controllers\Customer\Api;
 
-use App\Models\Contact;
-use App\Models\Doubt;
-use App\Models\OTPModel;
-use App\Services\SMS\Msg91;
-use App\User;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Contact;
+use Illuminate\Http\Request;
 
 class ProfileController extends Controller
 {
@@ -59,7 +55,7 @@ class ProfileController extends Controller
     public function view(Request $request){
         return [
             'status'=>'success',
-            'user'=>auth()->user()->only(['name','email','address','city','gender','pincode','qualification','dob','mobile'])
+            'user'=>auth()->user()->only(['name','email','address','city','gender','pincode','qualification','dob','mobile', 'referral_code'])
         ];
 
     }

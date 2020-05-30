@@ -52,7 +52,5 @@ class UsersController extends Controller
     public function referral(Request $request){
         $referrals =User::paginate(20);
         return view('siteadmin.referral',['referrals'=>$referrals]);
-
     }
-
 }
