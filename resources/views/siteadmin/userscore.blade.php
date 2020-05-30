@@ -30,7 +30,7 @@
                         </div>
                         <div class="card-header">
                             <form>
-                                <label>Select Chapter: </label>
+                                <label>Select User: </label>
 
                                         <input type="text" name="user" value="{{request('user')}}">
 
