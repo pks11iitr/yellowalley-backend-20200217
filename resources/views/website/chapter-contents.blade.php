@@ -45,7 +45,7 @@
 
             </div>
             <div class="col-md-12 py-2 my-3 text-center bg-dark">
-                <h3 class="text-white">Course Details</h3>
+                <h3 class="text-white">Chapter Videos</h3>
             </div>
             <div class="row">
                 @foreach($chapter->videos as $video)
@@ -55,7 +55,7 @@
                             <h6>{{$video->name}}</h6>
                         </div>
                         <div class="col-md-8">
-                            <p>{{$video->description}}</p>
+                            <p>{{str_replace('*', ' ', $video->description)}}</p>
                         </div>
                     </div>
                 </div>

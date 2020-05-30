@@ -108,15 +108,20 @@ Route::group(['middleware'=>['webguest']], function(){
 });
 Route::post('logout', 'Website\Auth\LoginController@logout')->name('logout');
 
-Route::group(['middleware'=>['webauth']], function(){
-    Route::get('profile', 'Website\ProfileController@profile')->name('website.profile');
-});
-
 
 Route::get('/', 'Website\HomeController@home')->name('website.home');
 Route::get('course-curriculam', 'Website\ChapterController@index')->name('website.chapters');
-Route::get('chapter-contents/{id}', 'Website\ChapterController@details')->name('website.chapter.details');
-Route::get('chapter-videos/{id}', 'Website\ChapterController@videos')->name('website.chapter.videos');
+Route::group(['middleware'=>['webauth']], function(){
+    Route::get('profile', 'Website\ProfileController@profile')->name('website.profile');
+    Route::get('chapter-contents/{id}', 'Website\ChapterController@details')->name('website.chapter.details');
+    Route::get('chapter-videos/{id}', 'Website\ChapterController@videos')->name('website.chapter.videos');
+});
+
+
+
+
+
+
 
 
 
