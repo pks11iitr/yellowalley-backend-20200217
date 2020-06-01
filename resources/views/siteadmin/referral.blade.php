@@ -65,7 +65,7 @@
                                 </tbody>
                             </table>
                         </div>
-                        {{$referrals->links()}}
+                        {{$referrals->appends(request()->query())->links()}}
                         <!-- /.card-body -->
                     </div>
                     <!-- /.card -->

@@ -80,7 +80,7 @@
                                 </tbody>
                             </table>
                         </div>
-                        {{$questions->links()}}
+                        {{$questions->appends(request()->query())->links()}}
                         <!-- /.card-body -->
                     </div>
                     <!-- /.card -->

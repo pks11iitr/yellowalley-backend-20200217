@@ -78,7 +78,7 @@
                                 </tbody>
                             </table>
                         </div>
-                        {{$videos->links()}}
+                        {{$videos->appends(request()->query())->links()}}
                         <!-- /.card-body -->
                     </div>
                     <!-- /.card -->

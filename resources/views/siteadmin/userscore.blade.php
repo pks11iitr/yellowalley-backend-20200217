@@ -61,7 +61,7 @@
                                 </tbody>
                             </table>
                         </div>
-                        {{$userscores->links()}}
+                        {{$userscores->appends(request()->query())->links()}}
                         <!-- /.card-body -->
                     </div>
                     <!-- /.card -->
