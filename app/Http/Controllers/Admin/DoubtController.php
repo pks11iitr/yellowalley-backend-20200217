@@ -21,7 +21,7 @@ class DoubtController extends Controller
                     ->orWhere('descripition', 'like', "%".$request->search."%");
             });
         }else{
-            $doubts =Doubt::paginate(20);
+            $doubts =Doubt::where(1, 1);
         }
 
         if(isset($request->datefrom))
