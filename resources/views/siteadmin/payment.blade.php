@@ -27,13 +27,14 @@
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">Total Payments: {{$payments->total()}}</h3>
+                            <br>
                             <h3 class="card-title">Total Amount: {{$total}}</h3>
                         </div>
                         <div class="card-header">
                             <form>
                                 <label>Select Status: </label>
                                 <select name="status">
-                                    <option value=""></option>
+                                    <option value="all"  @if(request('status')=='all'){{'selected'}}@endif>All</option>
                                     <option value="pending" @if(request('status')=='pending'){{'selected'}}@endif>Pending</option>
                                     <option value="paid" @if(request('status')==null || request('status')=='paid'){{'selected'}}@endif>Paid</option>
                                 </select>
@@ -42,7 +43,7 @@
                                 <label>Date To:</label>
                                 <input name="dateto" type="date" value="{{request('dateto')}}">
                                 <label>Search:</label>
-                                <input name="search" type="text" value="{{request('search')}}">
+                                <input name="search" type="text" value="{{request('search')}}" placeholder="name/refid/paymentid/code used">
                                 <button type="submit">Apply</button>
                             </form>
                         </div>
@@ -52,6 +53,7 @@
                                 <thead>
                                 <tr>
                                     <th>UserID</th>
+                                    <th>Code Used</th>
                                     <th>Ref Id</th>
                                     <th>Razorpay Id</th>
                                     <th>Amount</th>
@@ -63,6 +65,7 @@
                                 @foreach($payments as $payment)
                                     <tr>
                                         <td>{{$payment->user->name}}</td>
+                                        <td>{{$payment->user->referred_by}}</td>
                                         <td>{{$payment->refid}}</td>
                                         <td>{{$payment->razorpay_order_id}}</td>
                                         <td>{{$payment->amount}}</td>

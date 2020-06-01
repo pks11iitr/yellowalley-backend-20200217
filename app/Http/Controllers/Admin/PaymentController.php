@@ -10,7 +10,10 @@ class PaymentController extends Controller
 {
     public function index(Request $request){
         if(isset($request->status) && !empty($request->status))
-            $payments =Payment::where('status',$request->status);
+            if($request->status=='all')
+                $payments =Payment::where('id','>=',1);
+            else
+                $payments =Payment::where('status',$request->status);
         else
             $payments =Payment::where('status', 'paid');
         if(isset($request->datefrom))
@@ -22,6 +25,7 @@ class PaymentController extends Controller
             $payments=$payments->where(function($payments) use ($request){
                $payments->whereHas('user', function($user) use($request){
                    $user->where('name', 'like', "%".$request->search."%");
+                   $user->orWhere('referred_by', 'like', "%".$request->search."%");
                })->orWhere('refid', $request->search)->orWhere('razorpay_order_id', $request->search);
             });
         }
