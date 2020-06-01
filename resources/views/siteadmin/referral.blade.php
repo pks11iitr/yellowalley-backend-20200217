@@ -32,6 +32,10 @@
                             <form>
                                 <label>Search by name: </label>
                                 <input type="text" name="user" value="{{request('user')}}">
+                                <label>Date From:</label>
+                                <input name="datefrom" type="date" value="{{request('datefrom')}}">
+                                <label>Date To:</label>
+                                <input name="dateto" type="date" value="{{request('dateto')}}">
                                 <button type="submit">Apply</button>
                             </form>
                         </div>
@@ -51,7 +55,7 @@
                                         <td>{{$referral->name}}</td>
                                         <td>{{$referral->referral_code}}</td>
                                         <td>@if(!empty($referral->referral_code))
-                                            <a href="{{route('users.list', ['rcode'=>$referral->referral_code])}}" target="_blank">{{$referral->referrals()}}</a>
+                                            <a href="{{route('users.list', ['rcode'=>$referral->referral_code])}}" target="_blank">{{$referral->referrals(request('datefrom'), request('dateto'))}}</a>
                                             @else
                                                 0
                                             @endif

@@ -64,10 +64,17 @@ class UsersController extends Controller
     public function referral(Request $request){
 
         if(isset($request->user)){
-            $referrals=User::where('id','!=',1)->where('name', 'like', "%".$request->user."%")->paginate(20);
+            $referrals=User::where('id','!=',1)->where('name', 'like', "%".$request->user."%");
         }else{
-            $referrals =User::where('id','!=',1)->paginate(20);
+            $referrals =User::where('id','!=',1);
         }
+
+        if(isset($request->datefrom))
+            $referrals = $referrals->where('updated_at', '>=', $request->datefrom.' 00:00:00');
+        if(isset($request->dateto))
+            $referrals = $referrals->where('updated_at', '<=', $request->dateto.' 23:59:59');
+
+        $referrals=$referrals->paginate(20);
 
         return view('siteadmin.referral',['referrals'=>$referrals]);
     }

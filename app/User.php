@@ -142,8 +142,13 @@ class User extends Authenticatable implements JWTSubject
         return false;
     }
 
-    public function referrals(){
-        return User::where('referred_by',$this->referral_code)->count();
+    public function referrals($dateto,$datefrom){
+        $users=User::where('referred_by',$this->referral_code);
+        if(!empty($datefrom))
+            $users=$users->where('created_at', '>=', $datefrom.' 00:00:00');
+        if(!empty($datefrom))
+            $users=$users->where('updated_at', '>=', $dateto.' 23:59:59');
+        return $users->count();
     }
 
     public function tests(){
