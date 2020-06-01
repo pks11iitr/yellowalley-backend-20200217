@@ -62,7 +62,6 @@
                                     <th>Address</th>
                                     <th>Status</th>
                                     <th>Action</th>
-                                    <th></th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -72,7 +71,8 @@
                                     <td>{{$s->email}}</td>
                                     <td>{{$s->mobile}}</td>
                                     <td>{{$s->address.''.$s->city.' '}}</td>
-                                    <td>{{$s->status}}</td>
+                                    <td>{{$s->status==0?'Inactive':($s->status==1?'Active':'Block')}}</td>
+                                    <td>{{$s->payment_status}}</td>
                                     <td><a href="{{route('users.edit',['id'=>$s->id])}}" class="btn btn-primary">Edit</a>&nbsp;&nbsp;<a href="{{route('users.delete',['id'=>$s->id])}}" class="btn btn-primary">Delete</a></td>
                                 </tr>
                                     @endforeach

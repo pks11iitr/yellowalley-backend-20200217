@@ -8,7 +8,8 @@ use Illuminate\Http\Request;
 class UsersController extends Controller
 {
     public function index(Request $request){
-        $users = User::leftjoin('payments', 'users.id','=', 'payments.user_id')->select('users.*', 'payments.status');
+
+        $users = User::leftjoin('payments', 'users.id','=', 'payments.user_id')->select('users.*', 'payments.status as payment_status');
 
         if(isset($request->rcode)){
             $users=$users->where('referred_by', $request->rcode);
@@ -19,6 +20,22 @@ class UsersController extends Controller
                 $users=$users->where('name', 'like', "%".$request->user."%")->orWhere('email', 'like', "%".$request->user."%")->orWhere('mobile', 'like', "%".$request->user."%");
             });
         }
+
+        if(isset($request->payment_status)){
+            $users=$users->where('payments.status', $request->payment_status);
+        }
+
+        if(isset($request->status)){
+            $users=$users->where('users.status', $request->status);
+        }
+
+        if(isset($request->datefrom))
+            $users=$users->where('users.created_at', '>=',$request->datefrom.' 00:00:00');
+
+        if(isset($request->dateto))
+            $users=$users->where('users.created_at', '<=', $request->datefrom.' 23:59:59');
+
+
 
         $users=$users->where('users.id','!=',1)->paginate(20);
         return view('siteadmin.users',['users'=>$users]);
