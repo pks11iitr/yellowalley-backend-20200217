@@ -48,7 +48,7 @@
                                 <select name="payment_status"  placeholder="">
                                     <option value="">All</option>
                                     <option value="paid" {{request('payment_status')=='paid'?'selected':''}}>Paid</option>
-                                    <option value="notpaid" {{request('payment_status')=='notpaid'?'selected':''}}>Not Paid</option>
+                                    <option value="pending" {{request('payment_status')=='pending'?'selected':''}}>Pending</option>
                                 </select>
                                 <button type="submit">Apply</button>
                             </form>
