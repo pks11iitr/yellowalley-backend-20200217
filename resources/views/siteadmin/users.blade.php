@@ -32,6 +32,22 @@
                             <form>
                                 <label>Search by name/email/mobile: </label>
                                 <input type="text" name="user" value="{{request('user')}}">
+                                <label>Date From:</label>
+                                <input name="datefrom" type="date" value="{{request('datefrom')}}">
+                                <label>Date To:</label>
+                                <input name="dateto" type="date" value="{{request('dateto')}}">
+                                <br>
+                                <label for="exampleInputistop">Status</label>
+                                <select name="status"  placeholder="">
+                                    <option value="1" {{request('status')==1?'selected':''}}>Active</option>
+                                    <option value="0" {{request('status')==0?'selected':''}}>Inactive</option>
+                                    <option value="2" {{request('status')==2?'selected':''}}>Block</option>
+                                </select>
+                                <label for="exampleInputistop">Payment Status</label>
+                                <select name="payment_status"  placeholder="">
+                                    <option value="paid" {{request('payment_status')=='paid'?'selected':''}}>Paid</option>
+                                    <option value="notpaid" {{request('payment_status')=='notpaid'?'selected':''}}>Not Paid</option>
+                                </select>
                                 <button type="submit">Apply</button>
                             </form>
                         </div>
@@ -42,11 +58,9 @@
                                 <tr>
                                     <th>Name</th>
                                     <th>Email</th>
-                                    <th>Gender</th>
                                     <th>Mobile</th>
                                     <th>Address</th>
                                     <th>Status</th>
-                                    <th>City</th>
                                     <th>Action</th>
                                     <th></th>
                                 </tr>
@@ -56,13 +70,10 @@
                                 <tr>
                                     <td>{{$s->name}}</td>
                                     <td>{{$s->email}}</td>
-                                    <td>{{$s->gender}}</td>
                                     <td>{{$s->mobile}}</td>
-                                    <td>{{$s->address}}</td>
+                                    <td>{{$s->address.''.$s->city.' '}}</td>
                                     <td>{{$s->status}}</td>
-                                    <td>{{$s->city}}</td>
-                                    <td><a href="{{route('users.edit',['id'=>$s->id])}}" class="btn btn-primary">Edit</a></td>
-                                    <td><a href="{{route('users.delete',['id'=>$s->id])}}" class="btn btn-primary">Delete</a></td>
+                                    <td><a href="{{route('users.edit',['id'=>$s->id])}}" class="btn btn-primary">Edit</a>&nbsp;&nbsp;<a href="{{route('users.delete',['id'=>$s->id])}}" class="btn btn-primary">Delete</a></td>
                                 </tr>
                                     @endforeach
                                 </tbody>
