@@ -9,4 +9,8 @@ class Doubt extends Model
     protected $table='doubts';
 
     protected $fillable=['name','mobile','subject','description','user_id','email'];
+
+    public function user(){
+        return $this->belongsTo('App\User','user_id');
+    }
 }
