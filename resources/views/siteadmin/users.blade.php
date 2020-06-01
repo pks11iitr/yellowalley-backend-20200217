@@ -39,12 +39,14 @@
                                 <br>
                                 <label for="exampleInputistop">Status</label>
                                 <select name="status"  placeholder="">
+                                    <option value="">All</option>
                                     <option value="1" {{request('status')==1?'selected':''}}>Active</option>
-                                    <option value="0" {{request('status')==0?'selected':''}}>Inactive</option>
+                                    <option value="0" {{!is_null(request('status')) && request('status')==0?'selected':''}}>Inactive</option>
                                     <option value="2" {{request('status')==2?'selected':''}}>Block</option>
                                 </select>
                                 <label for="exampleInputistop">Payment Status</label>
                                 <select name="payment_status"  placeholder="">
+                                    <option value="">All</option>
                                     <option value="paid" {{request('payment_status')=='paid'?'selected':''}}>Paid</option>
                                     <option value="notpaid" {{request('payment_status')=='notpaid'?'selected':''}}>Not Paid</option>
                                 </select>
