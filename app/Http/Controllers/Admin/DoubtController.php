@@ -18,7 +18,7 @@ class DoubtController extends Controller
                     ->orWhere('email', 'like', "%".$request->search."%")
                     ->orWhere('mobile', 'like', "%".$request->search."%")
                     ->orWhere('subject', 'like', "%".$request->search."%")
-                    ->orWhere('descripition', 'like', "%".$request->search."%");
+                    ->orWhere('description', 'like', "%".$request->search."%");
             });
         }else{
             $doubts =Doubt::where('id', '>=', 1);
