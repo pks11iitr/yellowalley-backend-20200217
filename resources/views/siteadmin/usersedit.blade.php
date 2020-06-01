@@ -61,8 +61,9 @@
                                     <div class="form-group">
                                         <label for="exampleInputistop">Status</label>
                                         <select name="status" class="form-control" id="exampleInputistop" placeholder="">
-                                            <option value="1" {{$useredit->status==1?'selected':''}}>Yes</option>
-                                            <option value="0" {{$useredit->status==0?'selected':''}}>No</option>
+                                            <option value="1" {{$useredit->status==1?'selected':''}}>Active</option>
+                                            <option value="0" {{$useredit->status==0?'selected':''}}>Inactive</option>
+                                            <option value="2" {{$useredit->status==2?'selected':''}}>Block</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
@@ -80,13 +81,6 @@
                                     <div class="form-group">
                                         <label for="exampleInputimage">Qualification</label>
                                         <input type="text" name="qualification" class="form-control" value="{{$useredit->qualification}}" placeholder="">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputistop">Signup Complete</label>
-                                        <select name="signup_complete" class="form-control" id="exampleInputistop" placeholder="">
-                                            <option value="1" {{$useredit->signup_complete==1?'selected':''}}>Yes</option>
-                                            <option value="0" {{$useredit->signup_complete==0?'selected':''}}>No</option>
-                                        </select>
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputimage">Referral Code</label>

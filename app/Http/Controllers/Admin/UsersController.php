@@ -45,7 +45,7 @@ class UsersController extends Controller
         $refrelcode= User::generateReferralCode();
         User::create(array_merge($request->only(['name','gender','email','mobile','address','status','dob',
             'pincode','city','qualification', 'referred_by','subscription_required',
-            'signup_complete']),['subscription_expiry'=>$expdate,'referral_code'=>$refrelcode]));
+            'signup_complete']),['subscription_expiry'=>$expdate,'referral_code'=>$refrelcode, 'signup_complete'=>true]));
         return redirect(route('users.list'))->with('success','users has been created');
     }
     public function edit(Request $request,$id){

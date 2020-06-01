@@ -61,8 +61,9 @@
                                     <div class="form-group">
                                         <label for="exampleInputistop">Status</label>
                                         <select name="status" class="form-control" id="exampleInputistop" placeholder="">
-                                            <option value="1">Yes</option>
-                                            <option value="0">No</option>
+                                            <option value="1">Active</option>
+                                            <option value="0">Inactive</option>
+                                            <option value="2">Block</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
@@ -80,13 +81,6 @@
                                     <div class="form-group">
                                         <label for="exampleInputimage">Qualification</label>
                                         <input type="text" name="qualification" class="form-control" id="exampleInputimage" placeholder="">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputistop">Signup Complete</label>
-                                        <select name="signup_complete" class="form-control" id="exampleInputistop" placeholder="">
-                                            <option value="1">Yes</option>
-                                            <option value="0">No</option>
-                                        </select>
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputimage">Referral By</label>
