@@ -33,8 +33,8 @@
                                 <label>Select Status: </label>
                                 <select name="status">
                                     <option value=""></option>
-                                    <option value="pending" @if(request('staus')=='pending'){{'selected'}}@endif>Pending</option>
-                                    <option value="paid" @if(request('staus')=='paid'){{'selected'}}@endif>Paid</option>
+                                    <option value="pending" @if(request('status')=='pending'){{'selected'}}@endif>Pending</option>
+                                    <option value="paid" @if(request('status')==null || request('status')=='paid'){{'selected'}}@endif>Paid</option>
                                 </select>
                                 <button type="submit">Apply</button>
                             </form>

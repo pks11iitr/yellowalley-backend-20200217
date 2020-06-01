@@ -12,7 +12,7 @@ class PaymentController extends Controller
         if(isset($request->status) && !empty($request->status))
             $payments =Payment::where('status',$request->status)->paginate(20);
         else
-            $payments =Payment::paginate(20);
+            $payments =Payment::where('status', 'paid')->paginate(20);
         return view('siteadmin.payment',['payments'=>$payments]);
     }
 }
