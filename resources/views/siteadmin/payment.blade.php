@@ -36,6 +36,10 @@
                                     <option value="pending" @if(request('status')=='pending'){{'selected'}}@endif>Pending</option>
                                     <option value="paid" @if(request('status')==null || request('status')=='paid'){{'selected'}}@endif>Paid</option>
                                 </select>
+                                <label>Date From:</label>
+                                <input name="datefrom" type="date">
+                                <label>Date To:</label>
+                                <input name="dateto" type="date">
                                 <button type="submit">Apply</button>
                             </form>
                         </div>
@@ -59,6 +63,7 @@
                                         <td>{{$payment->razorpay_order_id}}</td>
                                         <td>{{$payment->amount}}</td>
                                         <td>{{$payment->status}}</td>
+                                        <td>{{$payment->updated_at}}</td>
                                     </tr>
                                 @endforeach
                                 </tbody>
