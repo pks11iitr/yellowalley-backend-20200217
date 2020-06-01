@@ -82,7 +82,7 @@
                                 </tbody>
                             </table>
                         </div>
-                        {{$users->links()}}
+                        {{$users->appends(Input::except('page'))->links()}}
                     </div>
                     <!-- /.card -->
                 </div>
