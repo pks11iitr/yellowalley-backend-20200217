@@ -8,8 +8,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h4 class="">{{$chapter->title}}</h4><div class="col-md-12 text-center mt-4">
-                        <a href="{{}}" class="btn btn-blms">Take Test</a>
+                    <h4 class="">{{$chapter->title}}</h4>
+                    <div class="col-md-12 text-center mt-4">
+                        <a href="{{route('website.start.test', ['id'=>$chapter->id])}}" class="btn btn-blms">Take Test</a>
                     </div>
                 </div>
             </div>

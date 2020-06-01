@@ -120,6 +120,12 @@ Route::group(['middleware'=>['webauth']], function(){
     Route::get('chapter-contents/{id}', 'Website\ChapterController@details')->name('website.chapter.details');
     Route::get('chapter-videos/{id}', 'Website\ChapterController@videos')->name('website.chapter.videos');
     Route::get('chapter-videos/{id}', 'Website\ChapterController@videos')->name('website.chapter.videos');
+    Route::get('start-test/{id}', 'Website\TestController@start')->name('website.start.test');
+    Route::get('attempt-question/{testid}/{questionid}', 'Website\QuestionController@view')->name('website.view.question');
+
+    Route::post('attempt-question/{testid}/{questionid}', 'Website\QuestionController@putAnswer');
+    Route::get('submit-test/{testid}', 'Website\TestController@submitTest')->name('website.test.submit');
+    Route::post('submit-test/{testid}', 'Website\TestController@submitTest');
 
 });
 
