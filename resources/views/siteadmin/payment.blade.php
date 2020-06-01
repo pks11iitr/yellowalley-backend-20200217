@@ -27,6 +27,7 @@
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">Total Payments: {{$payments->total()}}</h3>
+                            <h3 class="card-title">Total Amount: {{$total}}</h3>
                         </div>
                         <div class="card-header">
                             <form>
@@ -37,9 +38,11 @@
                                     <option value="paid" @if(request('status')==null || request('status')=='paid'){{'selected'}}@endif>Paid</option>
                                 </select>
                                 <label>Date From:</label>
-                                <input name="datefrom" type="date">
+                                <input name="datefrom" type="date" value="{{request('datefrom')}}">
                                 <label>Date To:</label>
-                                <input name="dateto" type="date">
+                                <input name="dateto" type="date" value="{{request('dateto')}}">
+                                <label>Search:</label>
+                                <input name="search" type="text" value="{{request('search')}}">
                                 <button type="submit">Apply</button>
                             </form>
                         </div>
@@ -53,6 +56,7 @@
                                     <th>Razorpay Id</th>
                                     <th>Amount</th>
                                     <th>Status</th>
+                                    <th>Date Time</th>
                                 </tr>
                                 </thead>
                                 <tbody>
