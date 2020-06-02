@@ -15,7 +15,6 @@
         <div class="container">
             <div class="row py-4">
                 <div class="col-md-12 py-5">
-
                     @if($result['status']=='success')
                         <div class="form-group text-center">
                         Click download button to download your certificate.<br>

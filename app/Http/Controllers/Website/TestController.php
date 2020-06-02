@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Website;
 
 use App\Http\Controllers\Controller;
 use App\Models\Chapter;
-use App\Models\Score;
 use App\Models\Test;
 use App\User;
 use Illuminate\Http\Request;
@@ -87,26 +86,27 @@ class TestController extends Controller
     public function getCertificateInfo(Request $request){
 
         $user=auth()->user();
+        //var_dump($user);var_dump(Test::isAllTestComplete($user));die;
         if(Test::isAllTestComplete($user)){
             $result= [
                 'status'=>'success',
                 'message'=>'Click download button to continue',
                 'url'=>route('website.certificate.download', ['code'=>$user->referral_code])
             ];
+        }else{
+            $result= [
+                'status'=>'failed',
+                'message'=>'Please complete all tests to download Certificate'
+            ];
         }
-
-        $result= [
-            'status'=>'failed',
-            'message'=>'Please complete all tests to download Certificate'
-        ];
 
         return view('website.certificate-information', compact('result','user'));
     }
 
     public function downloadCertificate(Request $request, $code){
         $user=User::where('referral_code', $code)->firstOrFail();
-        $score=$user->totalScore();
-        $totalscore=Score::totalscore();
+//        $score=$user->totalScore();
+//        $totalscore=Score::totalscore();
         if(Test::isAllTestComplete($user)) {
 
             $img = Image::make(public_path('certificate.jpg'));
