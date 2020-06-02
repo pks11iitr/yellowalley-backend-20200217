@@ -105,7 +105,7 @@ class LoginController extends Controller
                     }
                 }
             }else{
-                return redirect()->route('website.complete.profile',['code',$user->referral_code])->with('success', 'Please complete your profile');
+                return redirect()->route('website.complete.profile',['code'=>$user->referral_code])->with('success', 'Please complete your profile');
             }
         }
     }
@@ -146,9 +146,17 @@ class LoginController extends Controller
         return redirect()->route('website.home');
     }
 
-    public function completeProfile(Request $request){
+    public function profileform(Request $request, $code){
+        $user=User::where('referral_code', $request->code)->firstOrFail();
+        if($user->signup_complete==0) {
+            return view('website.auth.complete-profile', compact('code','user'));
+        }else{
+            return redirect()->back()->with('error', 'Operation is not permitted');
+        }
+    }
+
+    public function completeProfile(Request $request, $code){
         $request->validate([
-            'code'=>'required|string|max:7',
             'address'=>'required|string|max:150',
             'name'=>'required|string|max:100',
             'email'=>'required|email|max:60',
@@ -158,8 +166,7 @@ class LoginController extends Controller
             'qualification'=>'required|string|max:50',
             'dob'=>'required|date_format:Y-m-d'
         ]);
-
-        $user=User::where('referral_code', $request->code)->first();
+        $user=User::where('referral_code', $code)->first();
         if($user->signup_complete==0){
             $user->update(
                 array_merge($request->only('name','email','address','city','gender','pincode','qualification','dob','referred_by'))
@@ -169,7 +176,7 @@ class LoginController extends Controller
                 $msg=config('sms-templates.login-otp');
                 $msg=str_replace('{{otp}}', $otp, $msg);
                 if(Msg91::send($request->mobile, $msg)){
-                    return redirect()->route('website.verify.otp')->with('success', 'Please verify OTP to continue');
+                    return redirect()->route('website.verify.otp')->with('success', 'Please verify OTP to continue')->with('mobile', $user->mobile);
                 }
             }
         }

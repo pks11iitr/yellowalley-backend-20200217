@@ -100,7 +100,8 @@ Route::group(['middleware'=>['auth', 'acl'], 'prefix'=>'admin', 'is'=>'admin'], 
 Route::group(['middleware'=>['webguest']], function(){
     Route::get('login', 'Website\Auth\LoginController@showLoginForm')->name('login');
     Route::post('login', 'Website\Auth\LoginController@login');
-    Route::get('complete-profile/{code}', 'Website\Auth\LoginController@login')->name('website.complete.profile');
+    Route::get('complete-profile/{code}', 'Website\Auth\LoginController@profileform')->name('website.complete.profile');
+    Route::post('complete-profile/{code}', 'Website\Auth\LoginController@completeProfile');
     Route::post('complete-profile/{code}', 'Website\Auth\LoginController@login');
     Route::get('verify-otp', 'Website\Auth\LoginController@showOTPForm')->name('website.verify.otp');
     Route::post('verify-otp', 'Website\Auth\LoginController@verifyOTP');
