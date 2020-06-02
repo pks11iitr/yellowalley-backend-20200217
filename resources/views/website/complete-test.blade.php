@@ -24,11 +24,11 @@
         <div class="container">
             <div class="row py-4">
                 <div class="col-md-12 py-5">
-                    <form action="{{route('website.test.submit', ['testid'=>$test->refid])}}" method="post">
+                    <form action="{{route('website.show.score', ['testid'=>$test->refid])}}" method="get">
                         @csrf
 
-                        <div>
-                            Congratulations, you have successfully completed this test, please submit to get results
+                        <div class="form-group text-center">
+                            <h4>Congratulations, you have successfully completed this test. Please submit test to get results</h4>
                         </div>
 
                         <div class="form-group text-center">

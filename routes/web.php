@@ -113,7 +113,7 @@ Route::post('logout', 'Website\Auth\LoginController@logout')->name('logout');
 
 
 Route::get('/', 'Website\HomeController@home')->name('website.home');
-Route::get('course-curriculam', 'Website\ChapterController@index')->name('website.chapters');
+Route::get('course-curriculum', 'Website\ChapterController@index')->name('website.chapters');
 
 Route::group(['middleware'=>['webauth']], function(){
     Route::get('profile', 'Website\ProfileController@profile')->name('website.profile');
@@ -124,10 +124,16 @@ Route::group(['middleware'=>['webauth']], function(){
     Route::get('attempt-question/{testid}/{questionid}', 'Website\QuestionController@view')->name('website.view.question');
 
     Route::post('attempt-question/{testid}/{questionid}', 'Website\QuestionController@putAnswer');
-    Route::get('submit-test/{testid}', 'Website\TestController@submitTest')->name('website.test.submit');
-    Route::post('submit-test/{testid}', 'Website\TestController@submitTest');
+    Route::get('submit-test/{testid}', 'Website\TestController@viewSubmitTest')->name('website.test.submit');
+    //Route::post('submit-test/{testid}', 'Website\TestController@submitTest');
+    Route::get('show-score/{testid}', 'Website\TestController@submitTest')->name('website.show.score');
+    Route::get('certificate', 'Website\TestController@getCertificateInfo')->name('website.certificate.info');
+
 
 });
+
+
+Route::get('download-certificate/{code}','Website\TestController@downloadCertificate')->name('website.certificate.download');
 
 Route::get('privacy','Admin\TermController@privacy');
 Route::get('term','Admin\TermController@term');
