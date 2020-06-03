@@ -74,7 +74,7 @@ class UsersController extends Controller
         if(isset($request->dateto))
             $users=$users->where('users.created_at', '<=', $request->datefrom.' 23:59:59');
 
-        $users=$users->get();
+        $users=$users->$users->where('users.id','!=',1)->get();
         return Excel::download(new UserExports($users), 'users-export.xlsx');
         //return view('siteadmin.export',['users'=>$users]);
     }
