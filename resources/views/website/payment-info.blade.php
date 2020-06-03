@@ -17,7 +17,7 @@
 
             Order ID is: {{Session::get('refid')}}
 
-
+            <a href="{{route('website.chapters')}}" class="btn btn-warning">Continue</a>
 
         @else
 
