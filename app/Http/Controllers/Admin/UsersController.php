@@ -1,13 +1,19 @@
 <?php
 
 namespace App\Http\Controllers\admin;
+use App\Exports\UserExports;
 use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class UsersController extends Controller
 {
     public function index(Request $request){
+
+        if($request->export==true){
+            return $this->exportUser($request);
+        }
 
         $users = User::leftjoin('payments', 'users.id','=', 'payments.user_id')->select('users.*', 'payments.status as payment_status');
 
@@ -40,6 +46,39 @@ class UsersController extends Controller
         $users=$users->where('users.id','!=',1)->paginate(20);
         return view('siteadmin.users',['users'=>$users]);
     }
+
+    public function exportUser(Request $request){
+        $users = User::leftjoin('payments', 'users.id','=', 'payments.user_id')->select('users.*', 'payments.status as payment_status');
+
+        if(isset($request->rcode)){
+            $users=$users->where('referred_by', $request->rcode);
+        }
+
+        if(isset($request->user)){
+            $users=$users->where(function($users) use ($request){
+                $users=$users->where('name', 'like', "%".$request->user."%")->orWhere('email', 'like', "%".$request->user."%")->orWhere('mobile', 'like', "%".$request->user."%");
+            });
+        }
+
+        if(isset($request->payment_status)){
+            $users=$users->where('payments.status', $request->payment_status);
+        }
+
+        if(isset($request->status)){
+            $users=$users->where('users.status', $request->status);
+        }
+
+        if(isset($request->datefrom))
+            $users=$users->where('users.created_at', '>=',$request->datefrom.' 00:00:00');
+
+        if(isset($request->dateto))
+            $users=$users->where('users.created_at', '<=', $request->datefrom.' 23:59:59');
+
+        $users=$users->get();
+        return Excel::download(new UserExports($users), 'users-export.xlsx');
+        //return view('siteadmin.export',['users'=>$users]);
+    }
+
     public function create(Request $request){
         return view('siteadmin.usersadd');
     }
@@ -100,4 +139,6 @@ class UsersController extends Controller
         User::where('id', $id)->where('id','!=',1)->delete();
         return redirect()->back()->with('success', 'User has been deleted');
     }
+
+
 }

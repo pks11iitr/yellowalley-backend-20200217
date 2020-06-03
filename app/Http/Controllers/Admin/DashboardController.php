@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\Chapter;
-use App\Models\Score;
+use App\Models\Question;
 use App\Models\Video;
 use App\User;
+use DB;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
 class DashboardController extends Controller
 {
@@ -16,6 +17,30 @@ class DashboardController extends Controller
         $users =User::count()-1;
         $chapters =Chapter::active()->count();
         $videos =Video::active()->count();
-        return view('siteadmin.dashboard',compact('users','videos','chapters'));
+        $questions=Question::active()->count();
+        $monday = strtotime("last monday");
+        $monday = date('w', $monday)==date('w') ? $monday+7*86400 : $monday;
+        $sunday = strtotime(date("Y-m-d",$monday)." +6 days");
+        $this_week_sd = date("Y-m-d",$monday);
+        $this_week_ed = date("Y-m-d",$sunday);
+
+        $usersnew=User::where('id','>', 1)->where('created_at', '>=', $this_week_sd.' 00:00:00')->where('created_at', '<=', $this_week_ed.' 23:59:59')->count();
+
+        $paidusers = User::leftjoin('payments', 'users.id','=', 'payments.user_id')
+        ->where('users.id','>', 1)->where('payments.status', 'paid')->count();
+
+        $userscores=User::join('user_scores', 'users.id','=', 'user_scores.user_id')
+            ->select(DB::raw("COUNT(*) count, users.id"))
+            ->groupBy("users.id")
+            ->havingRaw("count > 1")
+            ->get();
+        $completeuser=count($userscores);
+
+        return view('siteadmin.dashboard',compact('users','videos','chapters','usersnew', 'paidusers', 'completeuser','questions'));
     }
+
+
+
+
+
 }

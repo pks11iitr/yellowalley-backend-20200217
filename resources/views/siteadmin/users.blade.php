@@ -52,6 +52,7 @@
                                 </select>
                                 <button type="submit">Apply</button>
                             </form>
+
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
