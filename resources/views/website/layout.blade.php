@@ -44,8 +44,6 @@
                 </div>
                 <div class="col-md-8 py-2 col-sm-12 pull-right">
 				<span class="right">
-				  <a href="#"><i class="fa fa-gear"></i>Setting</a>
-				  <a href="#"><i class="fa fa-support"></i>Help</a>
 				  <a class="dropdown">
                       @if(auth()->user())
 					  <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
