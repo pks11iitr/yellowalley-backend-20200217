@@ -134,6 +134,10 @@ Route::group(['middleware'=>['webauth']], function(){
     Route::get('submit-doubt', 'Website\ChapterController@doubtForm')->name('website.submit.doubt');
     Route::post('submit-doubt', 'Website\ChapterController@submitDoubt');
 
+    Route::get('subscribe', 'Website\PaymentController@view')->name('website.payment.info');
+    Route::get('initiate-payment', 'Website\PaymentController@initiate')->name('website.pay');
+    Route::post('verify-payment', 'Website\PaymentController@verify')->name('website.payment.verify');
+
 });
 
 Route::get('contact-us', 'Website\WebsiteController@contactForm')->name('website.contact.us');
