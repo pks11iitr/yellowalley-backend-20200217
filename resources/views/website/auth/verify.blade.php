@@ -17,16 +17,16 @@
                     <form method="POST" action="{{ route('website.verify.otp') }}">
                         @csrf
                         <div class="form-group">
-                            <div class="col-md-6">
-                                @if ($message = Session::get('error'))
-                                    <span style="color:red">{{$message}}</span>
-                                @endif
-                            </div>
-                            <div class="col-md-6">
-                                @if ($message = Session::get('success'))
-                                    <span style="color:green">{{$message}}</span>
-                                @endif
-                            </div>
+{{--                            <div class="col-md-6">--}}
+{{--                                @if ($message = Session::get('error'))--}}
+{{--                                    <span style="color:red">{{$message}}</span>--}}
+{{--                                @endif--}}
+{{--                            </div>--}}
+{{--                            <div class="col-md-6">--}}
+{{--                                @if ($message = Session::get('success'))--}}
+{{--                                    <span style="color:green">{{$message}}</span>--}}
+{{--                                @endif--}}
+{{--                            </div>--}}
                             <input type="text" id="mobile" class="form-control form-blms" @error('mobile') is-invalid @enderror name="mobile" required placeholder="Enter Your Mobile" maxlength="10" value="{{Session::get('mobile')??old('mobile')}}" readonly>
 
                             @error('mobile')
@@ -43,7 +43,7 @@
                             </span>
                             @enderror
                         </div>
-
+                        <div class="form-group">Have not received OTP? <a href="{{route('website.resend.otp',['mobile'=>old('mobile')??Session::get('mobile')])}}">Resend OTP</a></div>
                         <div class="form-group text-center">
                             <button type="submit" class="btn btn-blms btn-block">Submit</button>
                             {{--                            <p id="tet" class="form-text text-center">Don't Have an Account</p>--}}

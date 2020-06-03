@@ -100,9 +100,9 @@ Route::group(['middleware'=>['auth', 'acl'], 'prefix'=>'admin', 'is'=>'admin'], 
 Route::group(['middleware'=>['webguest']], function(){
     Route::get('login', 'Website\Auth\LoginController@showLoginForm')->name('login');
     Route::post('login', 'Website\Auth\LoginController@login');
+    Route::get('resend', 'Website\Auth\LoginController@resendOTP')->name('website.resend.otp');
     Route::get('complete-profile/{code}', 'Website\Auth\LoginController@profileform')->name('website.complete.profile');
     Route::post('complete-profile/{code}', 'Website\Auth\LoginController@completeProfile');
-    Route::post('complete-profile/{code}', 'Website\Auth\LoginController@login');
     Route::get('verify-otp', 'Website\Auth\LoginController@showOTPForm')->name('website.verify.otp');
     Route::post('verify-otp', 'Website\Auth\LoginController@verifyOTP');
     Route::get('password/reset', 'Website\Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
@@ -117,7 +117,8 @@ Route::get('/', 'Website\HomeController@home')->name('website.home');
 Route::get('course-curriculum', 'Website\ChapterController@index')->name('website.chapters');
 
 Route::group(['middleware'=>['webauth']], function(){
-    Route::get('profile', 'Website\ProfileController@profile')->name('website.profile');
+    Route::get('profile', 'Website\ProfileController@view')->name('website.profile');
+    Route::post('profile', 'Website\ProfileController@update');
     Route::get('chapter-contents/{id}', 'Website\ChapterController@details')->name('website.chapter.details');
     Route::get('chapter-videos/{id}', 'Website\ChapterController@videos')->name('website.chapter.videos');
     Route::get('chapter-videos/{id}', 'Website\ChapterController@videos')->name('website.chapter.videos');
@@ -130,8 +131,19 @@ Route::group(['middleware'=>['webauth']], function(){
     Route::get('show-score/{testid}', 'Website\TestController@submitTest')->name('website.show.score');
     Route::get('certificate', 'Website\TestController@getCertificateInfo')->name('website.certificate.info');
 
+    Route::get('submit-doubt', 'Website\ChapterController@doubtForm')->name('website.submit.doubt');
+    Route::post('submit-doubt', 'Website\ChapterController@submitDoubt');
 
 });
+
+Route::get('contact-us', 'Website\WebsiteController@contactForm')->name('website.contact.us');
+Route::post('contact-us', 'Website\WebsiteController@submitQuery');
+Route::get('privacy-policy','Website\WebsiteController@privacy')->name('website.privacy');
+Route::get('term-and-conditions','Website\WebsiteController@tnc')->name('website.terms');
+Route::get('about-yellowalley', 'Website\WebsiteController@about')->name('website.about.us');
+Route::get('chat-with-us','Website\WebsiteController@chat')->name('website.chat');
+Route::get('faqs','Website\WebsiteController@faqs')->name('website.faqs');
+
 
 
 Route::get('download-certificate/{code}','Website\TestController@downloadCertificate')->name('website.certificate.download');

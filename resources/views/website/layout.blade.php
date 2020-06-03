@@ -52,7 +52,7 @@
 						<i class="fa fa-user"></i> Hi {{ucwords(auth()->user()->name)}}
 					  </a>
 					  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="transform: translate3d(641px, 30px, 0px);">
-						<a class="dropdown-item" href="#"><i class="fa fa-user-circle-o" aria-hidden="true"></i> My Profile</a>
+						<a class="dropdown-item" href="{{route('website.profile')}}"><i class="fa fa-user-circle-o" aria-hidden="true"></i> My Profile</a>
 						<a class="dropdown-item" href="{{ route('logout') }}"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                             <i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a>
                           <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -88,13 +88,14 @@
                             </li> -->
                         </ul>
                     </div>
-                    <a class="btn btn-blms btn-sm" href="#" data-target="#pricequote" data-image-id="" data-toggle="modal" tabindex="-1" aria-disabled="true">Submit Your Doubt</a>
+                    <a class="btn btn-blms btn-sm" href="{{route('website.submit.doubt')}}" >Submit Your Doubt</a>
                 </nav>
             </div>
         </div>
     </div>
 </section>
 <div>
+    <?php //var_dump($errors->all());die;?>
     @if ($message = Session::get('success'))
         <div class="alert alert-success alert-block">
             <button type="button" class="close" data-dismiss="alert">×</button>
@@ -106,9 +107,9 @@
     @if ($message = Session::get('error'))
         <div class="alert alert-danger alert-block">
             <button type="button" class="close" data-dismiss="alert">×</button>
-            <strong>{{ $message }}<?php var_dump($errors->all())?></strong>
+            <strong>{{ $message }}</strong>
         </div>
-@endif
+    @endif
 </div>
 @yield('contents')
 
@@ -126,16 +127,15 @@
                 <div class="col-lg-3 col-md-3 col-xs-12">
                     <h3>Useful Links</h3>
                     <ul>
-                        <li><a href="#">About</a>
+                        <li><a href="{{route('website.about.us')}}">About</a>
                         </li>
-                        <li><a href="#">Faq</a>
+                        <li><a href="{{route('website.faqs')}}">Faq</a>
                         </li>
-                        <li><a href="#">Privacy Policy</a>
+                        <li><a href="{{route('website.privacy')}}">Privacy Policy</a>
                         </li>
-                        <li><a href="#">Term & Condition</a>
+                        <li><a href="{{route('website.terms')}}">Term & Condition</a>
                         </li>
-                        </li>
-                        <li><a href="#">Contact Us</a>
+                        <li><a href="{{route('website.contact.us')}}">Contact Us</a>
                         </li>
                     </ul>
                 </div>

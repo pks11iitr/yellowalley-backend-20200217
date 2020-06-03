@@ -82,6 +82,7 @@ class LoginController extends Controller
 
 
     public function login(Request $request){
+        //var_dump($request->all());die;
         $this->validator($request->toArray())->validate();
         $user=$this->ifUserExists($request->mobile);
         if(!$user){
@@ -89,7 +90,7 @@ class LoginController extends Controller
                 //event(new Registered($user));
                 //sendotp
                 $user->assignRole('student');
-                return redirect()->route('website.complete.profile',['code',$user->referral_code])->with('success', 'Please complete your profile');
+                return redirect()->route('website.complete.profile',['code'=>$user->referral_code])->with('success', 'Please complete your profile');
             }
         }else if(!in_array($user->status, [0 , 1])){
             //send OTP
@@ -108,6 +109,28 @@ class LoginController extends Controller
                 return redirect()->route('website.complete.profile',['code'=>$user->referral_code])->with('success', 'Please complete your profile');
             }
         }
+    }
+
+
+    protected function resendOTP(Request $request){
+        $request->validate([
+            'mobile'=>'required|digits:10'
+        ]);
+        $user=$this->ifUserExists($request->mobile);
+        if($user){
+            if($otp=OTPModel::createOTP($user->id, 'login')){
+                $msg=config('sms-templates.login-otp');
+                $msg=str_replace('{{otp}}', $otp, $msg);
+                if(Msg91::send($request->mobile, $msg)){
+                    return redirect()->route('website.verify.otp')->with('success', 'OTP have been resent')->with('mobile', $user->mobile);
+                }
+            }
+        }else{
+            return redirect()->back()->with('error', 'Invalid operation');
+        }
+
+
+
     }
 
     protected function ifUserExists($mobile){

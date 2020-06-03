@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Customer\Api;
 
+use App\Http\Controllers\Controller;
 use App\Models\Chapter;
 use App\Models\Doubt;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
 class ChapterController extends Controller
 {
@@ -113,7 +113,7 @@ class ChapterController extends Controller
         if(Doubt::create(array_merge($request->only(['name','mobile','subject','description','email']), ['user_id'=>auth()->user()->id]))){
             return [
                 'status'=>'success',
-                'message'=>'Your doubt has been submitted successfully'
+                'message'=>'you will receive the solution on your mail shortly'
             ];
         }
 

@@ -15,45 +15,45 @@
         <div class="container">
             <div class="row py-4">
                 <div class="col-md-6 offset-md-3 py-3">
-                    <form action="{{route('website.complete.profile', ['code'=>$code])}}" method="post">
+                    <form action="{{route('website.profile')}}" method="post">
                         @csrf
                         <div class="form-group">
-                            <input type="text" class="form-control form-blms" name="name" placeholder="Name" required>
+                            <input type="text" class="form-control form-blms" name="name" placeholder="Name" value="{{$user->name}}" disabled>
                         </div>
                         <div class="form-group">
-                            <input type="email" class="form-control form-blms" name="email" placeholder="Email Id" required>
+                            <input type="text" class="form-control form-blms" name="email" placeholder="Email Id" value="{{$user->email}}" disabled>
                         </div>
                         <div class="form-group">
-                            <input type="phone" class="form-control form-blms"  name="mobile" placeholder="Mobile Number" disabled value="{{$user->mobile}}" required>
+                            <input type="phone" class="form-control form-blms"  name="mobile" placeholder="Mobile Number" disabled value="{{$user->mobile}}">
                         </div>
                         <div class="form-group">
                             <select class="form-control form-blms" name="gender" required>
                                 <option value="">Select Gender</option>
-                                <option value="male">Male</option>
-                                <option value="female">Female</option>
-                                <option value="others">Other</option>
+                                <option value="male" @if($user->gender=='male'){{'selected'}}@endif>Male</option>
+                                <option value="female" @if($user->gender=='female'){{'selected'}}@endif>Female</option>
+                                <option value="others" @if($user->gender=='others'){{'selected'}}@endif>Other</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <input type="date" class="form-control form-blms"  name="dob" placeholder="DOB" required>
+                            <input type="date" class="form-control form-blms"  name="dob" placeholder="DOB" required value="{{$user->dob}}">
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control form-blms"  name="address" placeholder="Address" required>
+                            <input type="text" class="form-control form-blms"  name="address" placeholder="Address" required value="{{$user->address}}">
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control form-blms"  name="city" placeholder="City" required>
+                            <input type="text" class="form-control form-blms"  name="city" placeholder="City" required value="{{$user->city}}">
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control form-blms"  name="pincode" placeholder="Pincode" required>
+                            <input type="text" class="form-control form-blms"  name="pincode" placeholder="Pincode" required value="{{$user->pincode}}">
                         </div>
                         <div class="form-group">
                             <select class="form-control form-blms" name="qualification">
                                 <option value="" required>Select Qualification</option>
-                                <option value="10th">10th</option>
-                                <option value="12th">12th</option>
-                                <option value="Diploma">Diploma</option>
-                                <option value="Graduate">Graduate</option>
-                                <option value="Post Graduate">Male</option>
+                                <option value="10th" @if($user->qualification=='10th'){{'selected'}}@endif>10th</option>
+                                <option value="12th" @if($user->qualification=='12th'){{'selected'}}@endif>12th</option>
+                                <option value="Diploma" @if($user->qualification=='Diploma'){{'selected'}}@endif>Diploma</option>
+                                <option value="Graduate" @if($user->qualification=='Graduate'){{'selected'}}@endif>Graduate</option>
+                                <option value="Post Graduate" @if($user->qualification=='Post Graduate'){{'selected'}}@endif>Male</option>
                             </select>
                         </div>
                         <div class="form-group">
