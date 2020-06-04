@@ -15,7 +15,7 @@ class UsersController extends Controller
             return $this->exportUser($request);
         }
 
-        $users = User::leftjoin('payments', 'users.id','=', 'payments.user_id')->select('users.*', 'payments.status as payment_status');
+        $users = User::with('payments');
 
         if(isset($request->rcode)){
             $users=$users->where('referred_by', $request->rcode);
@@ -28,7 +28,9 @@ class UsersController extends Controller
         }
 
         if(isset($request->payment_status)){
-            $users=$users->where('payments.status', $request->payment_status);
+            $users=$users->whereHas('payments', function($payments) use($request){
+                $payments->where('payments.status', $request->payment_status);
+            });
         }
 
         if(isset($request->status)){

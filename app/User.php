@@ -160,4 +160,9 @@ class User extends Authenticatable implements JWTSubject
         $this->save();
     }
 
+
+    public function payments(){
+        return $this->hasMany('App\Models\Payment', 'user_id');
+    }
+
 }

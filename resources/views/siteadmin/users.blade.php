@@ -75,7 +75,16 @@
                                     <td>{{$s->email}}/{{$s->mobile}}</td>
                                     <td>{{$s->address.''.$s->city.' '}}</td>
                                     <td>{{$s->status==0?'Inactive':($s->status==1?'Active':'Block')}}</td>
-                                    <td>{{$s->payment_status??'pending'}}</td>
+                                    @php
+                                        $payment_status='pending';
+                                        foreach($s->payments as $payment){
+                                            if($payment->status=='paid'){
+                                                $payment_status='paid';
+                                                break;
+                                            }
+                                        }
+                                    @endphp
+                                    <td>{{$payment_status}}</td>
                                     <td>{{$s->created_at}}</td>
                                     <td><a href="{{route('users.edit',['id'=>$s->id])}}" class="btn btn-primary">Edit</a>&nbsp;&nbsp;<a href="{{route('users.delete',['id'=>$s->id])}}" class="btn btn-primary">Delete</a></td>
                                 </tr>
