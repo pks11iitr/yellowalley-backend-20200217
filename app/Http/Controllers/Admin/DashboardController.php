@@ -26,13 +26,17 @@ class DashboardController extends Controller
 
         $usersnew=User::where('id','>', 1)->where('created_at', '>=', $this_week_sd.' 00:00:00')->where('created_at', '<=', $this_week_ed.' 23:59:59')->count();
 
-        $paidusers = User::leftjoin('payments', 'users.id','=', 'payments.user_id')
-        ->where('users.id','>', 1)->where('payments.status', 'paid')->count();
+        $paidusers = User::whereHas('payments', function($payments) {
+            $payments->where('status','paid');
+        })
+        ->where('users.id','>', 1)->count();
+
+        $chapterscount=Chapter::active()->count();
 
         $userscores=User::join('user_scores', 'users.id','=', 'user_scores.user_id')
             ->select(DB::raw("COUNT(*) count, users.id"))
             ->groupBy("users.id")
-            ->havingRaw("count > 1")
+            ->having('count', '=', $chapterscount-1)
             ->get();
         $completeuser=count($userscores);
 
