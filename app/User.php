@@ -71,22 +71,6 @@ class User extends Authenticatable implements JWTSubject
             }
     }*/
 
-    public static function generateReferralCode(){
-        $prefix='YAL';
-        $count=User::count();
-        if($count<10){
-            $referral_code='000'.$count;
-        }else if($count<100){
-            $referral_code='00'.$count;
-        }else if($count<1000){
-            $referral_code='0'.$count;
-        }else{
-            $referral_code=''.$count;
-        }
-        return $prefix.$referral_code;
-
-    }
-
 
     public function isSubscriptionActive(){
         if(!$this->subscription_required)

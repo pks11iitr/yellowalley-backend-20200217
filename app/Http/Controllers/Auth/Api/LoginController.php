@@ -66,7 +66,7 @@ class LoginController extends Controller
         return User::create([
             'mobile' => $data['mobile'],
             'password' => Hash::make($data['mobile']),
-            'referral_code'=>User::generateReferralCode()
+            //'referral_code'=>User::generateReferralCode()
         ]);
     }
 
