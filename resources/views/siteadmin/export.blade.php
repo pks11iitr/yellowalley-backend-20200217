@@ -27,7 +27,16 @@
             <td>{{ $user->qualification }}</td>
             <td>{{ $user->referral_code }}</td>
             <td>{{ $user->referred_by }}</td>
-            <td>{{ $user->payment_status??'pending' }}</td>
+            @php
+                $payment_status='pending';
+                foreach($s->payments as $payment){
+                    if($payment->status=='paid'){
+                        $payment_status='paid';
+                        break;
+                    }
+                }
+            @endphp
+            <td>{{ $payment_status }}</td>
         </tr>
     @endforeach
     </tbody>
