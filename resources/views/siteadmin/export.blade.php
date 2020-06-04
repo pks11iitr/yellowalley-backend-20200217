@@ -29,7 +29,7 @@
             <td>{{ $user->referred_by }}</td>
             @php
                 $payment_status='pending';
-                foreach($s->payments as $payment){
+                foreach($user->payments as $payment){
                     if($payment->status=='paid'){
                         $payment_status='paid';
                         break;
