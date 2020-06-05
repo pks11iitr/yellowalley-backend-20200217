@@ -50,13 +50,14 @@
                                     <option value="paid" {{request('payment_status')=='paid'?'selected':''}}>Paid</option>
                                     <option value="pending" {{request('payment_status')=='pending'?'selected':''}}>Pending</option>
                                 </select>
-                                <button type="submit" class="btn">Apply</button>
-                                <a class="btn">Export</a>
+                                <button type="submit" class="btn" style="background-color: black;color: white">Apply</button>
+                                <a class="btn" href="" style="background-color: black;color: white">Export</a>
                             </form>
 
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
+                            {{$users->appends(request()->query())->links()}}
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                 <tr>
@@ -92,8 +93,9 @@
                                     @endforeach
                                 </tbody>
                             </table>
+                            {{$users->appends(request()->query())->links()}}
                         </div>
-                        {{$users->appends(request()->query())->links()}}
+
                     </div>
                     <!-- /.card -->
                 </div>

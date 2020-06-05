@@ -39,7 +39,7 @@
                                 @endforeach
                             </select>
                             <label>Text To Search:</label> <input type="text" name="search" value="{{request('search')}}">
-                            <button type="submit">Apply</button>
+                            <button type="submit" class="btn" style="background-color: black;color: white">Apply</button>
                         </form>
                         </div>
                         <!-- /.card-header -->

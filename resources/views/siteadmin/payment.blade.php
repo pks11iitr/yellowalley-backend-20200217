@@ -44,7 +44,7 @@
                                 <input name="dateto" type="date" value="{{request('dateto')}}">
                                 <label>Search:</label>
                                 <input name="search" type="text" value="{{request('search')}}" placeholder="name/refid/paymentid/code used">
-                                <button type="submit">Apply</button>
+                                <button type="submit" class="btn" style="background-color: black;color: white">Apply</button>
                             </form>
                         </div>
                         <!-- /.card-header -->
