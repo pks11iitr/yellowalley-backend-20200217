@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\DB;
 
 class OTPModel extends Model
 {
@@ -12,8 +11,8 @@ class OTPModel extends Model
     protected $fillable=['user_id', 'otp', 'type', 'expiry'];
 
     public static function createOTP($userid, $type){
-        //$rand=rand(1, 9).''.rand(1, 9).''.rand(1, 9).''.rand(1, 9).''.rand(1, 9).''.rand(1, 9);
-        $rand='11111';
+        $rand=rand(1, 9).''.rand(1, 9).''.rand(1, 9).''.rand(1, 9).''.rand(1, 9);
+        //$rand='11111';
         $otp=self::where('user_id', $userid)
                         ->where('isverified', false)
                         ->where('type', $type)

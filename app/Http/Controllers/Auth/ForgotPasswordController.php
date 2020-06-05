@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\OTPModel;
+use App\Services\SMS\Nimbusit;
 use App\User;
-use App\Services\SMS\Msg91;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
 use Illuminate\Http\Request;
 
@@ -59,7 +59,7 @@ class ForgotPasswordController extends Controller
         if($otp=OTPModel::createOTP($user->id, 'reset-password')){
             $msg=config('sms-templates.reset-otp');
             $msg=str_replace('{{otp}}', $otp, $msg);
-            if(Msg91::send($request->mobile, $msg)){
+            if(Nimbusit::send($request->mobile, $msg)){
 
             }
         }

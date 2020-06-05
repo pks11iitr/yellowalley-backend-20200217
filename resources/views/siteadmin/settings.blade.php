@@ -32,19 +32,20 @@
                             </div>
                             <!-- /.card-header -->
                             <!-- form start -->
-                            <form role="form" method="post" enctype="multipart/form-data" action="{{route('banners.store')}}">
+                            <form role="form" method="post" enctype="multipart/form-data" action="{{route('admin.change.password')}}">
                                 @csrf
 
 
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label for="exampleInputimage">Mobile 1</label>
-                                        <input type="text" class="form-control" id="exampleInputimage" placeholder="" disabled value="{{'xxxxxx'.substr($settings[0]->mobile, 6)}}">
+                                        <input type="text" class="form-control" id="exampleInputimage" placeholder="" disabled value="{{'xxxxxx'.substr($settings[0]->mobile, 6)}}"><a href="{{route('admin.send.otp',['id'=>$settings[0]->id])}}" class="btn btn-warning">Send OTP</a>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="exampleInputimage">Mobile 2</label>
                                         <input type="text" class="form-control" id="exampleInputimage" placeholder="" disabled value="{{'xxxxxx'.substr($settings[1]->mobile, 6)}}">
+                                        <a href="{{route('admin.send.otp',['id'=>$settings[1]->id])}}" class="btn btn-warning">Send OTP</a>
                                     </div>
 
                                     <div class="form-group">
@@ -54,12 +55,12 @@
 
                                     <div class="form-group">
                                         <label for="exampleInputimage">Confirm Password</label>
-                                        <input type="text" name="confirm_password" class="form-control" id="exampleInputimage" placeholder="">
+                                        <input type="text" name="password_confirmation" class="form-control" id="exampleInputimage" placeholder="">
                                     </div>
 
                                     <div class="form-group">
                                         <label for="exampleInputimage">OTP</label>
-                                        <input type="text" name="doc_path" class="form-control" id="exampleInputimage" placeholder="" disabled value="{{'xxxxxx'.substr($settings[1]->mobile, 6)}}">
+                                        <input type="text" name="otp" class="form-control" id="exampleInputimage" placeholder="">
                                     </div>
 
                                     <!-- /.card-body -->

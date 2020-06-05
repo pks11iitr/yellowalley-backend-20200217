@@ -30,7 +30,7 @@ Route::group(['middleware'=>['auth', 'acl'], 'prefix'=>'admin', 'is'=>'admin'], 
     //Route::get('/dashboard', 'HomeController@index')->name('dashboard');
     Route::group(['prefix'=>'settings'],function (){
         Route::get('/','Admin\SettingController@settingform')->name('admin.settings');
-        Route::get('generate/{mobile}','Admin\SettingController@sendotp')->name('admin.send.otp');
+        Route::get('generate/{id}','Admin\SettingController@sendotp')->name('admin.send.otp');
         Route::post('change-password','Admin\SettingController@changepassword')->name('admin.change.password');
     });
 
