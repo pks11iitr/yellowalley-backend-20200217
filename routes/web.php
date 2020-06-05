@@ -28,6 +28,13 @@ Route::group(['middleware'=>['auth', 'acl'], 'prefix'=>'admin', 'is'=>'admin'], 
     Route::get('dashboard', 'Admin\DashboardController@index')->name('admin.dashboard');
 
     //Route::get('/dashboard', 'HomeController@index')->name('dashboard');
+    Route::group(['prefix'=>'settings'],function (){
+        Route::get('/','Admin\SettingController@settingform')->name('admin.settings');
+        Route::get('generate/{mobile}','Admin\SettingController@sendotp')->name('admin.send.otp');
+        Route::post('change-password','Admin\SettingController@changepassword')->name('admin.change.password');
+    });
+
+
     Route::group(['prefix'=>'users'],function (){
         Route::get('/users','Admin\UsersController@index')->name('users.list');
         Route::get('create','Admin\UsersController@create')->name('users.create');

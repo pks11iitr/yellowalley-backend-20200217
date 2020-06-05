@@ -109,6 +109,7 @@ class TestController extends Controller
         $result['totalscore']=$score['total'];
         $result['status']='success';
         $result['score']=$score['score'];
+        $result['chapter_name']=$test->chapter->title??'';
         $result['pass_status']=strtoupper($score['isqualify']);
         return $result;
     }
