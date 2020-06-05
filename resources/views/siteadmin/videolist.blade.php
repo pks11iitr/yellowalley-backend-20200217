@@ -25,7 +25,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="card card-primary">
-                        {{$videos->appends(request()->query())->links()}}
+
                         <div class="card-header">
                             <h3 class="card-title">Total Videos: {{$videos->total()}}</h3>
                         </div>
@@ -44,6 +44,7 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
+                            {{$videos->appends(request()->query())->links()}}
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                 <tr>
@@ -78,8 +79,9 @@
                                 @endforeach
                                 </tbody>
                             </table>
+                            {{$videos->appends(request()->query())->links()}}
                         </div>
-                        {{$videos->appends(request()->query())->links()}}
+
                         <!-- /.card-body -->
                     </div>
                     <!-- /.card -->
