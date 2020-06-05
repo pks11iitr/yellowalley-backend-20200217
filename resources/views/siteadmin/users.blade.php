@@ -50,8 +50,8 @@
                                     <option value="paid" {{request('payment_status')=='paid'?'selected':''}}>Paid</option>
                                     <option value="pending" {{request('payment_status')=='pending'?'selected':''}}>Pending</option>
                                 </select>
-                                <button type="submit" class="btn btn-warning">Apply</button>
-                                <a class="btn btn-warning">Export</a>
+                                <button type="submit" class="btn">Apply</button>
+                                <a class="btn">Export</a>
                             </form>
 
                         </div>
