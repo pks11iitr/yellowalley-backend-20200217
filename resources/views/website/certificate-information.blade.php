@@ -13,21 +13,21 @@
     </section>
     <section class="py-3 bg-light">
         <div class="container">
-            <div class="row py-4">
-                <div class="col-md-12 py-5">
+            <div class="row p-4">
+                <div class="col-md-8 offset-md-2 text-center p-3" style="border: 2px solid #e2e2e2; border-radius: 4px;">
                     @if($result['status']=='success')
-                        <div class="form-group text-center">
-                        Click download button to download your certificate.<br>
+                        <div class="form-group  px-5">
+                        <h3 class="py-5">Click download button to download your certificate.</h3>
                         </div>
                         <div class="form-group text-center">
-                            <a href="{{route('website.certificate.download', ['code'=>$user->referral_code])}}" class="btn btn-blms">Download</a>
+                            <a href="{{route('website.certificate.download', ['code'=>$user->referral_code])}}" class="btn btn-blms btn-md">Download</a>
                         </div>
                     @else
-                        <div class="form-group text-center">
-                        You have not completed all chapters test. Please complete all tests to download your certificate.<br>
+                        <div class="form-group px-5">
+                        <h3 class="py-5">You have not completed all chapters test. Please complete all tests to download your certificate.</h3>
                         </div>
                         <div class="form-group text-center">
-                        <a href="{{route('website.chapters')}}" class="btn btn-blms">Continue</a>
+                        <a href="{{route('website.chapters')}}" class="btn btn-blms btn-md">Continue</a>
                         </div>
                     @endif
                     </div>
