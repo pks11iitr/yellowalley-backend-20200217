@@ -24,7 +24,8 @@
         <section class="content">
             <div class="row">
                 <div class="col-12">
-                    <div class="card">
+                    <div class="card card-primary">
+                        {{$videos->appends(request()->query())->links()}}
                         <div class="card-header">
                             <h3 class="card-title">Total Videos: {{$videos->total()}}</h3>
                         </div>
@@ -72,7 +73,7 @@
                                         <td>{{$video->chapter->title}}</td>
                                         <td>{{$video->description}}</td>
                                         <td>{{$video->sequence_no}}</td>
-                                        <td><a href="{{route('video.edit',['id'=>$video->id])}}" class="btn btn-primary">Edit</a></td>
+                                        <td><a href="{{route('video.edit',['id'=>$video->id])}}" class="btn btn-warning">Edit</a></td>
                                     </tr>
                                 @endforeach
                                 </tbody>

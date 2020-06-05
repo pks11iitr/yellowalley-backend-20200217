@@ -24,7 +24,7 @@
         <section class="content">
             <div class="row">
                 <div class="col-12">
-                    <div class="card">
+                    <div class="card card-primary">
                         <div class="card-header">
                             <h3 class="card-title">Banner Table</h3>
                         </div>
@@ -44,8 +44,8 @@
                                     <tr>
                                         <td><img src="{{$bann->doc_path}}" height="50px" width="50px"/></td>
                                         <td>{{$bann->isactive}}</td>
-                                        <td><a href="{{route('banners.edit',['id'=>$bann->id])}}" class="btn btn-success">Edit</a></td>
-                                        <td><a href="{{route('banners.delete',['id'=>$bann->id])}}" class="btn btn-success">Delete</a></td>
+                                        <td><a href="{{route('banners.edit',['id'=>$bann->id])}}" class="btn btn-warning">Edit</a></td>
+                                        <td><a href="{{route('banners.delete',['id'=>$bann->id])}}" class="btn btn-warning">Delete</a></td>
                                     </tr>
                                 @endforeach
                                 </tbody>

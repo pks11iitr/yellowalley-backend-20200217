@@ -68,7 +68,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputimage">Date of Birth</label>
-                                        <input type="text" name="dob" class="form-control" value="{{$useredit->dob}}" placeholder="">
+                                        <input type="date" name="dob" class="form-control" value="{{$useredit->dob}}" placeholder="">
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputimage">City</label>
@@ -80,7 +80,13 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputimage">Qualification</label>
-                                        <input type="text" name="qualification" class="form-control" value="{{$useredit->qualification}}" placeholder="">
+                                        <select name="qualification" class="form-control" id="exampleInputistop" placeholder="">
+                                            <option value="10th" @if($useredit->qualification=='10th'){{'10th'}}@endif>10th</option>
+                                            <option value="12th" @if($useredit->qualification=='12th'){{'12th'}}@endif>10th</option>
+                                            <option value="Diploma" @if($useredit->qualification=='Diploma'){{'Diploma'}}@endif>Diploma</option>
+                                            <option value="Graduate" @if($useredit->qualification=='Graduate'){{'Graduate'}}@endif>Graduate</option>
+                                            <option value="Post Graduate" @if($useredit->qualification=='Post Graduate'){{'Post Graduate'}}@endif>Post Graduate</option>
+                                        </select>
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputimage">Referral Code</label>
@@ -89,6 +95,13 @@
                                     <div class="form-group">
                                         <label for="exampleInputimage">Referral By</label>
                                         <input type="text" name="referred_by" class="form-control" value="{{$useredit->referred_by}}" placeholder="">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputistop">Is Paid:</label>
+                                        <select name="is_paid" class="form-control" id="exampleInputistop" placeholder="">
+                                            <option value="1" {{$is_paid==1?'selected':''}}>Yes</option>
+                                            <option value="0" {{$is_paid==0?'selected':''}}>No</option>
+                                        </select>
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputistop">Subscription Required</label>
@@ -107,6 +120,7 @@ floor(((abs((strtotime($useredit->subscription_expiry)) - (strtotime(date('Y-m-d
 }}@endif--}}
                                         <select name="subscription_expiry" class="form-control" id="exampleInputistop"
                                                 placeholder="">
+                                            <option value="0">Dont Allow Access</option>
                                             <option value="1" {{floor(((abs((strtotime($useredit->subscription_expiry)) - (strtotime(date('Y-m-d', strtotime('-1 days', strtotime("now"))))))) - (floor((abs((strtotime($useredit->subscription_expiry)) - (strtotime(date('Y-m-d', strtotime('-1 days', strtotime("now"))))))) / (365*60*60*24))) * 365*60*60*24)/ (30*60*60*24))==1?'selected':''}}>Allowed For 1 Month
                                             </option>
                                             <option value="2" {{floor(((abs((strtotime($useredit->subscription_expiry)) - (strtotime(date('Y-m-d', strtotime('-1 days', strtotime("now"))))))) - (floor((abs((strtotime($useredit->subscription_expiry)) - (strtotime(date('Y-m-d', strtotime('-1 days', strtotime("now"))))))) / (365*60*60*24))) * 365*60*60*24)/ (30*60*60*24))==2?'selected':''}}>Allowed For 2 Month
@@ -124,7 +138,7 @@ floor(((abs((strtotime($useredit->subscription_expiry)) - (strtotime(date('Y-m-d
                                 </div>
                                 <!-- /.card-body -->
                                 <div class="card-footer">
-                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <button type="submit" class="btn btn-warning">Submit</button>
                                 </div>
                             </form>
                         </div>

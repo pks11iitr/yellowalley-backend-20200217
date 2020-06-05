@@ -2,14 +2,12 @@
 
 namespace App\Http\Controllers\Customer\Api;
 
+use App\Http\Controllers\Controller;
 use App\Models\Chapter;
 use App\Models\Score;
 use App\Models\Test;
 use App\User;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Response;
-use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
 
 class TestController extends Controller
@@ -111,7 +109,7 @@ class TestController extends Controller
         $result['totalscore']=$score['total'];
         $result['status']='success';
         $result['score']=$score['score'];
-        $result['pass_status']=$score['isqualify'];
+        $result['pass_status']=strtoupper($score['isqualify']);
         return $result;
     }
 

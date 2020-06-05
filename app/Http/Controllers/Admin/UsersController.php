@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 use App\Exports\UserExports;
 use App\Http\Controllers\Controller;
+use App\Models\Payment;
 use App\User;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
@@ -87,7 +88,17 @@ class UsersController extends Controller
         return view('siteadmin.usersadd');
     }
     public function store(Request $request){
-        $expdate = date('Y-m-d', strtotime('+'. $request->subscription_expiry .'month', strtotime("now")));
+
+        $request->validate([
+           'mobile'=>'required|unique:users'
+        ]);
+
+        if($request->subscription_expiry>0){
+            $expdate = date('Y-m-d', strtotime('+'. $request->subscription_expiry .'month', strtotime("now")));
+        }else{
+            $expdate = null;
+        }
+
         //$mon=date('m', strtotime(-strtotime("now"), $expdate));
         //var_dump($mon); die();
         /*$expdate2=strtotime($expdate);
@@ -102,22 +113,51 @@ class UsersController extends Controller
         $months = floor(($diff_date - $years * 365*60*60*24)/ (30*60*60*24));
 
         var_dump($months);die();*/
-        $refrelcode= User::generateReferralCode();
-        User::create(array_merge($request->only(['name','gender','email','mobile','address','status','dob',
-            'pincode','city','qualification', 'referred_by','subscription_required',
-            'signup_complete']),['subscription_expiry'=>$expdate,'referral_code'=>$refrelcode, 'signup_complete'=>true]));
+        $user=User::create(array_merge($request->only(['name','gender','email','mobile','address','status','dob', 'pincode','city','qualification', 'referred_by','subscription_required','signup_complete']),['subscription_expiry'=>$expdate, 'signup_complete'=>true]));
+
+        if($request->is_paid==1){
+
+            $payment=Payment::where('user_id', $user->id)->where('status', 'paid')->first();
+            if(!$payment){
+                $rid=date('Y-m-d H:i:s');
+                Payment::create(['user_id'=>$user->id, 'refid'=>$rid, 'amount'=>2999, 'status'=>'paid', 'razorpay_order_id'=>'offline_'.$rid]);
+            }
+        }
+
         return redirect(route('users.list'))->with('success','users has been created');
     }
     public function edit(Request $request,$id){
         $useredit =User::find($id);
-        return view('siteadmin.usersedit',['useredit'=>$useredit]);
+        $payment=Payment::where('user_id', $useredit->id)->where('status', 'paid')->first();
+        if($payment){
+            $is_paid=1;
+        }else{
+            $is_paid=0;
+        }
+        return view('siteadmin.usersedit',['useredit'=>$useredit,'is_paid'=>$is_paid]);
     }
     public function update(Request $request,$id){
-        $expdate = date('Y-m-d', strtotime('+'. $request->subscription_expiry .'month', strtotime("now")));
+        if($request->subscription_expiry>0){
+            $expdate = date('Y-m-d', strtotime('+'. $request->subscription_expiry .'month', strtotime("now")));
+        }else{
+            $expdate = null;
+        }
         $useredit =User::find($id);
         $useredit->update(array_merge($request->only(['name','gender','email','address','status','dob',
             'pincode','city','qualification', 'referred_by','subscription_required',
             'signup_complete']),['subscription_expiry'=>$expdate]));
+
+
+
+        if($request->is_paid==1){
+
+            $payment=Payment::where('user_id', $useredit->id)->where('status', 'paid')->first();
+            if(!$payment){
+                $rid=date('Y-m-d H:i:s');
+                Payment::create(['user_id'=>$useredit->id, 'refid'=>$rid, 'amount'=>2999, 'status'=>'paid', 'razorpay_order_id'=>'offline_'.$rid]);
+            }
+        }
+
         return redirect(route('users.list'))->with('success','users has been updated');
     }
 

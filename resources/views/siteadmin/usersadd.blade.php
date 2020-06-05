@@ -68,7 +68,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputimage">Date of Birth</label>
-                                        <input type="text" name="dob" class="form-control" id="exampleInputimage" placeholder="">
+                                        <input type="date" name="dob" class="form-control" id="exampleInputimage" placeholder="">
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputimage">City</label>
@@ -80,11 +80,24 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputimage">Qualification</label>
-                                        <input type="text" name="qualification" class="form-control" id="exampleInputimage" placeholder="">
+                                        <select name="qualification" class="form-control" id="exampleInputistop" placeholder="">
+                                            <option value="10th">10th</option>
+                                            <option value="12th">10th</option>
+                                            <option value="Diploma">Diploma</option>
+                                            <option value="Graduate">Graduate</option>
+                                            <option value="Post Graduate">Post Graduate</option>
+                                        </select>
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputimage">Referral By</label>
                                         <input type="text" name="referred_by" class="form-control" id="exampleInputimage" placeholder="">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputistop">Is Paid:</label>
+                                        <select name="is_paid" class="form-control" id="exampleInputistop" placeholder="">
+                                            <option value="1">Yes</option>
+                                            <option value="0" >No</option>
+                                        </select>
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputistop">Subscription Required</label>
@@ -96,6 +109,7 @@
                                     <div class="form-group">
                                         <label for="exampleInputistop">Subscription Expiry</label>
                                         <select name="subscription_expiry" class="form-control" id="exampleInputistop" placeholder="">
+                                            <option value="0">Dont Allow Access</option>
                                             <option value="1">Allowed For First Month</option>
                                             <option value="2">Allowed For Second Month</option>
                                             <option value="3">Allowed For Third Month</option>
@@ -107,7 +121,7 @@
                                 </div>
                                 <!-- /.card-body -->
                                 <div class="card-footer">
-                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <button type="submit" class="btn btn-warning">Submit</button>
                                 </div>
                             </form>
                         </div>

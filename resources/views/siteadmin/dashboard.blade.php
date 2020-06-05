@@ -61,7 +61,7 @@
                         <!-- small box -->
                         <div class="small-box bg-success">
                             <div class="inner">
-                                <h4>{{$paidusers}} Paid/ {{$users}} Total</h4>
+                                <h4>{{$paidusers}} Paid/ {{$users-$paidusers}} Total</h4>
 
                                 <p>Users</p>
                             </div>

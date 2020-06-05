@@ -24,7 +24,7 @@
         <section class="content">
             <div class="row">
                 <div class="col-12">
-                    <div class="card">
+                    <div class="card card-primary">
                         <div class="card-header">
                             <h3 class="card-title">Total Users: {{$users->total()}}</h3>
                         </div>
@@ -50,7 +50,8 @@
                                     <option value="paid" {{request('payment_status')=='paid'?'selected':''}}>Paid</option>
                                     <option value="pending" {{request('payment_status')=='pending'?'selected':''}}>Pending</option>
                                 </select>
-                                <button type="submit">Apply</button>
+                                <button type="submit" class="btn btn-warning">Apply</button>
+                                <a class="btn btn-warning">Export</a>
                             </form>
 
                         </div>
@@ -86,7 +87,7 @@
                                     @endphp
                                     <td>{{$payment_status}}</td>
                                     <td>{{$s->created_at}}</td>
-                                    <td><a href="{{route('users.edit',['id'=>$s->id])}}" class="btn btn-primary">Edit</a>&nbsp;&nbsp;<a href="{{route('users.delete',['id'=>$s->id])}}" class="btn btn-primary">Delete</a></td>
+                                    <td><a href="{{route('users.edit',['id'=>$s->id])}}" class="btn btn-warning">Edit</a>&nbsp;&nbsp;<a href="{{route('users.delete',['id'=>$s->id])}}" class="btn btn-warning">Delete</a></td>
                                 </tr>
                                     @endforeach
                                 </tbody>

@@ -24,7 +24,7 @@
         <section class="content">
             <div class="row">
                 <div class="col-12">
-                    <div class="card">
+                    <div class="card card-primary">
                         <div class="card-header">
                             <h3 class="card-title">Total Chapters: {{$chapters->total()}}</h3>
                         </div>
@@ -59,7 +59,7 @@
 {{--                                            @endif--}}
 {{--                                        </td>--}}
                                         <td>{{$chapter->sequence_no}}</td>
-                                        <td><a href="{{route('chapter.edit',['id'=>$chapter->id])}}" class="btn btn-primary">Edit</a></td>
+                                        <td><a href="{{route('chapter.edit',['id'=>$chapter->id])}}" class="btn btn-warning">Edit</a></td>
                                     </tr>
                                 @endforeach
                                 </tbody>
