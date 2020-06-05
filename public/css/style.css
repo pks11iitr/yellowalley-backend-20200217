@@ -216,8 +216,8 @@ footer {
       .btn-blms{
         background-color: #ffcb05;
         border-color: #ffcb05;
-		font-weight:500;
-		font-size:16px;
+    		font-weight:500;
+    		font-size:16px;
     }
     .btn-blms:hover{
         color:#ffcb05;
@@ -226,6 +226,23 @@ footer {
     }
 	    .btn-blms:focus{
        outline: 0;
+    }
+    .btn-yellow{
+        background-color: #231f20;
+        border-color: #231f20;
+        font-weight:500;
+        font-size:16px;
+        color: #ffcb05
+    }
+    .btn-yellow:hover{
+        color:#231f20;
+        background-color: transparent;
+        border: 2px solid #231f20;
+
+    }
+
+    .btn-yellow{
+      outline: 0;
     }
 	.bg-blms{
 		background:#ffcb05;
@@ -536,3 +553,103 @@ position:absolute;
 .course-strip:hover{
 	background:#f1efef;
 }
+@media (max-width: 480px){
+.top-menu .right {
+    float: right;
+    }
+  }
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .slide{
+    width: 100%;
+    height: 210px;
+    max-height: 210px;
+  }
+  .slider-img img {
+    width: 100% !important;
+    height: 210px;
+    max-height: 210px;
+}
+  .slider-img{
+    width: 100%;
+    height: 210px;
+    max-height: 210px;
+  }
+}
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .slide{
+    width: 100%;
+    height: 210px;
+    max-height: 210px;
+  }
+  .slider-img img {
+    width: 100% !important;
+    height: 210px;
+    max-height: 210px;
+}
+  .slider-img{
+    width: 100%;
+    height: 210px;
+    max-height: 210px;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .slide{
+    width: 100%;
+    height: 280px;
+    max-height: 280px;
+  }
+  .slider-img img {
+    width: 100% !important;
+    height: 280px;
+    max-height: 280px;
+}
+  .slider-img{
+    width: 100%;
+    height: 280px;
+    max-height: 280px;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .slide{
+    width: 100%;
+    height: 450px;
+    max-height: 450px;
+  }
+  .slider-img img {
+    width: 100% !important;
+    height: 450px;
+    max-height: 450px;
+}
+  .slider-img{
+    width: 100%;
+    height: 450px;
+    max-height: 450px;
+}
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .slide{
+    width: 100%;
+    height: 500px;
+    max-height: 500px;
+  }
+  .slider-img {
+    width: 100%;
+    height: 500px;
+    max-height: 500px;
+}
+.slider-img img {
+    width: 100% !important;
+    height: 500px;
+    max-height: 500px;
+}
+}
+

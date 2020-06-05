@@ -7,11 +7,12 @@
     <section class="breadcrumb m-0 bg-blms py-4">
         <div class="container">
             <div class="row">
-                <div class="col-md-12">
-                    <h4 class="">{{$chapter->title}}</h4>
-                    <div class="col-md-12 text-center mt-4">
-                        <a href="{{route('website.start.test', ['id'=>$chapter->id])}}" class="btn btn-blms">Take Test</a>
-                    </div>
+                <div class="col-md-9">
+                    <h4 class="">{{$chapter->title}} 
+                        </h4>
+                </div>
+                <div class="col-md-3 text-right">
+                    <a href="{{route('website.start.test', ['id'=>$chapter->id])}}" class="btn btn-yellow btn-sm">Take Test</a>
                 </div>
             </div>
         </div>
@@ -44,7 +45,7 @@
                     @foreach($chapter->videos as $v)
                         <a href="{{route('website.chapter.videos', ['id'=>$v->id])}}">
                         <div class="row course-strip">
-                            <div class="col-md-8">
+                            <div class="col-md-12">
                                 <h6>{{$v->name}}</h6>
 {{--                                <p>Basic of controllers</p>--}}
                             </div>

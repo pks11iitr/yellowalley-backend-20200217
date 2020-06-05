@@ -25,7 +25,7 @@
                     @endif
 {{--                        <a href="#" class="video-icon"><i class="fa fa-eye"></i></a>--}}
                 </div>
-                <div class="video-testimonial-content">
+                <div class="video-testimonial-content text-center">
                     <a href="{{route('website.chapter.details', ['id'=>$chapter->id])}}"><h6 class="mb10">{{$chapter->title}}</h6></a>
                 </div>
             </div>

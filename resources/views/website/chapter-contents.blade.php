@@ -52,10 +52,8 @@
                 <div class="col-md-12">
                     <div class="row course-strip">
                         <a href="{{route('website.chapter.videos', ['id'=>$video->id])}}">
-                        <div class="col-md-4">
+                        <div class="col-md-12">
                             <h6>{{$video->name}}</h6>
-                        </div>
-                        <div class="col-md-8">
                             <p>{{str_replace('*', ' ', $video->description)}}</p>
                         </div>
                     </div>
