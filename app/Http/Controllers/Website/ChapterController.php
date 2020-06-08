@@ -44,7 +44,7 @@ class ChapterController extends Controller
             if($chapter->sequence_no<=$user->last_qualified_chapter) {
                 return view('website.chapter-videos', compact('chapter','video'));
             }else{
-                return view('website.chapter-videos', compact('chapter','video'))->with('error', 'Please complete chapter '.($chapter->sequence_no-1).' first');
+                return redirect()->back()->with('error', 'Please complete chapter '.($chapter->sequence_no-1).' first');
             }
         }else{
             if(in_array($chapter->sequence_no, [1])){
