@@ -96,14 +96,21 @@ class PaymentController extends Controller
 
 
     public function paymentInfo(Request $request){
+        $user=auth()->user();
+        if(!$user)
+            return [
+                'status'=>'failed',
+                'message'=>'unauthenticated'
+            ];
         $payment=Configuration::where('param_name','plan_charges')->first();
         $amount=(int)$payment->param_value;
         $validity=Configuration::where('param_name', 'plan_validity')->first();
         $months=(int)$validity->param_value;
         $message="Pay now to access the full course";
+        $is_subscribed=$user->isSubscriptionActive();
         return [
             'status'=>'success',
-            'data'=>compact('message','amount')
+            'data'=>compact('message','amount','is_subscribed')
         ];
     }
 }
