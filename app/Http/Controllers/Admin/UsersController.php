@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\admin;
+use App\Exports\ReferralExport;
 use App\Exports\UserExports;
 use App\Http\Controllers\Controller;
 use App\Models\Payment;
@@ -119,7 +120,7 @@ class UsersController extends Controller
 
             $payment=Payment::where('user_id', $user->id)->where('status', 'paid')->first();
             if(!$payment){
-                $rid=date('Y-m-d H:i:s');
+                $rid=date('YmdHis');
                 Payment::create(['user_id'=>$user->id, 'refid'=>$rid, 'amount'=>2999, 'status'=>'paid', 'razorpay_order_id'=>'offline_'.$rid]);
             }
         }
@@ -162,7 +163,7 @@ class UsersController extends Controller
     }
 
     public function referral(Request $request){
-
+        libxml_use_internal_errors(true);
         if(isset($request->user)){
             $referrals=User::where('id','!=',1)->where('name', 'like', "%".$request->user."%");
         }else{
@@ -174,9 +175,17 @@ class UsersController extends Controller
         if(isset($request->dateto))
             $referrals = $referrals->where('updated_at', '<=', $request->dateto.' 23:59:59');
 
-        $referrals=$referrals->paginate(20);
 
-        return view('siteadmin.referral',['referrals'=>$referrals]);
+
+        if($request->export){
+            $referrals=$referrals->get();
+            return Excel::download(new ReferralExport($referrals), 'referrals-export.xlsx');
+        }else{
+            $referrals=$referrals->paginate(20);
+            return view('siteadmin.referral',['referrals'=>$referrals]);
+        }
+
+
     }
 
     public function delete(Request $request, $id){

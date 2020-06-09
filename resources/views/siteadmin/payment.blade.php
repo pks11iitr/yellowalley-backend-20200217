@@ -45,6 +45,7 @@
                                 <label>Search:</label>
                                 <input name="search" type="text" value="{{request('search')}}" placeholder="name/refid/paymentid/code used">
                                 <button type="submit" class="btn" style="background-color: black;color: white">Apply</button>
+                                <a class="btn" href="{{url()->full()!=url()->current()?url()->full().'&export=1':url()->full().'?export=1'}}" style="background-color: black;color: white">Export</a>
                             </form>
                         </div>
                         <!-- /.card-header -->

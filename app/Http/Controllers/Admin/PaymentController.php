@@ -2,13 +2,17 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exports\PaymentExports;
 use App\Http\Controllers\Controller;
 use App\Models\Payment;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class PaymentController extends Controller
 {
     public function index(Request $request){
+        libxml_use_internal_errors(true);
+
         if(isset($request->status) && !empty($request->status))
             if($request->status=='all')
                 $payments =Payment::where('id','>=',1);
@@ -31,7 +35,16 @@ class PaymentController extends Controller
         }
 
         $total=$payments->sum('amount');
-        $payments=$payments->paginate(20);
-        return view('siteadmin.payment',['payments'=>$payments, 'total'=>$total]);
+        if($request->export){
+            $payments=$payments->get();
+            /*return view('siteadmin.payment-export', [
+                'payments' => $payments
+            ]);*/
+            return Excel::download(new PaymentExports($payments), 'payments-export.xlsx');
+        }else{
+            $payments=$payments->paginate(20);
+            return view('siteadmin.payment',['payments'=>$payments, 'total'=>$total]);
+        }
+
     }
 }

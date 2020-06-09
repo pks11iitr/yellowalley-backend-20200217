@@ -37,6 +37,7 @@
                                 <label>Date To:</label>
                                 <input name="dateto" type="date" value="{{request('dateto')}}">
                                 <button type="submit">Apply</button>
+                                <a class="btn" href="{{url()->full()!=url()->current()?url()->full().'&export=1':url()->full().'?export=1'}}" style="background-color: black;color: white">Export</a>
                             </form>
                         </div>
                         <!-- /.card-header -->
