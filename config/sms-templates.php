@@ -1,4 +1,4 @@
 <?php
 return [
-    'login-otp'=>'Your one time login password at yellowalley is {{otp}}',
+    'login-otp'=>'Your One Time Password For Yellow Alley Is {{otp}}',
 ];
