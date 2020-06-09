@@ -141,14 +141,14 @@ class LoginController extends Controller
         if(!$user){
             return response()->json([
                 'status'=>'failed',
-                'message'=>'invalid login attempt',
+                'message'=>'Invalid Login Attempt',
                 'errors'=>[
                 ],
             ], 200);
         }else if(!($user->status==0 || $user->status==1)){
             return response()->json([
                 'status'=>'failed',
-                'message'=>'account is not active',
+                'message'=>'Account Is Not Active',
                 'errors'=>[
 
                 ],
@@ -209,13 +209,13 @@ class LoginController extends Controller
 
             return [
                 'status'=>'success',
-                'message'=>'Please verify otp to continue'
+                'message'=>'Please verify OTP to continue'
             ];
         }
 
         return [
             'status'=>'failed',
-            'message'=>'Invalid request'
+            'message'=>'Invalid Request'
         ];
     }
 
