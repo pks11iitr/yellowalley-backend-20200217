@@ -51,7 +51,7 @@
                                     <option value="pending" {{request('payment_status')=='pending'?'selected':''}}>Pending</option>
                                 </select>
                                 <button type="submit" class="btn" style="background-color: black;color: white">Apply</button>
-                                <a class="btn" href="{{url()->full()}}" style="background-color: black;color: white">Export</a>
+                                <a class="btn" href="{{url()->full()!=url()->current()?url()->full().'&export=1':url()->full().'?export=1'}}" style="background-color: black;color: white">Export</a>
                             </form>
 
                         </div>
