@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -20,7 +18,7 @@ use Illuminate\Http\Request;
     $api->post('login', ['as'=>'api.login', 'uses'=>'Auth\Api\LoginController@login']);
     $api->post('complete-profile', ['as'=>'api.login.complete', 'uses'=>'Auth\Api\LoginController@completeProfile']);
     $api->post('verify-otp', ['as'=>'api.otp.verify', 'uses'=>'Auth\Api\LoginController@verifyOTP']);
-    $api->get('payment-info', ['as'=>'api.order', 'uses'=>'Customer\Api\PaymentController@paymentInfo']);
+
 
     $api->group(['middleware' => ['auth:api','acl'], 'is'=>'student'], function ($api) {
         $api->post('update-profile', ['as'=>'api.profile.update', 'uses'=>'Customer\Api\ProfileController@updateProfile']);
@@ -35,6 +33,7 @@ use Illuminate\Http\Request;
         $api->get('get-subscription-status', ['as'=>'api.subscription.status', 'uses'=>'Customer\Api\HomeController@checkSubscription']);
 
         //Payments APIs
+        $api->get('payment-info', ['as'=>'api.order', 'uses'=>'Customer\Api\PaymentController@paymentInfo']);
         $api->get('subscribe', ['as'=>'api.order', 'uses'=>'Customer\Api\PaymentController@subscribe']);
         $api->post('verify-subscription', ['as'=>'api.order.verify', 'uses'=>'Customer\Api\PaymentController@verifyPayment']);
 
