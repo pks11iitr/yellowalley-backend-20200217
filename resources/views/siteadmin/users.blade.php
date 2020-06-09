@@ -65,6 +65,7 @@
                                     <th>Email</th>
                                     <th>Address</th>
                                     <th>Status</th>
+                                    <th>Referral Code</th>
                                     <th>Payment Status</th>
                                     <th>Registered On</th>
                                     <th>Action</th>
@@ -77,6 +78,7 @@
                                     <td>{{$s->email}}/{{$s->mobile}}</td>
                                     <td>{{$s->address.''.$s->city.' '}}</td>
                                     <td>{{$s->status==0?'Inactive':($s->status==1?'Active':'Block')}}</td>
+                                    <td>{{$s->referral_code}}</td>
                                     @php
                                         $payment_status='pending';
                                         foreach($s->payments as $payment){

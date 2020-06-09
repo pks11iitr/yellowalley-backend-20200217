@@ -12,7 +12,7 @@ class BannerController extends Controller
 {
           public function index(Request $request){
 
-            $banners=Banner::get();
+            $banners=Banner::paginate(10);
             return view('siteadmin.bannerview',['banners'=>$banners]);
 
                 }

@@ -30,6 +30,7 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
+                            {{$chapters->appends(request()->query())->links()}}
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                 <tr>
@@ -64,8 +65,9 @@
                                 @endforeach
                                 </tbody>
                             </table>
+                            {{$chapters->appends(request()->query())->links()}}
                         </div>
-                        {{$chapters->links()}}
+
                         <!-- /.card-body -->
                     </div>
                     <!-- /.card -->

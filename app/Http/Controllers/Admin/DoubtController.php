@@ -29,7 +29,7 @@ class DoubtController extends Controller
         if(isset($request->dateto))
             $doubts = $doubts->where('updated_at', '<=', $request->dateto.' 23:59:59');
 
-        $doubts =$doubts->paginate(20);
+        $doubts =$doubts->orderBy('id', 'desc')->paginate(20);
 
 
         return view('siteadmin.doubtslist',['doubts'=>$doubts]);

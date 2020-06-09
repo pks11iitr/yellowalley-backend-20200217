@@ -40,6 +40,7 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
+                            {{$userscores->appends(request()->query())->links()}}
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                 <tr>
@@ -60,8 +61,9 @@
                                 @endforeach
                                 </tbody>
                             </table>
+                            {{$userscores->appends(request()->query())->links()}}
                         </div>
-                        {{$userscores->appends(request()->query())->links()}}
+
                         <!-- /.card-body -->
                     </div>
                     <!-- /.card -->
