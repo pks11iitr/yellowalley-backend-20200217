@@ -73,7 +73,7 @@ class ResetPasswordController extends Controller
         $user->password=Hash::make($request->password);
         $user->save();
 
-        return redirect()->route('login')->with('success', 'Password has been reset');
+        return redirect()->route('admin.login')->with('success', 'Password has been reset');
 
     }
 

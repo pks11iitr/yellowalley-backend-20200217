@@ -10,9 +10,10 @@ Route::group( ['prefix'=>'admin'], function(){
         Route::get('login', '\App\Http\Controllers\Auth\LoginController@showLoginForm')->name('admin.login');
         Route::post('login', '\App\Http\Controllers\Auth\LoginController@login');
         Route::get('password/reset', '\App\Http\Controllers\Auth\ForgotPasswordController@showLinkRequestForm')->name('admin.password.request');
-        Route::get('password/reset/otp', '\App\Http\Controllers\Auth\ForgotPasswordController@showResetForm')->name('admin.password.reset');
-        Route::post('password/reset', '\App\Http\Controllers\Auth\ResetPasswordController@reset')->name('admin.password.update');
         Route::post('password/email', '\App\Http\Controllers\Auth\ForgotPasswordController@sendResetLinkEmail')->name('admin.password.email');
+        Route::get('password/reset/otp', '\App\Http\Controllers\Auth\ResetPasswordController@showResetForm')->name('admin.password.reset');
+        Route::post('password/reset', '\App\Http\Controllers\Auth\ResetPasswordController@reset')->name('admin.password.update');
+
     });
     Route::post('logout', '\App\Http\Controllers\Auth\LoginController@logout')->name('admin.logout');
 });
@@ -112,10 +113,10 @@ Route::group(['middleware'=>['webguest']], function(){
     Route::post('complete-profile/{code}', 'Website\Auth\LoginController@completeProfile');
     Route::get('verify-otp', 'Website\Auth\LoginController@showOTPForm')->name('website.verify.otp');
     Route::post('verify-otp', 'Website\Auth\LoginController@verifyOTP');
-    Route::get('password/reset', 'Website\Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
-    Route::get('password/reset/otp', 'Website\Auth\ForgotPasswordController@showResetForm')->name('password.reset');
-    Route::post('password/reset', 'Website\Auth\ResetPasswordController@reset')->name('password.update');
-    Route::post('password/email', 'Website\Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
+//    Route::get('password/reset', 'Website\Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
+//    Route::get('password/reset/otp', 'Website\Auth\ForgotPasswordController@showResetForm')->name('password.reset');
+//    Route::post('password/reset', 'Website\Auth\ResetPasswordController@reset')->name('password.update');
+//    Route::post('password/email', 'Website\Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
 });
 Route::post('logout', 'Website\Auth\LoginController@logout')->name('logout');
 
