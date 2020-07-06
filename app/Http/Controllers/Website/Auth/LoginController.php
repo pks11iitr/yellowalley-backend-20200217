@@ -198,7 +198,7 @@ class LoginController extends Controller
             if($otp=OTPModel::createOTP($user->id, 'login')){
                 $msg=config('sms-templates.login-otp');
                 $msg=str_replace('{{otp}}', $otp, $msg);
-                if(Nimbusit::send($request->mobile, $msg)){
+                if(Nimbusit::send($user->mobile, $msg)){
                     return redirect()->route('website.verify.otp')->with('success', 'Please verify OTP to continue')->with('mobile', $user->mobile);
                 }
             }
