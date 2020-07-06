@@ -201,7 +201,7 @@ class LoginController extends Controller
             if($otp=OTPModel::createOTP($user->id, 'login')){
                 $msg=config('sms-templates.login-otp');
                 $msg=str_replace('{{otp}}', $otp, $msg);
-                if(Nimbusit::send($request->mobile, $msg)){
+                if(Nimbusit::send($user->mobile, $msg)){
 
                 }
             }
