@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Website\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\OTPModel;
-use App\Services\SMS\Msg91;
 use App\Services\SMS\Nimbusit;
 use App\User;
 use Illuminate\Http\Request;
@@ -122,7 +121,7 @@ class LoginController extends Controller
             if($otp=OTPModel::createOTP($user->id, 'login')){
                 $msg=config('sms-templates.login-otp');
                 $msg=str_replace('{{otp}}', $otp, $msg);
-                if(Msg91::send($request->mobile, $msg)){
+                if(Nimbusit::send($request->mobile, $msg)){
                     return redirect()->route('website.verify.otp')->with('success', 'OTP have been resent')->with('mobile', $user->mobile);
                 }
             }
@@ -199,7 +198,7 @@ class LoginController extends Controller
             if($otp=OTPModel::createOTP($user->id, 'login')){
                 $msg=config('sms-templates.login-otp');
                 $msg=str_replace('{{otp}}', $otp, $msg);
-                if(Msg91::send($request->mobile, $msg)){
+                if(Nimbusit::send($request->mobile, $msg)){
                     return redirect()->route('website.verify.otp')->with('success', 'Please verify OTP to continue')->with('mobile', $user->mobile);
                 }
             }

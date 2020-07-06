@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Auth\Api;
 use App\Http\Controllers\Controller;
 use App\Models\OTPModel;
-use App\Services\SMS\Msg91;
 use App\Services\SMS\Nimbusit;
 use App\User;
 use Illuminate\Contracts\Auth\Factory as Auth;
@@ -202,7 +201,7 @@ class LoginController extends Controller
             if($otp=OTPModel::createOTP($user->id, 'login')){
                 $msg=config('sms-templates.login-otp');
                 $msg=str_replace('{{otp}}', $otp, $msg);
-                if(Msg91::send($request->mobile, $msg)){
+                if(Nimbusit::send($request->mobile, $msg)){
 
                 }
             }
