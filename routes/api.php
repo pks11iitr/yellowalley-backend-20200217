@@ -18,7 +18,7 @@
     $api->post('login', ['as'=>'api.login', 'uses'=>'Auth\Api\LoginController@login']);
     $api->post('complete-profile', ['as'=>'api.login.complete', 'uses'=>'Auth\Api\LoginController@completeProfile']);
     $api->post('verify-otp', ['as'=>'api.otp.verify', 'uses'=>'Auth\Api\LoginController@verifyOTP']);
-
+    $api->post('resend-otp', ['as'=>'api.otp.resend', 'uses'=>'Auth\Api\LoginController@resendOTP']);
 
     $api->group(['middleware' => ['auth:api','acl'], 'is'=>'student'], function ($api) {
         $api->post('update-profile', ['as'=>'api.profile.update', 'uses'=>'Customer\Api\ProfileController@updateProfile']);

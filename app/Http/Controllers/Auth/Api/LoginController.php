@@ -179,6 +179,46 @@ class LoginController extends Controller
         ];
     }
 
+    public function resendOTP(Request $request){
+        $this->validate($request, [
+            'mobile' => ['required', 'integer', 'digits:10'],
+        ]);
+
+        $user=$this->ifUserExists($request->mobile);
+        if(!$user){
+            return response()->json([
+                'status'=>'failed',
+                'message'=>'Invalid Login Attempt',
+                'errors'=>[
+                ],
+            ], 200);
+        }else if(!in_array($user->status, [0 , 1])){
+            //send OTP
+            return response()->json([
+                'status'=>'failed',
+                'message'=>'invalid login attempt',
+                'errors'=>[
+
+                ]],200);
+        }else{
+
+            if($otp=OTPModel::createOTP($user->id, 'login')){
+                $msg=config('sms-templates.login-otp');
+                $msg=str_replace('{{otp}}', $otp, $msg);
+                if(Nimbusit::send($request->mobile, $msg)){
+
+                }
+            }
+
+            return [
+                'status'=>'success',
+                'signupdone'=>$user->signup_complete==true?'yes':'no',
+                'message'=>'Please verify OTP to continue',
+                'code'=>$user->referral_code
+            ];
+        }
+    }
+
     public function completeProfile(Request $request){
         $request->validate([
             'code'=>'required|string|max:10',
