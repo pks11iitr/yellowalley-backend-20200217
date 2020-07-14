@@ -24,7 +24,7 @@ class TestController extends Controller
             if ($chapter->sequence_no <= $user->last_qualified_chapter) {
                 $testid = $chapter->startTest();
                 if ($testid) {
-                    return redirect()->route('website.view.question', ['testid'=>$testid, 'questionid'=>$chapter->questions[0]->id]);
+                    return redirect()->route('website.view.question', ['testid'=>$testid, 'questionid'=>$chapter->questions[0]->sequence_no]);
                 }
             }
         }
