@@ -11,9 +11,11 @@
                     <h4 class="">{{$chapter->title}}
                         </h4>
                 </div>
+                @if($chapter->sequence_no>1)
                 <div class="col-md-3 text-right">
                     <a href="{{route('website.start.test', ['id'=>$chapter->id])}}" class="btn btn-yellow btn-sm">Take Test</a>
                 </div>
+                    @endif
             </div>
         </div>
     </section>
@@ -41,7 +43,7 @@
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <h4 class="py-2">Chapter Videos</h4>
+                    <h4 class="py-2">Chapter Sessions</h4>
                     @foreach($chapter->videos as $v)
                         <a href="{{route('website.chapter.videos', ['id'=>$v->id])}}">
                         <div class="row course-strip">

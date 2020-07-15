@@ -44,7 +44,7 @@
                 </div>
                 <div class="col-md-8 py-2 col-sm-12 pull-right">
 				<span class="right">
-				  
+
                       @if(auth()->user())
                     <a class="dropdown">
 					  <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -74,7 +74,7 @@
         <div class="row">
             <div class="col-md-12">
                 <nav class="navbar navbar-expand-lg navbar-light bg-white">
-                    
+
                     <a class="navbar-brand" href="{{route('website.home')}}"><img class="logo" src="{{asset('img/logo.png')}}" alt="Yellow Alley logo"></a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -83,14 +83,15 @@
                         <ul class="navbar-nav ml-auto">
                             <li class="nav-item active"><a class="nav-link" href="{{route('website.chapters')}}">Courses</a></li>
                             <li class="nav-item"><a class="nav-link" href="{{route('website.certificate.info')}}">Certificate</a></li>
-                            
-                            
+                            <li class="nav-item"><a class="nav-link" href="{{route('website.submit.doubt')}}">Submit Your Doubt</a></li>
+
+
                             <!--<li class="nav-item">
                               <a class="btn btn-blms" href="#" data-target="#pricequote" data-image-id="" data-toggle="modal" tabindex="-1" aria-disabled="true">Submit Your Doubt</a>
                             </li> -->
                         </ul>
                     </div>
-                    <a class="btn btn-blms btn-sm hidden-sm-down d-sm-none d-md-block d-none d-sm-block" href="{{route('website.submit.doubt')}}" >Submit Your Doubt</a>
+                    <a class="btn btn-blms btn-sm hidden-sm-down d-sm-none d-md-block d-none d-sm-block" href="{{route('website.submit.doubt')}}" >Pay Now</a>
                 </nav>
             </div>
         </div>
@@ -109,7 +110,7 @@
                 </div>
             </div>
         </div>
-        
+
     @endif
 
 
@@ -123,7 +124,7 @@
                     </div>
                 </div>
             </div>
-        </div>        
+        </div>
     @endif
 </div>
 <script>

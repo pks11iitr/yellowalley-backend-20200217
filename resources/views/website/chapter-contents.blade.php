@@ -44,8 +44,8 @@
                 </div>
 
             </div>
-            <div class="col-md-12 py-2 my-3 text-center bg-dark">
-                <h3 class="text-white">Chapter Videos</h3>
+            <div class="col-md-12 py-2 my-3 text-center">
+                <h3 class="">Chapter Sessions</h3>
             </div>
             <div class="row">
                 @foreach($chapter->videos as $video)

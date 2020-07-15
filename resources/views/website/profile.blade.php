@@ -18,6 +18,9 @@
                     <form action="{{route('website.profile')}}" method="post">
                         @csrf
                         <div class="form-group">
+                            <input type="text" class="form-control form-blms"  name="referred_by" placeholder="Referral ID" value="{{$user->referral_code}}" disabled>
+                        </div>
+                        <div class="form-group">
                             <input type="text" class="form-control form-blms" name="name" placeholder="Name" value="{{$user->name}}" disabled>
                         </div>
                         <div class="form-group">
@@ -56,9 +59,7 @@
                                 <option value="Post Graduate" @if($user->qualification=='Post Graduate'){{'selected'}}@endif>Male</option>
                             </select>
                         </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control form-blms"  name="referred_by" placeholder="Reference Id">
-                        </div>
+
                         <div class="form-group text-center">
                             <button type="submit" class="btn btn-blms btn-block">Continue</button>
                         </div>

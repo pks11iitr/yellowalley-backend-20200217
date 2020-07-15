@@ -12,13 +12,20 @@ class QuestionController extends Controller
     public function view(Request $request, $testid, $questionnumber){
         $user = auth()->user();
         $test=Test::where('refid', $testid)->where('user_id', $user->id)->firstOrFail();
+        $questions=Question::where('chapter_id', $test->chapter_id)->orderBy('sequence_no', 'asc')->select('id','sequence_no')->get();
+
+        foreach($questions as $q){
+
+        }
+
+
         $chapter = $test->chapter;
         if ($user->isSubscriptionActive() && !empty($chapter->questions)) {
             if ($chapter->sequence_no <= $user->last_qualified_chapter) {
                 $question=Question::where('chapter_id', $chapter->id)
                     ->where('sequence_no', $questionnumber)
                     ->firstOrFail();
-                return view('website.question', compact('chapter', 'question','test'));
+                return view('website.question', compact('chapter', 'question','test','questions'));
             }
         }
         return abort(404);

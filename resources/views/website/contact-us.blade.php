@@ -15,6 +15,7 @@
         <div class="container">
             <div class="row py-4">
                 <div class="col-md-6 offset-md-3 py-3">
+                    <h3>Please fill this form and we will get back to you shortly</h3>
                     <form action="{{route('website.contact.us')}}" method="post">
                         @csrf
                         <div class="form-group">

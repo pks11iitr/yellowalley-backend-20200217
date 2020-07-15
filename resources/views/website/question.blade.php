@@ -5,9 +5,9 @@
     <section class="breadcrumb m-0 bg-blms py-4">
         <div class="container">
             <div class="row">
-                <div class="col-6 py-2">
-                    <h4 class="">Take test</h4>
-                </div>
+{{--                <div class="col-6 py-2">--}}
+{{--                    <h4 class="">Take test</h4>--}}
+{{--                </div>--}}
             </div>
             <div class="row">
                 <div class="col-md-12 mb-5 d-flex justify-content-center">
@@ -64,11 +64,11 @@
                 <div class="col-md-12 d-flex justify-content-center">
                     <nav aria-label="Page navigation example">
                         <ul class="pagination">
-                            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                            <li class="page-item"><a class="page-link" href="{{$question->sequence_no>1?route('website.view.question',['testid'=>$test->refid, 'questionid'=>$question->sequence_no-1]):'javascript:void(0)'}}">Previous</a></li>
+                            @foreach($questions as $q)
+                            <li class="page-item {{$q->id==$question->id?'active':''}}"><a class="page-link" href="{{route('website.view.question',['testid'=>$test->refid, 'questionid'=>$q->sequence_no])}}">{{$q->sequence_no}}</a></li>
+                            @endforeach
+                            <li class="page-item"><a class="page-link" href="{{$question->sequence_no<count($questions)?route('website.view.question',['testid'=>$test->refid, 'questionid'=>$question->sequence_no+1]):'javascript:void(0)'}}">Next</a></li>
                         </ul>
                     </nav>
                 </div>
