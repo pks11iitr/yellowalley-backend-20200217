@@ -42,12 +42,14 @@ class ChapterController extends Controller
         $chapter=Chapter::active()->with('videos')->findOrFail($video->chapter_id);
         if($user && $user->isSubscriptionActive()){
             if($chapter->sequence_no<=$user->last_qualified_chapter) {
+                $user->updateLastPlayedVideo($video->id);
                 return view('website.chapter-videos', compact('chapter','video'));
             }else{
                 return redirect()->back()->with('error', 'Please complete chapter '.($chapter->sequence_no-1).' first');
             }
         }else{
             if(in_array($chapter->sequence_no, [1])){
+                $user->updateLastPlayedVideo($video->id);
                 return view('website.chapter-videos', compact('chapter','video'));
             }
             else{
