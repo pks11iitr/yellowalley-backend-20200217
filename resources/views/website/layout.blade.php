@@ -81,6 +81,7 @@
                     </button>
                     <div class="collapse navbar-right navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav ml-auto">
+                            <li class="nav-item active"><a class="nav-link" href="{{route('website.home')}}">Home</a></li>
                             <li class="nav-item active"><a class="nav-link" href="{{route('website.chapters')}}">Courses</a></li>
                             <li class="nav-item"><a class="nav-link" href="{{route('website.certificate.info')}}">Certificate</a></li>
                             <li class="nav-item"><a class="nav-link" href="{{route('website.submit.doubt')}}">Submit Your Doubt</a></li>
@@ -91,7 +92,7 @@
                             </li> -->
                         </ul>
                     </div>
-                    <a class="btn btn-blms btn-sm hidden-sm-down d-sm-none d-md-block d-none d-sm-block" href="{{route('website.submit.doubt')}}" >Pay Now</a>
+                    <a class="btn btn-blms btn-sm hidden-sm-down d-sm-none d-md-block d-none d-sm-block" href="{{route('website.payment.info')}}" >Pay Now</a>
                 </nav>
             </div>
         </div>

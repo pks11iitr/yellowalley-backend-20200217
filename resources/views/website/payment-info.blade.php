@@ -23,12 +23,22 @@
                 </div>
             </div>
         </div>
+        @elseif(auth()->user()->isSubscriptionActive())
+            <div class="container">
+                <div class="row p-5">
+                    <div class="col-md-8 offset-md-2 text-center p-3" style="border: 2px solid #e2e2e2; border-radius: 4px;">
+                        <h3 class="py-5">Your Subscription Is Already Active.</h3>
+
+                        <a href="{{route('website.chapters')}}" class="btn btn-blms">Continue</a>
+                    </div>
+                </div>
+            </div>
         @else
         <div class="container">
             <div class="row p-5">
                 <div class="col-md-8 offset-md-2 text-center p-3" style="border: 2px solid #e2e2e2; border-radius: 4px;">
                     <h3 class="py-5">Pay now to access the full course <br> Total: Rs.{{$payment_amount}} </h3>
-                
+
                 <a href="{{route('website.pay')}}" class="btn btn-blms">Continue</a>
                 </div>
             </div>
