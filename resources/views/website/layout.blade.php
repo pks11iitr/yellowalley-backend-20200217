@@ -17,6 +17,10 @@
     <link rel="stylesheet" href="{{asset('css/owl.theme.css')}}">
     <link rel="stylesheet" href="{{asset('css/responsive.css')}}">
     <link href="{{asset('css/style.css')}}" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
 
 
@@ -35,15 +39,26 @@
 <section class="header">
     <div class="top-menu bg-dark py-1">
         <div class="container">
-            <div class="row">
-                <div class="col-md-4 py-2 hidden-sm-down d-sm-none d-md-block d-none d-sm-block">
-				<span class="left">
-				  <a href="tel:+91-99290304"><i class="fa fa-phone"></i></a>
-				  <a href="#"><i class="fa fa-envelope"></i>info@yellowalley.com</a>
-				</span>
-                </div>
-                <div class="col-md-8 py-2 col-sm-12 pull-right">
-				<span class="right">
+
+        <div class="top_header ralewy_font">
+        <div class="first_info">
+        <ul>
+        <li><i class="fa fa-map-marker" aria-hidden="true"></i>ANSARI ROAD, NEW DELHI - 110002</li>
+        <li><i class="fa fa-phone" aria-hidden="true"></i>8595205921</li>
+        <li> <a href="#" class="email_cls"><i class="fa fa-envelope"></i>info@yellowalley.com</a></li>
+        </ul>
+        </div>
+        <div class="social_icon">
+        <ul>
+        <li><a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+        <li><a href=""><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+        <li><a href=""><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+        <li><a href=""><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
+        <li><a href=""><i class="fa fa-whatsapp" aria-hidden="true"></i></a></li>
+        </ul>
+        </div>
+        <div class="login_conta">
+        <span class="right">
 
                       @if(auth()->user())
                     <a class="dropdown">
@@ -66,14 +81,15 @@
                       @endif
 					</a>
 				</span>
-                </div>
-            </div>
+        </div>
+        </div>
+           
         </div>
     </div>
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <nav class="navbar navbar-expand-lg navbar-light bg-white">
+                <nav class="navbar navbar-expand-lg navbar-light bg-white custom_menu cizel_font">
 
                     <a class="navbar-brand" href="{{route('website.home')}}"><img class="logo" src="{{asset('img/logo.png')}}" alt="Yellow Alley logo"></a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -81,10 +97,20 @@
                     </button>
                     <div class="collapse navbar-right navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav ml-auto">
-                            <li class="nav-item active"><a class="nav-link" href="{{route('website.home')}}">Home</a></li>
-                            <li class="nav-item active"><a class="nav-link" href="{{route('website.chapters')}}">Courses</a></li>
+                            <li class="nav-item"><a class="nav-link active" href="{{route('website.home')}}">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{route('website.chapters')}}">Courses</a></li>
                             <li class="nav-item"><a class="nav-link" href="{{route('website.certificate.info')}}">Certificate</a></li>
                             <li class="nav-item"><a class="nav-link" href="{{route('website.submit.doubt')}}">Submit Your Doubt</a></li>
+                            <li class="search_con">
+                          
+
+<form class="search">
+  <div class="search__wrapper">
+    <input type="text" name="" placeholder="Search for..." class="search__field">
+    <button type="submit" class="fa fa-search search__icon"></button>
+  </div>
+</form>
+                            </li>
 
 
                             <!--<li class="nav-item">
@@ -136,17 +162,61 @@ setTimeout(function() {
 @yield('contents')
 
 <!-- Footer Starts -->
-<footer class="footer pt-4">
+<footer class="footer">
     <div class="container">
-        <div class="container">
-            <div class="row section">
+        
+
+
+        <div class="row">
+            <div class="col-md-3 col-xs-12">
+                <div class="col-md-12 col-xs-12 text-center about_cmp"> 
+                    <span class="footer_log"><img src="http://study.yellowalley.local/img/logo.png" alt=""></span>
+                    <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a type specimen book. read more >
+
+</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-xs-12">
+                <h4 class="footer_heading">CONTACT FORM</h4>
+                <div class="form_container">
+                    <p><input type="text" placeholder="Your Name" class="in_fld"></p>
+                    <p><input type="text" placeholder="Your Email" class="in_fld"></p>
+                    <p><textarea name="" placeholder ="Your Message" class="in_fld"></textarea></p>
+                    <p>
+                        <input type="submit" name="" id="" value="send" class="submit_btn">
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-3 col-xs-12">
+                <h4  class="footer_heading">QUICK LINKS</h4>
+                <ul class="faq_list">
+                    <li style="border-bottom:none"><a href="">FAQ’s</a></li>
+                    <li style="border-bottom:none"><a href="">Privacy Policy</a></li>
+                    <li><a href="">Terms & Conditions</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3 col-xs-12 address_con">
+                <h4  class="footer_heading">CONTACT US</h4>
+                <div class="address ralewy_font">
+                    <label for="" class="ralewy_font"><i class="fa fa-map-marker" aria-hidden="true"></i> Address:</label>
+                    <p class="ralewy_font">ANSARI ROAD, NEW DELHI - 110002</p>
+</div>
+<ul>
+    <li class="ralewy_font"><i class="fa fa-phone" aria-hidden="true"></i>Phone: 8595205921</li>
+    <li class="ralewy_font"><i class="fa fa-envelope"></i>Email: info@yellowalley.org</li>
+</ul>
+            </div>
+        </div>
+
+     
+            <!-- <div class="row section">
                 <div class="col-lg-4 col-md-4 col-xs-12">
-                    <h3>About Yellow Alley</h3>
+                    <h3>About Yellow Alleyyy</h3>
                     <p class="text-white text-justify">Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a type specimen book.
                         <a href="pages/ab out">read more ></a>
                     </p>
-                </div>
-                <div class="col-lg-3 col-md-3 col-xs-12">
+                </div> -->
+                <!-- <div class="col-lg-3 col-md-3 col-xs-12">
                     <h3>Useful Links</h3>
                     <ul>
                         <li><a href="{{route('website.about.us')}}">About</a>
@@ -160,8 +230,8 @@ setTimeout(function() {
                         <li><a href="{{route('website.contact.us')}}">Contact Us</a>
                         </li>
                     </ul>
-                </div>
-                <div class="col-lg-5 col-md-5 col-xs-12">
+                </div> -->
+                <!-- <div class="col-lg-5 col-md-5 col-xs-12">
                     <h3>Newsletter</h3>
                     <p>Subscribe to our newsletter to get the latest news.</p>
                     <form>
@@ -178,9 +248,9 @@ setTimeout(function() {
                             </div>
                         </div>
                     </form>
-                </div>
-                <hr>
-                <div class="col-12">
+                </div> -->
+                <!-- <hr> -->
+                <!-- <div class="col-12">
                     <div class="footer-text text-center">
                         <ul class="social-icons">
                             <li>
@@ -199,11 +269,34 @@ setTimeout(function() {
                         </ul>
                         <p class="mb-3text-white">Copyright © 2020 Yellow Alley, All Right Reserved</p>
                     </div>
-                </div>
+                </div> -->
             </div>
 
         </div>
-    </div>
+        <div class="privacy_policy">
+            <div class="copy_right">
+            2019 © Copyrights Yellow Alley Designed By Relesh Infomedia
+            </div>
+            <div class="faq_footer">
+                <ul>
+                    <li><a href="">FAQ’s</a></li>
+                    <li><a href="">Privacy Policy</a></li>
+                    <li><a href="" style="border:none !important">Terms & Conditions</a></li>
+                </ul>
+            </div>
+            <div class="socail_footer">
+            <div class="social_icon f_social">
+        <ul>
+        <li><a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+        <li><a href=""><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+        <li><a href=""><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+        <li><a href=""><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
+        <li><a href=""><i class="fa fa-whatsapp" aria-hidden="true"></i></a></li>
+        </ul>
+        </div>
+            </div>
+        </div>
+   
 </footer>
 <!-- Footer ends -->
 <script type="text/javascript">
