@@ -493,14 +493,15 @@ footer {
       outline: 0;
     }
 	.bg-blms{
-		background:#ffcb05;
+		background:#c2a008;
 	 }
 
     .text-blms{
 
     color:#ffcb05;
   }
-
+.my_lbl{font-weight: 600;margin-bottom: 10px;font-size: 14px;}
+.strip_heading{font-weight: bold;color: #fff !important;}
 @media (max-width: 480px)
   {
       .navbar-brand img {
