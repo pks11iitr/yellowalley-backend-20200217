@@ -18,19 +18,24 @@
                     <form action="{{route('website.profile')}}" method="post">
                         @csrf
                         <div class="form-group">
+                        <label for="" class="my_lbl">Referral ID</label>
                             <input type="text" class="form-control form-blms"  name="referred_by" placeholder="Referral ID" value="{{$user->referral_code}}" disabled>
                         </div>
                         <div class="form-group">
+                        <label for="" class="my_lbl">Name</label>
                             <input type="text" class="form-control form-blms" name="name" placeholder="Name" value="{{$user->name}}" disabled>
                         </div>
                         <div class="form-group">
+                        <label for="" class="my_lbl">Email Id</label>
                             <input type="text" class="form-control form-blms" name="email" placeholder="Email Id" value="{{$user->email}}" disabled>
                         </div>
                         <div class="form-group">
                             <input type="phone" class="form-control form-blms"  name="mobile" placeholder="Mobile Number" disabled value="{{$user->mobile}}">
                         </div>
                         <div class="form-group">
+                        <label for="" class="my_lbl">Gender</label>
                             <select class="form-control form-blms" name="gender" required>
+
                                 <option value="">Select Gender</option>
                                 <option value="male" @if($user->gender=='male'){{'selected'}}@endif>Male</option>
                                 <option value="female" @if($user->gender=='female'){{'selected'}}@endif>Female</option>
@@ -38,18 +43,22 @@
                             </select>
                         </div>
                         <div class="form-group">
+                        <label for="" class="my_lbl">DOB</label>
                             <input type="date" class="form-control form-blms"  name="dob" placeholder="DOB" required value="{{$user->dob}}">
                         </div>
                         <div class="form-group">
                             <input type="text" class="form-control form-blms"  name="address" placeholder="Address" required value="{{$user->address}}">
                         </div>
                         <div class="form-group">
+                        <label for="" class="my_lbl">City</label>
                             <input type="text" class="form-control form-blms"  name="city" placeholder="City" required value="{{$user->city}}">
                         </div>
                         <div class="form-group">
+                        <label for="" class="my_lbl">Pincode</label>
                             <input type="text" class="form-control form-blms"  name="pincode" placeholder="Pincode" required value="{{$user->pincode}}">
                         </div>
                         <div class="form-group">
+                        <label for="" class="my_lbl">Qualification</label>
                             <select class="form-control form-blms" name="qualification">
                                 <option value="" required>Select Qualification</option>
                                 <option value="10th" @if($user->qualification=='10th'){{'selected'}}@endif>10th</option>
