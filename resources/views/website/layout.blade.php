@@ -38,7 +38,7 @@
 </head>
 <section class="header">
     <div class="top-menu bg-dark py-1">
-        <div class="container">
+        <div class="container ">
 
         <div class="top_header ralewy_font">
         <div class="first_info">
@@ -76,7 +76,7 @@
                     </a>
                       @else
                           <a href="{{route('login')}}" aria-haspopup="true" aria-expanded="false">
-						<i class="fa fa-user"></i> Sign In
+                          LogIn
 					    </a>
                       @endif
 					</a>
@@ -86,7 +86,7 @@
            
         </div>
     </div>
-    <div class="container">
+    <div class="container nav1">
         <div class="row">
             <div class="col-md-12">
                 <nav class="navbar navbar-expand-lg navbar-light bg-white custom_menu cizel_font">
@@ -97,19 +97,15 @@
                     </button>
                     <div class="collapse navbar-right navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav ml-auto">
-                            <li class="nav-item"><a class="nav-link active" href="{{route('website.home')}}">Home</a></li>
-                            <li class="nav-item"><a class="nav-link" href="{{route('website.chapters')}}">Courses</a></li>
-                            <li class="nav-item"><a class="nav-link" href="{{route('website.certificate.info')}}">Certificate</a></li>
-                            <li class="nav-item"><a class="nav-link" href="{{route('website.submit.doubt')}}">Submit Your Doubt</a></li>
-                            <li class="search_con">
-                          
-
-<form class="search">
-  <div class="search__wrapper">
-    <input type="text" name="" placeholder="Search for..." class="search__field">
-    <button type="submit" class="fa fa-search search__icon"></button>
-  </div>
-</form>
+                            <li class="nav-item my_menu"><a class="nav-link active" href="{{route('website.home')}}">Home</a></li>
+                            <li class="nav-item my_menu"><a class="nav-link" href="{{route('website.chapters')}}">Courses</a></li>
+                            <li class="nav-item my_menu"><a class="nav-link" href="{{route('website.certificate.info')}}">Certificate</a></li>
+                            <li class="nav-item my_menu"><a class="nav-link" href="{{route('website.submit.doubt')}}">Submit Your Doubt</a></li>
+                            <li class="nav-item"> <a class="btn btn-blms btn-sm hidden-sm-down d-sm-none d-md-block d-none d-sm-block" href="{{route('website.payment.info')}}" >Pay Now</a></li>
+                            <li class="search_con menu-item menu-item-search">
+                                <span><i class="fa fa-search my_search"></i></span> 
+                                <div class="minisearch invert"><form role="search" id="searchform" class="sf" action="http://www.socialatglance.com/" method="GET"><input id="searchform-input" class="sf-input" type="text" placeholder="Search..." name="s"><span class="sf-submit-icon"><i class="fa fa-search" aria-hidden="true"></i>
+</span><input id="searchform-submit" class="sf-submit" type="submit" value=""></form></div>
                             </li>
 
 
@@ -118,7 +114,7 @@
                             </li> -->
                         </ul>
                     </div>
-                    <a class="btn btn-blms btn-sm hidden-sm-down d-sm-none d-md-block d-none d-sm-block" href="{{route('website.payment.info')}}" >Pay Now</a>
+                   
                 </nav>
             </div>
         </div>
@@ -321,8 +317,45 @@ setTimeout(function() {
 <script src="{{asset('js/contact-form-script.js')}}"></script>
 <script src="{{asset('js/main.js')}}"></script>
 <script src="{{asset('js/webscript.js')}}"></script>
+<script>
+  
+</script>
+<script>
+     $('.my_search').click(function(){
+
+        $(".menu-item").toggleClass("active")
+
+   })
+
+   $(document).ready(function(){
+    $(window).scroll(function(){
+       alert(111);
+    
+    if ($(window).scrollTop() >= 300) {
+        
+        $('.nav1').addClass('fixed-header');
+       
+    }
+    else {
+        $('.nav1').removeClass('fixed-header');
+       
+    }
+});
+
+   });
+   
+
+</script>
+<style>
+      .btn-blms:hover{
+    color:#fff !important;
+    border: 2px solid #231f20;
+    background: #000 !important;
+}
+</style>
 
 @yield('scripts')
+
 
 </body>
 

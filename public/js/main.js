@@ -10,4 +10,17 @@
 
 
     });
- 
+
+        $(window).scroll(function(){
+    if ($(window).scrollTop() >= 300) {
+        alert(1111)
+        $('.nav1').addClass('fixed-header');
+       
+    }
+    else {
+        $('.nav1').removeClass('fixed-header');
+       
+    }
+});
+
+  
