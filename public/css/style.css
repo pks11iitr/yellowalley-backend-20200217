@@ -44,11 +44,14 @@
     height: 50px;font-size: 1.35em;text-align: center;border-color: transparent;border-radius: 50%;pointer-events: none;
     display: inline-block;transition: background-color 0.2s ease-in-out;
   }
-  .fixed-header{width: 100%;
-    position: fixed;
+  .fixed-header{    position: fixed;
+    z-index: 9999;
+    width: 100%;
+    max-width: 100%;
     left: 0;
-    top: 0;
-    z-index: 1000;}
+    background: #fff;
+    padding: 0 69px;
+    top: 0;}
     .minisearch{
       position: absolute;
     top: 100%;
