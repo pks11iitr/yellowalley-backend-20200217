@@ -276,9 +276,9 @@ setTimeout(function() {
             </div>
             <div class="faq_footer">
                 <ul>
-                    <li><a href="">FAQ’s</a></li>
-                    <li><a href="">Privacy Policy</a></li>
-                    <li><a href="" style="border:none !important">Terms & Conditions</a></li>
+                    <li><a href="http://www.yellowalley.org/faqs/">FAQ’s</a></li>
+                    <li><a href="http://www.yellowalley.org/privacy-policy/">Privacy Policy</a></li>
+                    <li><a href="http://www.yellowalley.org/terms-conditions/" style="border:none !important">Terms & Conditions</a></li>
                 </ul>
             </div>
             <div class="socail_footer">
