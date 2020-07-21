@@ -65,7 +65,7 @@
 					  <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						<i class="fa fa-user"></i> Hi {{ucwords(auth()->user()->name)}}
 					  </a>
-					  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="transform: translate3d(641px, 30px, 0px);">
+					  <div class="dropdown-menu" style = "transform: none !important;">
 						<a class="dropdown-item" href="{{route('website.profile')}}"><i class="fa fa-user-circle-o" aria-hidden="true"></i> My Profile</a>
 						<a class="dropdown-item" href="{{ route('logout') }}"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                             <i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a>

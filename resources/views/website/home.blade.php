@@ -32,11 +32,16 @@
             <div class="row">
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                     <!-- section-title -->
-                    <div class="section-title">
+                    <!-- <div class="section-title">
                         <span class="h2">Recent View</h2></span><span class="pull-right"></span>
-                    </div>
+                       
+                    </div> -->
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                <div class="section-title">
+                        <span class="h2">Recent View</h2></span><span class="pull-right"></span>
+                       
+                    </div>
                     <div class="big-video-testimonial-block">
                         <div class="video-thumbnail"><img src="{{$lastvideo->image}}" alt="" class="img-fluid"></div>
                         <div class="video">
@@ -48,8 +53,9 @@
                         <h4 class="mb10">{{$lastvideo->name}}</h4>
                     </div>
                 </div>
-                <div class="col-md-6 pull-left p-2 d-flex justify-content-center">
-                    <div class="circle-block py-5" style="height=250px; width:250px;">
+                <div class="col-md-6 pull-left p-2  justify-content-center ans_con">
+                <span class="h2">Total Answer</h2></span><span class="pull-right"></span>
+                    <div class="circle-block py-5" style="height=250px; width:250px;margin:0 auto">
                         <div class="circle">
                             {{$userscore}}/{{$totalscore}}
                         </div>
