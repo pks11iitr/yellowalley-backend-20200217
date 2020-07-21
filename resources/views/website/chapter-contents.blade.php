@@ -45,17 +45,19 @@
 
             </div>
             <div class="col-md-12 py-2 my-3 text-center">
-                <h3 class="">Chapter Sessions</h3>
+                <h3 class="heading_sessaion"><img src="{{asset('img/book.png')}}"/>Chapter Sessions</h3>
             </div>
             <div class="row">
                 @foreach($chapter->videos as $video)
                 <div class="col-md-12">
-                    <div class="row course-strip">
+                    <div class="row course-strip chapter_con">
                         <a href="{{route('website.chapter.videos', ['id'=>$video->id])}}">
                         <div class="col-md-12">
                             <h6>{{$video->name}}</h6>
                             <p>{{str_replace('*', ' ', $video->description)}}</p>
                         </div>
+                       <span class="vide_video"> <img src="{{asset('img/video.png')}}" alt=""></span>
+                        </a>
                     </div>
                 </div>
                 @endforeach
