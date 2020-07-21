@@ -83,7 +83,7 @@
 				</span>
         </div>
         </div>
-           
+
         </div>
     </div>
     <div class="container nav1">
@@ -101,10 +101,11 @@
                             <li class="nav-item my_menu"><a class="nav-link" href="{{route('website.chapters')}}">Courses</a></li>
                             <li class="nav-item my_menu"><a class="nav-link" href="{{route('website.certificate.info')}}">Certificate</a></li>
                             <li class="nav-item my_menu"><a class="nav-link" href="{{route('website.submit.doubt')}}">Submit Your Doubt</a></li>
+                            <li class="nav-item my_menu"><a class="nav-link" href="{{route('website.contact.us')}}">Contact Us</a></li>
                             <li class="nav-item"> <a class="btn btn-blms btn-sm hidden-sm-down d-sm-none d-md-block d-none d-sm-block" href="{{route('website.payment.info')}}" >Pay Now</a></li>
                             <li class="search_con menu-item menu-item-search">
-                                <span><i class="fa fa-search my_search"></i></span> 
-                                <div class="minisearch invert"><form role="search" id="searchform" class="sf" action="http://www.socialatglance.com/" method="GET"><input id="searchform-input" class="sf-input" type="text" placeholder="Search..." name="s"><span class="sf-submit-icon"><i class="fa fa-search" aria-hidden="true"></i>
+                                <span><i class="fa fa-search my_search"></i></span>
+                                <div class="minisearch invert"><form role="search" id="searchform" class="sf" action="http://yellowalley.org/" method="GET"><input id="searchform-input" class="sf-input" type="text" name="s" placeholder="Search..." name="s"><span class="sf-submit-icon"><i class="fa fa-search" aria-hidden="true"></i>
 </span><input id="searchform-submit" class="sf-submit" type="submit" value=""></form></div>
                             </li>
 
@@ -114,7 +115,7 @@
                             </li> -->
                         </ul>
                     </div>
-                   
+
                 </nav>
             </div>
         </div>
@@ -160,12 +161,12 @@ setTimeout(function() {
 <!-- Footer Starts -->
 <footer class="footer">
     <div class="container">
-        
+
 
 
         <div class="row">
             <div class="col-md-3 col-xs-12">
-                <div class="col-md-12 col-xs-12 text-center about_cmp"> 
+                <div class="col-md-12 col-xs-12 text-center about_cmp">
                     <span class="footer_log"><img src="http://study.yellowalley.local/img/logo.png" alt=""></span>
                     <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a type specimen book. read more >
 
@@ -204,7 +205,7 @@ setTimeout(function() {
             </div>
         </div>
 
-     
+
             <!-- <div class="row section">
                 <div class="col-lg-4 col-md-4 col-xs-12">
                     <h3>About Yellow Alleyyy</h3>
@@ -292,7 +293,7 @@ setTimeout(function() {
         </div>
             </div>
         </div>
-   
+
 </footer>
 <!-- Footer ends -->
 <script type="text/javascript">
@@ -318,7 +319,7 @@ setTimeout(function() {
 <script src="{{asset('js/main.js')}}"></script>
 <script src="{{asset('js/webscript.js')}}"></script>
 <script>
-  
+
 </script>
 <script>
      $('.my_search').click(function(){
@@ -330,20 +331,20 @@ setTimeout(function() {
    $(document).ready(function(){
     $(window).scroll(function(){
        alert(111);
-    
+
     if ($(window).scrollTop() >= 300) {
-        
+
         $('.nav1').addClass('fixed-header');
-       
+
     }
     else {
         $('.nav1').removeClass('fixed-header');
-       
+
     }
 });
 
    });
-   
+
 
 </script>
 <style>
