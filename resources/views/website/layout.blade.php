@@ -187,9 +187,9 @@ setTimeout(function() {
             <div class="col-md-3 col-xs-12">
                 <h4  class="footer_heading">QUICK LINKS</h4>
                 <ul class="faq_list">
-                    <li style="border-bottom:none"><a href="http://study.yellowalley.org/">FAQ’s</a></li>
-                    <li style="border-bottom:none"><a href="http://study.yellowalley.org/">Privacy Policy</a></li>
-                    <li><a href="http://study.yellowalley.org/">Terms & Conditions</a></li>
+                    <li style="border-bottom:none"><a href="http://www.yellowalley.org/faqs/">FAQ’s</a></li>
+                    <li style="border-bottom:none"><a href="http://www.yellowalley.org/privacy-policy/">Privacy Policy</a></li>
+                    <li><a href="http://www.yellowalley.org/terms-conditions/">Terms & Conditions</a></li>
                 </ul>
             </div>
             <div class="col-md-3 col-xs-12 address_con">
