@@ -14,6 +14,9 @@ class HomeController extends Controller
 {
     public function home(Request $request){
         $user=auth()->user();
+        if(!$user)
+            return redirect()->route('login');
+
         $banners=Banner::active()->get();
         $userscore=$user?$user->totalScore():0;
         $totalscore=Score::totalscore();

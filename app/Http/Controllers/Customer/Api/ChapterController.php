@@ -69,7 +69,9 @@ class ChapterController extends Controller
 
     public function videos(Request $request, $id){
         $user=auth()->user();
-        $chapter=Chapter::active()->with('videos')->findOrFail($id);
+        $chapter=Chapter::active()->with(['videos'=>function($videos){
+            $videos->orderBy('videos.sequence_no', 'asc');
+        }])->findOrFail($id);
         if($user->isSubscriptionActive()){
             if($chapter->sequence_no<=$user->last_qualified_chapter) {
                 return [

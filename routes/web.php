@@ -121,10 +121,11 @@ Route::group(['domain' => env('PORTAL_DOMAIN')], function() {
     Route::post('logout', 'Website\Auth\LoginController@logout')->name('logout');
 
 
-    Route::get('/', 'Website\HomeController@home')->name('website.home');
-    Route::get('course-curriculum', 'Website\ChapterController@index')->name('website.chapters');
+
 
     Route::group(['middleware' => ['webauth']], function () {
+        Route::get('/', 'Website\HomeController@home')->name('website.home');
+        Route::get('course-curriculum', 'Website\ChapterController@index')->name('website.chapters');
         Route::get('profile', 'Website\ProfileController@view')->name('website.profile');
         Route::post('profile', 'Website\ProfileController@update');
         Route::get('chapter-contents/{id}', 'Website\ChapterController@details')->name('website.chapter.details');
@@ -146,14 +147,19 @@ Route::group(['domain' => env('PORTAL_DOMAIN')], function() {
         Route::get('initiate-payment', 'Website\PaymentController@initiate')->name('website.pay');
         Route::post('verify-payment', 'Website\PaymentController@verify')->name('website.payment.verify');
 
+        Route::get('contact-us', 'Website\WebsiteController@contactForm')->name('website.contact.us');
+
+        Route::post('contact-us', 'Website\WebsiteController@submitQuery');
+
+        Route::get('chat-with-us', 'Website\WebsiteController@chat')->name('website.chat');
     });
 
-    Route::get('contact-us', 'Website\WebsiteController@contactForm')->name('website.contact.us');
-    Route::post('contact-us', 'Website\WebsiteController@submitQuery');
+
+
     Route::get('privacy-policy', 'Website\WebsiteController@privacy')->name('website.privacy');
     Route::get('term-and-conditions', 'Website\WebsiteController@tnc')->name('website.terms');
     Route::get('about-yellowalley', 'Website\WebsiteController@about')->name('website.about.us');
-    Route::get('chat-with-us', 'Website\WebsiteController@chat')->name('website.chat');
+
     Route::get('faqs', 'Website\WebsiteController@faqs')->name('website.faqs');
 
 

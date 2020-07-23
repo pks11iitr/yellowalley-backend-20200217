@@ -80,7 +80,7 @@ class TestController extends Controller
         if ($score['isqualify'] == 'yes')
             if ($user->last_qualified_chapter <= $test->chapter->sequence_no && $user->last_qualified_chapter < $totalchapters) {
                 $user->qualifyForNextChapter($test->chapter->sequence_no + 1);
-                $result['next_chapter_id'] = $user->last_qualified_chapter;
+                //$result['next_chapter_id'] = $user->last_qualified_chapter;
             }
 
 //        if($user->last_qualified_chapter < $totalchapters && $test->chapter->sequence_no < $totalchapters)
@@ -92,13 +92,26 @@ class TestController extends Controller
 //                $result['next_chapter_id']=$user->last_qualified_chapter;
 //        }
 
+//        if($score['isqualify']=='yes'){
+//            if($test->chapter->sequence_no < $totalchapters)
+//                $result['next_chapter_id']=$user->last_qualified_chapter;
+//            else
+//                $result['next_chapter_id']='completed';
+//        }else{
+//            $result['next_chapter_id']=$user->last_qualified_chapter;
+//        }
+
         if($score['isqualify']=='yes'){
-            if($test->chapter->sequence_no < $totalchapters)
-                $result['next_chapter_id']=$user->last_qualified_chapter;
-            else
+            if($test->chapter->sequence_no == $totalchapters)
                 $result['next_chapter_id']='completed';
+            else{
+                if($test->chapter->sequence_no + 1 < $user->last_qualified_chapter)
+                    $result['next_chapter_id']=$test->chapter->sequence_no+1;
+                else
+                    $result['next_chapter_id']=$user->last_qualified_chapter;
+            }
         }else{
-            $result['next_chapter_id']=$user->last_qualified_chapter;
+            $result['next_chapter_id']=$test->chapter->id;
         }
 
         if($result['next_chapter_id']!='completed') {
@@ -142,14 +155,14 @@ class TestController extends Controller
         $img->text(ucwords($user->name), 1200, 1200, function($font) {
             $font->file(public_path('fonts.otf'));
             $font->size(100);
-            $font->color('#4285F4');
+            $font->color('#000000');
             $font->align('center');
             $font->angle(0);
         });
-        $img->text(date('D,d M Y'), 800, 2150, function($font) {
+        $img->text(date('d M, Y'), 800, 2150, function($font) {
             $font->file(public_path('fonts.otf'));
             $font->size(80);
-            $font->color('#4285F4');
+            $font->color('#000000');
             $font->align('center');
             $font->angle(0);
         });

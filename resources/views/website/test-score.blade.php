@@ -16,13 +16,28 @@
             <div class="row py-4">
                 <div class="col-md-12 py-5">
                         <div class="form-group text-center">
-                            <h5>Test Score</h5>
+                            <h5>Your Score</h5>
                             <h4>{{$result['score']}}/{{$result['totalscore']}}</h4>
-                            <h6>Qualify Status: {{$result['pass_status']}}</h6>
+                            <h6>Result Status: {{$result['pass_status']=='no'?'Failed':'Pass'}}</h6>
+                            <h7>@if($result['pass_status']=='yes')
+                                    @if($result['next_chapter_id']=='completed')
+                                        Congratulations! <br>You Have Completed All Chapters. You Can Download Your Certificate.
+                                    @else
+                                        Congratulations! <br>Click Continue To Unlock Next Chapter
+                                    @endif
+                                @else
+                                    Sorry You Failed The Test! <br>Click Continue To Study Chapter Again
+                                @endif
+                            </h7>
                         </div>
 
                             <div class="form-group text-center">
-                            <a href="{{route('website.chapters')}}" class="btn btn-blms">Continue</a>
+                            @if($result['next_chapter_id']=='completed')
+                                    <a href="{{route('website.chapters')}}" class="btn btn-blms">Continue</a>
+                            @else
+                                    <a href="{{route('website.chapter.details', ['id'=>$result['next_chapter_id']])}}" class="btn btn-blms">Continue</a>
+                            @endif
+
                         </div>
 
                 </div>

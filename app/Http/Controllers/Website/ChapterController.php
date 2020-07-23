@@ -12,6 +12,9 @@ class ChapterController extends Controller
 {
     public function index(Request $request){
         $user=auth()->user();
+        if(!$user)
+            return redirect()->route('login');
+
         $chapters=Chapter::active()->get();
         $chapterarr=[];
         foreach($chapters as $c){
@@ -25,6 +28,9 @@ class ChapterController extends Controller
 
     public function details(Request $request, $id){
         $user=auth()->user();
+        if(!$user)
+            return redirect()->route('login');
+
         $chapter=Chapter::active()->with(['videos'=>function($videos){
 
             $videos->orderBy('videos.sequence_no', 'asc');
@@ -38,8 +44,13 @@ class ChapterController extends Controller
 
     public function videos(Request $request, $id){
         $user=auth()->user();
+        if(!$user)
+            return redirect()->route('login');
+
         $video=Video::findOrFail($id);
-        $chapter=Chapter::active()->with('videos')->findOrFail($video->chapter_id);
+        $chapter=Chapter::active()->with(['videos'=>function($videos){
+            $videos->orderBy('videos.sequence_no', 'asc');
+        }])->findOrFail($video->chapter_id);
         if($user && $user->isSubscriptionActive()){
             if($chapter->sequence_no<=$user->last_qualified_chapter) {
                 $user->updateLastPlayedVideo($video->id);
@@ -62,11 +73,19 @@ class ChapterController extends Controller
     public function doubtForm(Request $request){
 
         $user=auth()->user();
+        if(!$user)
+            return redirect()->route('login');
+
         return view('website.submit-doubts', compact('user'));
 
     }
 
     public function submitDoubt(Request $request){
+
+        $user=auth()->user();
+        if(!$user)
+            return redirect()->route('login');
+
         $request->validate([
             'name'=>'required|string|max:150',
             'mobile'=>'required|string|digits:10',

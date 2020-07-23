@@ -98,9 +98,9 @@
                     <div class="collapse navbar-right navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav ml-auto">
                             <li class="nav-item my_menu"><a class="nav-link active" href="{{route('website.home')}}">Home</a></li>
-                            <li class="nav-item my_menu"><a class="nav-link" href="{{route('website.chapters')}}">Courses</a></li>
+                            <li class="nav-item my_menu"><a class="nav-link" href="{{route('website.chapters')}}">Course</a></li>
                             <li class="nav-item my_menu"><a class="nav-link" href="{{route('website.certificate.info')}}">Certificate</a></li>
-                            <li class="nav-item my_menu"><a class="nav-link" href="{{route('website.submit.doubt')}}">Submit Your Doubt</a></li>
+                            <li class="nav-item my_menu"><a class="nav-link" href="{{route('website.submit.doubt')}}">Submit Your Doubts</a></li>
                             <li class="nav-item my_menu"><a class="nav-link" href="{{route('website.contact.us')}}">Contact Us</a></li>
                             <li class="nav-item"> <a class="btn btn-blms btn-sm hidden-sm-down d-sm-none d-md-block d-none d-sm-block" href="{{route('website.payment.info')}}" >Pay Now</a></li>
                             <li class="search_con menu-item menu-item-search">

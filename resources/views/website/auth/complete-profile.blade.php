@@ -19,6 +19,7 @@
                         @csrf
                         <div class="form-group">
                             <input type="text" class="form-control form-blms" name="name" placeholder="Name" required>
+                            (as will appear on certificate)
                         </div>
                         <div class="form-group">
                             <input type="email" class="form-control form-blms" name="email" placeholder="Email Id" required>

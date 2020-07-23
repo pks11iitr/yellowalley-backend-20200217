@@ -73,7 +73,7 @@
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                     <!-- section-title -->
                     <div class="section-title">
-                        <span class="h2">Chapter</h2></span><span class="pull-right"><a href="{{route('website.chapters')}}">See All</a></h2></span>
+                        <span class="h2">{{$videos->title}}</h2></span><span class="pull-right"><a href="{{route('website.chapters')}}">See All</a></h2></span>
                     </div>
                 </div>
                 <!-- /.section-title -->

@@ -27,29 +27,29 @@
                     <form action="{{route('website.view.question', ['testid'=>$test->refid, 'questionid'=>$question->sequence_no])}}" method="post">
                         @csrf
                         <div class="form-group">
-                            <label for="exampleInputEmail1" class="h3 mb-3">{{$question->sequence_no}}. {{$question->question}}</label>
+                            <label for="exampleInputEmail1" class="h3 mb-3">{{$question->sequence_no}} - {{$question->question}}</label>
                             <div class="form-check mb-2">
                                 <input class="form-check-input" type="radio" name="answer" id="exampleRadios1" value="1" checked>
                                 <label class="form-check-label" for="exampleRadios1">
-                                    1. {{$question->option1}}
+                                    A.&nbsp;&nbsp; {{$question->option1}}
                                 </label>
                             </div>
                             <div class="form-check mb-2">
                                 <input class="form-check-input" type="radio" name="answer" id="exampleRadios2" value="2">
                                 <label class="form-check-label" for="exampleRadios2">
-                                    2. {{$question->option2}}
+                                    B.&nbsp;&nbsp; {{$question->option2}}
                                 </label>
                             </div>
                             <div class="form-check mb-2">
                                 <input class="form-check-input" type="radio" name="answer" id="exampleRadios3" value="3">
                                 <label class="form-check-label" for="exampleRadios3">
-                                    3. {{$question->option3}}
+                                    C.&nbsp;&nbsp; {{$question->option3}}
                                 </label>
                             </div>
                             <div class="form-check mb-2">
                                 <input class="form-check-input" type="radio" name="answer" id="exampleRadios2" value="4">
                                 <label class="form-check-label" for="exampleRadios2">
-                                    4. {{$question->option4}}
+                                    D.&nbsp;&nbsp; {{$question->option4}}
                                 </label>
                             </div>
                         </div>

@@ -9,11 +9,16 @@ class ProfileController extends Controller
 {
     public function view(Request $request){
         $user=auth()->user();
+        if(!$user)
+            return redirect()->route('login');
        return view('website.profile', compact('user'));
     }
 
 
     public function update(Request $request){
+        $user=auth()->user();
+        if(!$user)
+            return redirect()->route('login');
         $request->validate([
             'address'=>'required|string|max:150',
             'gender'=>'required|in:male,female,others',

@@ -22,10 +22,10 @@
                             <input type="text" class="form-control form-blms" name="name" placeholder="Name" required>
                         </div>
                         <div class="form-group">
-                            <input type="email" class="form-control form-blms" name="email" placeholder="Email Id" required>
+                            <input type="email" class="form-control form-blms" name="email" placeholder="Email id" required>
                         </div>
                         <div class="form-group">
-                            <input type="phone" class="form-control form-blms"  name="mobile" placeholder="Mobile Number" required maxlength="10">
+                            <input type="phone" class="form-control form-blms"  name="mobile" placeholder="Mobile no" required maxlength="10">
                         </div>
                         <div class="form-group">
                             <textarea type="text" class="form-control form-blms"  name="message" placeholder="Message" required></textarea>

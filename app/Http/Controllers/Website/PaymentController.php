@@ -18,6 +18,7 @@ class PaymentController extends Controller
     }
 
     public function view(Request $request){
+
         $payment=Configuration::where('param_name','plan_charges')->first();
         $payment_amount=(int)$payment->param_value;
         return view('website.payment-info', compact('payment_amount'));
