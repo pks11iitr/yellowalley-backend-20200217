@@ -66,7 +66,7 @@
 						<i class="fa fa-user"></i> Hi {{ucwords(auth()->user()->name)}}
 					  </a>
 					  <div class="dropdown-menu" style = "transform: none !important;">
-                          <a class="dropdown-item" href="{{route('website.profile')}}"><i class="fa fa-user-circle-o" aria-hidden="true"></i> My Home</a>
+                          <a class="dropdown-item" href="{{route('website.home')}}"><i class="fa fa-user-circle-o" aria-hidden="true"></i> My Home</a>
 						<a class="dropdown-item" href="{{route('website.profile')}}"><i class="fa fa-user-circle-o" aria-hidden="true"></i> My Profile</a>
 						<a class="dropdown-item" href="{{ route('logout') }}"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                             <i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a>
