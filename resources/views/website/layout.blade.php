@@ -66,6 +66,7 @@
 						<i class="fa fa-user"></i> Hi {{ucwords(auth()->user()->name)}}
 					  </a>
 					  <div class="dropdown-menu" style = "transform: none !important;">
+                          <a class="dropdown-item" href="{{route('website.profile')}}"><i class="fa fa-user-circle-o" aria-hidden="true"></i> My Home</a>
 						<a class="dropdown-item" href="{{route('website.profile')}}"><i class="fa fa-user-circle-o" aria-hidden="true"></i> My Profile</a>
 						<a class="dropdown-item" href="{{ route('logout') }}"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                             <i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a>
@@ -91,13 +92,13 @@
             <div class="col-md-12">
                 <nav class="navbar navbar-expand-lg navbar-light bg-white custom_menu cizel_font">
 
-                    <a class="navbar-brand" href="{{route('website.home')}}"><img class="logo" src="{{asset('img/logo.png')}}" alt="Yellow Alley logo"></a>
+                    <a class="navbar-brand" href="http://yellowalley.org"><img class="logo" src="{{asset('img/logo.png')}}" alt="Yellow Alley logo"></a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-right navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav ml-auto">
-                            <li class="nav-item my_menu"><a class="nav-link active" href="{{route('website.home')}}">Home</a></li>
+                            <li class="nav-item my_menu"><a class="nav-link active" href="http://yellowalley.org">Home</a></li>
                             <li class="nav-item my_menu"><a class="nav-link" href="{{route('website.chapters')}}">Course</a></li>
                             <li class="nav-item my_menu"><a class="nav-link" href="{{route('website.certificate.info')}}">Certificate</a></li>
                             <li class="nav-item my_menu"><a class="nav-link" href="{{route('website.submit.doubt')}}">Submit Your Doubts</a></li>
