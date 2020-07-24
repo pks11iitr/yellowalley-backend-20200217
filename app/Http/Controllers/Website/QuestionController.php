@@ -50,7 +50,7 @@ class QuestionController extends Controller
                 //var_dump($question->sequence_no);die;
                 if($question->sequence_no < count($chapter->questions)){
                     $test->giveAnswer($question->sequence_no, $request->answer);
-                    return redirect()->route('website.view.question', ['testid'=>$test->refid, 'questionid'=>$question->sequence_no+1]);
+                    return redirect()->route('website.view.question', ['testid'=>$test->refid, 'questionid'=>$question->sequence_no+1])->with('success', 'submitted');
                 }else{
                     if($question->sequence_no == count($chapter->questions)){
                         $test->giveAnswer($question->sequence_no, $request->answer);

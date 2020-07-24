@@ -29,10 +29,17 @@ class TestController extends Controller
                         ]
                     ];
                 }
+            }else{
+                return [
+                    'status' => 'failed',
+                    'message'=>'Please complete chapter '.($chapter->sequence_no-1).' first',
+                    'data' => []
+                ];
             }
         }
         return [
             'status' => 'failed',
+            'message'=>'subscribe',
             'data' => []
         ];
     }
