@@ -22,7 +22,7 @@
 
                         <div class="containermat">
                 <div class="material-textfield">
-                <input type="text" class="form-control form-blms" name="name" placeholder=" " required>
+                <input type="text" class="form-control form-blms user_icon" name="name" placeholder=" " required>
                   <label>Name</label>
                 </div>
               </div>
@@ -30,7 +30,7 @@
                         <div class="form-group">
                         <div class="containermat">
                 <div class="material-textfield">
-                <input type="email" class="form-control form-blms" name="email" placeholder=" " required>
+                <input type="email" class="form-control form-blms email_icon" name="email" placeholder=" " required>
                   <label>Email id</label>
                 </div>
               </div>
@@ -39,7 +39,7 @@
                         <div class="form-group">
                         <div class="containermat">
                 <div class="material-textfield">
-                <input type="phone" class="form-control form-blms"  name="mobile" placeholder=" " required maxlength="10">
+                <input type="phone" class="form-control form-blms call_icon"  name="mobile" placeholder=" " required maxlength="10">
                   <label>Mobile no</label>
                 </div>
               </div>
@@ -48,7 +48,7 @@
                         <div class="form-group">
                         <div class="containermat">
                 <div class="material-textfield">
-                <textarea type="text" class="form-control form-blms"  name="message" placeholder=" " required></textarea>
+                <textarea type="text" class="form-control form-blms email_icon"  name="message" placeholder=" " required></textarea>
                   <label>Message</label>
                 </div>
               </div>
