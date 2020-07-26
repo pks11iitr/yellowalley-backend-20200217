@@ -50,11 +50,11 @@
         </div>
         <div class="social_icon">
         <ul>
-        <li><a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-        <li><a href=""><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-        <li><a href=""><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-        <li><a href=""><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
-        <li><a href=""><i class="fa fa-whatsapp" aria-hidden="true"></i></a></li>
+        <li><a href="https://www.facebook.com/Yellow-Alley-Education-106575204301068"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+        <li><a href="https://www.linkedin.com/company/yellow-alley-education/"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+        <li><a href="https://www.instagram.com/yellowalleyeducation/"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+        <li><a href="https://www.youtube.com/channel/UCzmEhSSct4y0-0xxRDuFHLQ/"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
+        <li><a href="https://api.whatsapp.com/send?phone=918595205921"><i class="fa fa-whatsapp" aria-hidden="true"></i></a></li>
         </ul>
         </div>
         <div class="login_conta">
