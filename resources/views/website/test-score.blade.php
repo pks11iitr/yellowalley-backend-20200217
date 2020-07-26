@@ -8,6 +8,9 @@
                 <div class="col-md-12 mb-5 d-flex justify-content-center">
                     <h3 class="text-center py-5">Results: {{$test->chapter->title}}</h3>
                 </div>
+                <div class="col-md-12 d-flex justify-content-center">
+                    <div class="icon text-center pro_img"><img src="{{asset('img/resut_icons.png')}}"></div>
+                </div>
             </div>
         </div>
     </section>
