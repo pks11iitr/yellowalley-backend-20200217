@@ -1023,6 +1023,7 @@ position:absolute;
   .user_icon{ background: url(../img/user_icon.png)no-repeat #fff; background-size:20px; background-position: 11px 14px; padding: 0 48px !important;}
   .email_icon{ background: url(../img/mail_icon.png)no-repeat #fff; background-size:20px; background-position: 11px 14px; padding: 0 48px !important;}
   .call_icon{ background: url(../img/call_icon.png)no-repeat #fff; background-size:20px; background-position: 11px 14px; padding: 0 48px !important;}
+  .pro_img img{width:200px;border-radius: 50%;}
 @media(max-width:768px){
   .top-menu{display: none !important;}
   .privacy_policy{display: block;padding:15px}
