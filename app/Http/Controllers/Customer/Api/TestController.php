@@ -15,7 +15,9 @@ class TestController extends Controller
     public function start(Request $request, $id)
     {
         $user = auth()->user();
-        $chapter = Chapter::active()->with('questions')->findOrFail($id);
+        $chapter = Chapter::active()->with(['questions'=>function($question){
+        $question->orderBy('questions.sequence_no', 'asc')->where('isactive', 'true');
+    }])->findOrFail($id);
         if ($user->isSubscriptionActive()) {
             if ($chapter->sequence_no <= $user->last_qualified_chapter) {
                 $testid = $chapter->startTest();
