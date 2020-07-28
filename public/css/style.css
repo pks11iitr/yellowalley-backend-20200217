@@ -1045,6 +1045,7 @@ position:absolute;
   .refrence_icon{ background: url(../img/id_card.png)no-repeat #fff; background-size:20px; background-position: 11px 14px; padding: 0 48px !important;}
   .pro_img img{width:200px;border-radius: 50%;}
   .mobile_header{display: none;}
+  .big-video-testimonial-block{height:442px}
 @media(max-width:768px){
   .desktop_header{display: none !important;}
   .privacy_policy{display: block;padding:15px}
@@ -1063,4 +1064,6 @@ position:absolute;
   .login_conta a{font-size: 13px !important;}
   .login_conta span a{padding:6px 7.4px !important}
   .top-menu .right a{margin:0 !important}
+  .login_conta{width:auto !important}
+  .big-video-testimonial-block{height:auto !important}
 }

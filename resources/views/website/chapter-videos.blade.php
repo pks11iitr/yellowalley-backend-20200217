@@ -25,7 +25,7 @@
                 <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12">
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="big-video-testimonial-block" style="height:410px">
+                            <div class="big-video-testimonial-block">
 {{--                                <div class="video-thumbnail"><img src="img/glry/img1.jpg" alt="" class="img-fluid"></div>--}}
                                 <div class="myVideo" id="my_video" data-video="{{$video->video_url}}" data-type="video/mp4" data-poster="{{$video->image}}">
                                 </div>
