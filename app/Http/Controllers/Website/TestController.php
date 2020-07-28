@@ -16,7 +16,7 @@ class TestController extends Controller
         $user = auth()->user();
         $chapter = Chapter::active()
             ->with(['questions'=>function($questions){
-                $questions->orderBy('questions.sequence_no', 'asc')->where('isactive', 'true');
+                $questions->orderBy('questions.sequence_no', 'asc')->where('questions.isactive', true);
                 }])
             ->findOrFail($id);
         //var_dump($chapter->questions);die;

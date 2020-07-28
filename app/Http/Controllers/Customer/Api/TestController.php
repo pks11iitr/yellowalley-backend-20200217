@@ -16,7 +16,7 @@ class TestController extends Controller
     {
         $user = auth()->user();
         $chapter = Chapter::active()->with(['questions'=>function($question){
-        $question->orderBy('questions.sequence_no', 'asc')->where('isactive', 'true');
+        $question->orderBy('questions.sequence_no', 'asc')->where('questions.isactive', true);
     }])->findOrFail($id);
         if ($user->isSubscriptionActive()) {
             if ($chapter->sequence_no <= $user->last_qualified_chapter) {
