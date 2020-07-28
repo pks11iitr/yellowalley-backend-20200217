@@ -1043,7 +1043,7 @@ position:absolute;
   .call_icon{ background: url(../img/call_icon.png)no-repeat #fff; background-size:20px; background-position: 11px 14px; padding: 0 48px !important;}
   .address_icon{ background: url(../img/gps.png)no-repeat #fff; background-size:20px; background-position: 11px 14px; padding: 0 48px !important;}
   .refrence_icon{ background: url(../img/id_card.png)no-repeat #fff; background-size:20px; background-position: 11px 14px; padding: 0 48px !important;}
-  .pro_img img{width:200px;border-radius: 50%;}
+  .pro_img img{width: 150px;border-radius: 50%;height: 150px;border: 1px solid #ccc;}
   .mobile_header{display: none;}
   .big-video-testimonial-block{height:442px}
 @media(max-width:768px){

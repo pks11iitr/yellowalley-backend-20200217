@@ -9,7 +9,7 @@
                     <h3 class="text-center py-5">Results: {{$test->chapter->title}}</h3>
                 </div>
                 <div class="col-md-12 d-flex justify-content-center">
-                    <div class="icon text-center pro_img"><img src="{{asset('img/resut_icons.png')}}"></div>
+                    <div class="icon text-center pro_img"><img src="{{asset('img/resut_icons.jpg')}}"></div>
                 </div>
             </div>
         </div>
