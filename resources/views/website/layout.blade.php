@@ -37,7 +37,71 @@
     ======================================================= -->
 </head>
 <section class="header">
-    <div class="top-menu bg-dark py-1">
+
+
+<div class="top-menu bg-dark py-1 mobile_header">
+        <div class="container ">
+        <div class="top_header ralewy_font top_mobile_header">
+        <div class="first_info">
+        <ul>
+        <li><i class="fa fa-map-marker" aria-hidden="true"></i>ANSARI ROAD, NEW DELHI - 110002</li>
+        </ul>
+        </div>
+        <div class="first_info">
+        <ul>
+       
+        <li><i class="fa fa-phone" aria-hidden="true"></i>8595205921</li>
+        <li> <a href="#" class="email_cls"><i class="fa fa-envelope"></i>info@yellowalley.com</a></li>
+        </ul>
+        </div>
+        <div class="social_login_con">
+        <div class="social_icon">
+        <ul>
+        <li><a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+        <li><a href=""><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+        <li><a href=""><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+        <li><a href=""><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
+        <li><a href=""><i class="fa fa-whatsapp" aria-hidden="true"></i></a></li>
+        </ul>
+        </div>
+        <div class="login_conta">
+        <span class="right">
+
+                      @if(auth()->user())
+                    <a class="dropdown">
+					  <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<i class="fa fa-user"></i> Hi {{ucwords(auth()->user()->name)}}
+					  </a>
+					  <div class="dropdown-menu" style = "transform: none !important;">
+                          <a class="dropdown-item" href="{{route('website.profile')}}"><i class="fa fa-user-circle-o" aria-hidden="true"></i> My Home</a>
+						<a class="dropdown-item" href="{{route('website.profile')}}"><i class="fa fa-user-circle-o" aria-hidden="true"></i> My Profile</a>
+						<a class="dropdown-item" href="{{ route('logout') }}"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            <i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a>
+                          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
+					  </div>
+                    </a>
+                      @else
+                          <a href="{{route('login')}}" aria-haspopup="true" aria-expanded="false">
+                          LogIn
+					    </a>
+                      @endif
+					</a>
+				</span>
+        </div>
+
+        </div>
+        
+        
+        </div>
+
+        </div>
+    </div>
+
+
+
+    <div class="top-menu bg-dark py-1 desktop_header">
         <div class="container ">
 
         <div class="top_header ralewy_font">

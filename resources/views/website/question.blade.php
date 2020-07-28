@@ -17,7 +17,7 @@
                     <div class="icon text-center"><img src="{{asset('img/brain-icon.png')}}"></div>
                 </div> -->
                 <div class="col-md-12 d-flex justify-content-center ">
-                    <div class="icon text-center pro_img"><img src="{{asset('img/test_icon.png')}}"></div>
+                    <div class="icon text-center pro_img"><img src="{{asset('img/test_icon.jpg')}}"></div>
                 </div>
 
             </div>
