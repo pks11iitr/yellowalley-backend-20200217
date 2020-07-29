@@ -232,9 +232,8 @@ setTimeout(function() {
         <div class="row">
             <div class="col-md-3 col-xs-12">
                 <div class="col-md-12 col-xs-12 text-center about_cmp">
-                    <span class="footer_log"><img src="http://study.yellowalley.local/img/logo.png" alt=""></span>
-                    <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a type specimen book. read more >
-
+                    <span class="footer_log"><img src="/img/logo.png" alt=""></span>
+                    <p >The organization has been established with a goal to strengthen the capabilities and empower a student’s practical knowledge through our courses. Unlike most of the institutes we are not limited to theory and study materials rather we focus on individual learning by providing practical guidance and hand on experience with real life examples.
 </p>
                 </div>
             </div>
