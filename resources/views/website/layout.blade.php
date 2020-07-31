@@ -337,7 +337,7 @@ setTimeout(function() {
         </div>
         <div class="privacy_policy">
             <div class="copy_right">
-            2019 © Copyrights Yellow Alley Designed By Relesh Infomedia
+            2019 © Copyright Yellow Alley Designed By Relesh Infomedia
             </div>
             <div class="faq_footer">
                 <ul>
