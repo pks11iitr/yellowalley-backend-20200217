@@ -17,13 +17,14 @@
                 <div class="col-md-8 offset-md-2 text-center p-3" style="border: 2px solid #e2e2e2; border-radius: 4px;">
                     @if($result['status']=='success')
                         <div class="form-group  px-5">
-                        <h3 class="py-5">Click download button to download your certificate.</h3>
+                        <h3 class="py-5">Click download button to continue.</h3>
                         </div>
                         <div class="form-group text-center">
                             <a href="{{route('website.certificate.download', ['code'=>$user->referral_code])}}" class="btn btn-blms btn-md">Download</a>
                         </div>
                     @else
                         <div class="form-group px-5">
+                            <h2 class="reduce-bottom">Failed</h2>
                         <h3 class="py-5">Please complete all tests to download Certificate.</h3>
                         </div>
                         <div class="form-group text-center">

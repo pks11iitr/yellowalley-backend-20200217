@@ -159,7 +159,7 @@ class TestController extends Controller
             $font->align('center');
             $font->angle(0);
         });
-        $img->text(date('d M, Y'), 800, 2150, function($font) {
+        $img->text(date('d F, Y'), 800, 2150, function($font) {
             $font->file(public_path('fonts.otf'));
             $font->size(80);
             $font->color('#000000');

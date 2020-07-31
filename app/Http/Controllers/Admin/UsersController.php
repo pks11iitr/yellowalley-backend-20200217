@@ -4,8 +4,10 @@ namespace App\Http\Controllers\admin;
 use App\Exports\ReferralExport;
 use App\Exports\UserExports;
 use App\Http\Controllers\Controller;
+use App\Models\Chapter;
 use App\Models\Payment;
 use App\User;
+use DB;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -17,7 +19,23 @@ class UsersController extends Controller
             return $this->exportUser($request);
         }
 
+
         $users = User::with('payments');
+
+        if($request->completed==1){
+            $chapterscount=Chapter::active()->count();
+            $userscores=User::join('user_scores', 'users.id','=', 'user_scores.user_id')
+                ->select(DB::raw("COUNT(*) count, users.id"))
+                ->groupBy("users.id")
+                ->having('count', '=', $chapterscount-1)
+                ->get();
+            $uids=[];
+            foreach($userscores as $u){
+                $uids[]=$u->id;
+            }
+            if($uids)
+                $users = $users ->whereIn('id', $uids);
+        }
 
         if(isset($request->rcode)){
             $users=$users->where('referred_by', $request->rcode);
@@ -53,6 +71,21 @@ class UsersController extends Controller
 
     public function exportUser(Request $request){
         $users = User::with('payments');
+
+        if($request->completed==1){
+            $chapterscount=Chapter::active()->count();
+            $userscores=User::join('user_scores', 'users.id','=', 'user_scores.user_id')
+                ->select(DB::raw("COUNT(*) count, users.id"))
+                ->groupBy("users.id")
+                ->having('count', '=', $chapterscount-1)
+                ->get();
+            $uids=[];
+            foreach($userscores as $u){
+                $uids[]=$u->id;
+            }
+            if($uids)
+                $users = $users ->whereIn('id', $uids);
+        }
 
         if(isset($request->rcode)){
             $users=$users->where('referred_by', $request->rcode);
