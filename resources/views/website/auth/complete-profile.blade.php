@@ -21,11 +21,11 @@
 
                         <div class="containermat">
                 <div class="material-textfield">
-                <input type="text" class="form-control form-blms user_icon" name="name" placeholder=" " required>
-                  <label>Name  (as will appear on certificate)</label>
+                <input type="text" class="form-control form-blms user_icon" name="name" placeholder=" " required style="margin:0 0 10px">
+                  <label>Name </label>
                 </div>
               </div>
-
+  <p>(as will appear on certificate)</p>
 
                         </div>
                         <div class="form-group">
