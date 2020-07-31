@@ -24,7 +24,7 @@
                   <label>Name</label>
                 </div>
               </div>
-                          
+
                         </div>
                         <div class="form-group">
                         <div class="containermat">
@@ -33,16 +33,16 @@
                   <label>Mobile no</label>
                 </div>
               </div>
-                           
+
                         </div>
                         <div class="form-group">
                         <div class="containermat">
                 <div class="material-textfield">
                 <input type="email" class="form-control form-blms email_icon" name="email" placeholder=" " required>
-                  <label>Email id</label>
+                  <label>Email</label>
                 </div>
               </div>
-                           
+
                         </div>
 
                         <div class="form-group">
@@ -52,7 +52,7 @@
                   <label>Subject</label>
                 </div>
               </div>
-                            
+
                         </div>
                         <div class="form-group">
                         <div class="containermat">
@@ -61,7 +61,7 @@
                   <label>Your Doubt</label>
                 </div>
               </div>
-                           
+
                         </div>
                         <div class="form-group text-center">
                             <button type="submit" class="btn btn-blms btn-block">Submit Doubt</button>
