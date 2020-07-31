@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="{{asset('css/owl.carousel.css')}}">
     <link rel="stylesheet" href="{{asset('css/owl.theme.css')}}">
     <link rel="stylesheet" href="{{asset('css/responsive.css')}}">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link href="{{asset('css/style.css')}}" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
@@ -373,11 +374,11 @@ setTimeout(function() {
 </script>
 
 <!-- jQuery first, then Tether, then Bootstrap JS. -->
-<script src="{{asset('js/jquery.min.js')}}"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="{{asset('js/popper.min.js')}}"></script>
 <script src="{{asset('js/bootstrap.min.js')}}"></script>
 <script src="{{asset('js/owl.carousel.min.js')}}"></script>
-
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="{{asset('js/form-validator.min.js')}}"></script>
 <script src="{{asset('js/contact-form-script.js')}}"></script>
 <script src="{{asset('js/main.js')}}"></script>

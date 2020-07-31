@@ -45,7 +45,7 @@
                         </div>
                         <div class="form-group">
                         <label for="" class="my_lbl">DOB</label>
-                            <input type="date" class="form-control form-blms"  name="dob" placeholder="dd-mm-yyyy" required value="{{$user->dob}}" min="1997-01-01" max="2030-12-31">
+                            <input type="text" class="form-control form-blms"  name="dob" placeholder="yyyy-mm-dd" required value="{{$user->dob}}" id="date-picker">
                         </div>
 
                         <div class="form-group">
@@ -86,3 +86,14 @@
 
 
 @endsection
+@section('scripts')
+    <script>
+        $(document).ready(function(){
+            $( "#date-picker" ).datepicker({
+                dateFormat: "yy-mm-dd"
+            });
+        });
+
+    </script>
+@endsection
+

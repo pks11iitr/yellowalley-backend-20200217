@@ -62,7 +62,7 @@
                         <div class="form-group">
                         <div class="containermat">
                 <div class="material-textfield">
-                <input type="date" class="form-control form-blms"  name="dob" placeholder=" " required>
+                <input type="text" class="form-control form-blms"  name="dob"  required id="date-picker" autocomplete="abc">
                   <label>DOB</label>
                 </div>
               </div>
@@ -135,3 +135,13 @@
 
 
 @endsection
+@section('scripts')
+<script>
+    $(document).ready(function(){
+        $( "#date-picker" ).datepicker({
+            dateFormat: "yy-mm-dd"
+        });
+    });
+
+</script>
+    @endsection
