@@ -29,7 +29,7 @@
                                         Congratulations! <br>Click Continue To Unlock Next Chapter
                                     @endif
                                 @else
-                                    Sorry You Failed The Test! <br>Click Continue To Study Chapter Again
+                                    Sorry You Failed The Test! <br>Click Continue To Study The Chapter Again.
                                 @endif
                             </h7>
                         </div>
