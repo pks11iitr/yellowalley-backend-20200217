@@ -19,16 +19,40 @@
                     <form action="{{route('website.contact.us')}}" method="post">
                         @csrf
                         <div class="form-group">
-                            <input type="text" class="form-control form-blms" name="name" placeholder="Name" required>
+
+                        <div class="containermat">
+                <div class="material-textfield">
+                <input type="text" class="form-control form-blms user_icon" name="name" placeholder=" " required>
+                  <label>Name</label>
+                </div>
+              </div>
                         </div>
                         <div class="form-group">
-                            <input type="email" class="form-control form-blms" name="email" placeholder="Email id" required>
+                        <div class="containermat">
+                <div class="material-textfield">
+                <input type="email" class="form-control form-blms email_icon" name="email" placeholder=" " required>
+                  <label>Email id</label>
+                </div>
+              </div>
+                          
                         </div>
                         <div class="form-group">
-                            <input type="phone" class="form-control form-blms"  name="mobile" placeholder="Mobile no" required maxlength="10">
+                        <div class="containermat">
+                <div class="material-textfield">
+                <input type="phone" class="form-control form-blms call_icon"  name="mobile" placeholder=" " required maxlength="10">
+                  <label>Mobile no</label>
+                </div>
+              </div>
+                            
                         </div>
                         <div class="form-group">
-                            <textarea type="text" class="form-control form-blms"  name="message" placeholder="Message" required></textarea>
+                        <div class="containermat">
+                <div class="material-textfield">
+                <textarea type="text" class="form-control form-blms email_icon"  name="message" placeholder=" " required></textarea>
+                  <label>Message</label>
+                </div>
+              </div>
+                           
                         </div>
                         <div class="form-group text-center">
                             <button type="submit" class="btn btn-blms btn-block">Submit</button>

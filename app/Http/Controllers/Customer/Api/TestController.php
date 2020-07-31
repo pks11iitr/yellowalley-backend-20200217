@@ -15,7 +15,9 @@ class TestController extends Controller
     public function start(Request $request, $id)
     {
         $user = auth()->user();
-        $chapter = Chapter::active()->with('questions')->findOrFail($id);
+        $chapter = Chapter::active()->with(['questions'=>function($question){
+        $question->orderBy('questions.sequence_no', 'asc')->where('questions.isactive', true);
+    }])->findOrFail($id);
         if ($user->isSubscriptionActive()) {
             if ($chapter->sequence_no <= $user->last_qualified_chapter) {
                 $testid = $chapter->startTest();
@@ -29,10 +31,17 @@ class TestController extends Controller
                         ]
                     ];
                 }
+            }else{
+                return [
+                    'status' => 'failed',
+                    'message'=>'Please complete chapter '.($chapter->sequence_no-1).' first',
+                    'data' => []
+                ];
             }
         }
         return [
             'status' => 'failed',
+            'message'=>'subscribe',
             'data' => []
         ];
     }

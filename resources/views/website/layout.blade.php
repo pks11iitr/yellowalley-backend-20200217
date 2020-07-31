@@ -37,17 +37,24 @@
     ======================================================= -->
 </head>
 <section class="header">
-    <div class="top-menu bg-dark py-1">
-        <div class="container ">
 
-        <div class="top_header ralewy_font">
+
+<div class="top-menu bg-dark py-1 mobile_header">
+        <div class="container ">
+        <div class="top_header ralewy_font top_mobile_header">
         <div class="first_info">
         <ul>
         <li><i class="fa fa-map-marker" aria-hidden="true"></i>ANSARI ROAD, NEW DELHI - 110002</li>
+        </ul>
+        </div>
+        <div class="first_info">
+        <ul>
+
         <li><i class="fa fa-phone" aria-hidden="true"></i>8595205921</li>
         <li> <a href="#" class="email_cls"><i class="fa fa-envelope"></i>info@yellowalley.com</a></li>
         </ul>
         </div>
+        <div class="social_login_con">
         <div class="social_icon">
         <ul>
         <li><a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
@@ -66,6 +73,64 @@
 						<i class="fa fa-user"></i> Hi {{ucwords(auth()->user()->name)}}
 					  </a>
 					  <div class="dropdown-menu" style = "transform: none !important;">
+                          <a class="dropdown-item" href="{{route('website.profile')}}"><i class="fa fa-user-circle-o" aria-hidden="true"></i> My Home</a>
+						<a class="dropdown-item" href="{{route('website.profile')}}"><i class="fa fa-user-circle-o" aria-hidden="true"></i> My Profile</a>
+						<a class="dropdown-item" href="{{ route('logout') }}"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            <i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a>
+                          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
+					  </div>
+                    </a>
+                      @else
+                          <a href="{{route('login')}}" aria-haspopup="true" aria-expanded="false">
+                          LogIn
+					    </a>
+                      @endif
+					</a>
+				</span>
+        </div>
+
+        </div>
+
+
+        </div>
+
+        </div>
+    </div>
+
+
+
+    <div class="top-menu bg-dark py-1 desktop_header">
+        <div class="container ">
+
+        <div class="top_header ralewy_font">
+        <div class="first_info">
+        <ul>
+        <li><i class="fa fa-map-marker" aria-hidden="true"></i>ANSARI ROAD, NEW DELHI - 110002</li>
+        <li><i class="fa fa-phone" aria-hidden="true"></i>8595205921</li>
+        <li> <a href="#" class="email_cls"><i class="fa fa-envelope"></i>info@yellowalley.com</a></li>
+        </ul>
+        </div>
+        <div class="social_icon">
+        <ul>
+        <li><a href="https://www.facebook.com/Yellow-Alley-Education-106575204301068"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+        <li><a href="https://www.linkedin.com/company/yellow-alley-education/"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+        <li><a href="https://www.instagram.com/yellowalleyeducation/"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+        <li><a href="https://www.youtube.com/channel/UCzmEhSSct4y0-0xxRDuFHLQ/"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
+        <li><a href="https://api.whatsapp.com/send?phone=918595205921"><i class="fa fa-whatsapp" aria-hidden="true"></i></a></li>
+        </ul>
+        </div>
+        <div class="login_conta">
+        <span class="right">
+
+                      @if(auth()->user())
+                    <a class="dropdown">
+					  <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<i class="fa fa-user"></i> Hi {{ucwords(auth()->user()->name)}}
+					  </a>
+					  <div class="dropdown-menu" style = "transform: none !important;">
+                          <a class="dropdown-item" href="{{route('website.home')}}"><i class="fa fa-user-circle-o" aria-hidden="true"></i> My Home</a>
 						<a class="dropdown-item" href="{{route('website.profile')}}"><i class="fa fa-user-circle-o" aria-hidden="true"></i> My Profile</a>
 						<a class="dropdown-item" href="{{ route('logout') }}"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                             <i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a>
@@ -91,13 +156,13 @@
             <div class="col-md-12">
                 <nav class="navbar navbar-expand-lg navbar-light bg-white custom_menu cizel_font">
 
-                    <a class="navbar-brand" href="{{route('website.home')}}"><img class="logo" src="{{asset('img/logo.png')}}" alt="Yellow Alley logo"></a>
+                    <a class="navbar-brand" href="http://yellowalley.org"><img class="logo" src="{{asset('img/logo.png')}}" alt="Yellow Alley logo"></a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-right navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav ml-auto">
-                            <li class="nav-item my_menu"><a class="nav-link active" href="{{route('website.home')}}">Home</a></li>
+                            <li class="nav-item my_menu"><a class="nav-link active" href="http://yellowalley.org">Home</a></li>
                             <li class="nav-item my_menu"><a class="nav-link" href="{{route('website.chapters')}}">Course</a></li>
                             <li class="nav-item my_menu"><a class="nav-link" href="{{route('website.certificate.info')}}">Certificate</a></li>
                             <li class="nav-item my_menu"><a class="nav-link" href="{{route('website.submit.doubt')}}">Submit Your Doubts</a></li>
@@ -167,9 +232,8 @@ setTimeout(function() {
         <div class="row">
             <div class="col-md-3 col-xs-12">
                 <div class="col-md-12 col-xs-12 text-center about_cmp">
-                    <span class="footer_log"><img src="http://study.yellowalley.local/img/logo.png" alt=""></span>
-                    <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a type specimen book. read more >
-
+                    <span class="footer_log"><img src="/img/logo.png" alt=""></span>
+                    <p >The organization has been established with a goal to strengthen the capabilities and empower a student’s practical knowledge through our courses. Unlike most of the institutes we are not limited to theory and study materials rather we focus on individual learning by providing practical guidance and hand on experience with real life examples.
 </p>
                 </div>
             </div>
@@ -284,11 +348,11 @@ setTimeout(function() {
             <div class="socail_footer">
             <div class="social_icon f_social">
         <ul>
-        <li><a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-        <li><a href=""><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-        <li><a href=""><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-        <li><a href=""><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
-        <li><a href=""><i class="fa fa-whatsapp" aria-hidden="true"></i></a></li>
+            <li><a href="https://www.facebook.com/Yellow-Alley-Education-106575204301068"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+            <li><a href="https://www.linkedin.com/company/yellow-alley-education/"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+            <li><a href="https://www.instagram.com/yellowalleyeducation/"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+            <li><a href="https://www.youtube.com/channel/UCzmEhSSct4y0-0xxRDuFHLQ/"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
+            <li><a href="https://api.whatsapp.com/send?phone=918595205921"><i class="fa fa-whatsapp" aria-hidden="true"></i></a></li>
         </ul>
         </div>
             </div>
