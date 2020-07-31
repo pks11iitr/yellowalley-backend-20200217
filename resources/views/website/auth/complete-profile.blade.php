@@ -25,7 +25,7 @@
                   <label>Name </label>
                 </div>
               </div>
-  <p>(as will appear on certificate)</p>
+  <p>(As Will Appear On Certificate)</p>
 
                         </div>
                         <div class="form-group">
