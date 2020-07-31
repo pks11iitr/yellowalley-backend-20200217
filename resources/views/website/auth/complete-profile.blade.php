@@ -18,33 +18,38 @@
                     <form action="{{route('website.complete.profile', ['code'=>$code])}}" method="post">
                         @csrf
                         <div class="form-group">
-                        
+
                         <div class="containermat">
                 <div class="material-textfield">
                 <input type="text" class="form-control form-blms user_icon" name="name" placeholder=" " required>
                   <label>Name  (as will appear on certificate)</label>
                 </div>
               </div>
-                         
-                           
+
+
                         </div>
                         <div class="form-group">
                         <div class="containermat">
                 <div class="material-textfield">
                 <input type="email" class="form-control form-blms email_icon" name="email" placeholder=" " required>
-                  <label>Email</label>
+                  <label>Email Id</label>
                 </div>
               </div>
-                            
+
                         </div>
                         <div class="form-group">
+                            <div class="containermat">
+                                <div class="material-textfield">
                             <input type="phone" class="form-control form-blms "  name="mobile" placeholder="Mobile Number" disabled value="{{$user->mobile}}" required>
+                                    <label>Mobile no</label>
+                                </div>
+                            </div>
                         </div>
                         <div class="form-group">
                         <div class="containermat">
                 <div class="material-textfield">
                 <select class="form-control form-blms" name="gender" required>
-                               
+
                                 <option value="male">Male</option>
                                 <option value="female">Female</option>
                                 <option value="others">Other</option>
@@ -52,7 +57,7 @@
                   <label>Select Gender</label>
                 </div>
               </div>
-                          
+
                         </div>
                         <div class="form-group">
                         <div class="containermat">
@@ -61,7 +66,7 @@
                   <label>DOB</label>
                 </div>
               </div>
-                          
+
                         </div>
                         <div class="form-group">
                         <div class="containermat">
@@ -70,7 +75,7 @@
                   <label>Address</label>
                 </div>
               </div>
-                           
+
                         </div>
                         <div class="form-group">
                         <div class="containermat">
@@ -79,7 +84,7 @@
                   <label>City</label>
                 </div>
               </div>
-                          
+
                         </div>
                         <div class="form-group">
                         <div class="containermat">
@@ -88,14 +93,14 @@
                   <label>Pincode</label>
                 </div>
               </div>
-                           
+
                         </div>
                         <div class="form-group">
 
                         <div class="containermat">
                 <div class="material-textfield">
                 <select class="form-control form-blms" name="qualification">
-                              
+
                                 <option value="10th">10th</option>
                                 <option value="12th">12th</option>
                                 <option value="Diploma">Diploma</option>
@@ -105,7 +110,7 @@
                   <label>Select Qualification</label>
                 </div>
               </div>
-                           
+
                         </div>
                         <div class="form-group">
                         <div class="containermat">
@@ -114,7 +119,7 @@
                   <label>Reference Id</label>
                 </div>
               </div>
-                           
+
                         </div>
                         <div class="form-group text-center">
                             <button type="submit" class="btn btn-blms btn-block">Continue</button>

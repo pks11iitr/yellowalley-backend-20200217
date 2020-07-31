@@ -26,10 +26,11 @@
                             <input type="text" class="form-control form-blms" name="name" placeholder="Name" value="{{$user->name}}" disabled>
                         </div>
                         <div class="form-group">
-                        <label for="" class="my_lbl">Email Id</label>
+                        <label for="" class="my_lbl">Email</label>
                             <input type="text" class="form-control form-blms" name="email" placeholder="Email Id" value="{{$user->email}}" disabled>
                         </div>
                         <div class="form-group">
+                            <label for="" class="my_lbl">Mobile No.</label>
                             <input type="phone" class="form-control form-blms"  name="mobile" placeholder="Mobile Number" disabled value="{{$user->mobile}}">
                         </div>
                         <div class="form-group">
