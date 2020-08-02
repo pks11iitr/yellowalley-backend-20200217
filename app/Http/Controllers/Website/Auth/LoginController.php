@@ -67,7 +67,7 @@ class LoginController extends Controller
     {
         return Validator::make($data, [
             'mobile' => ['required', 'integer', 'digits:10'],
-        ]);
+        ], ['mobile.*'=>'Mobile no. should be 10 digit']);
     }
 
 

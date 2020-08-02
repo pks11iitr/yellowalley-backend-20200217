@@ -47,7 +47,7 @@ class ChapterController extends Controller
             else
                 return [
                     'status'=>'failed',
-                    'message'=>'Please subscribe to view this chapter'
+                    'message'=>'Please pay to continue the entire course!'
                 ];
         }
         return [
@@ -93,7 +93,7 @@ class ChapterController extends Controller
             else
                 return [
                     'status'=>'failed',
-                    'message'=>'Please subscribe to view this chapter'
+                    'message'=>'Please pay to continue the entire course!'
                 ];
         }
         return [
