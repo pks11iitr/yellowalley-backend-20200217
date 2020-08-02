@@ -1,8 +1,6 @@
 @extends('website.layout')
 @section('spreadsheets')
-{{--    <link rel="stylesheet" href="{{asset('css/rtop.videoPlayer.1.0.2.min.css')}}"/>--}}
-<link href="https://vjs.zencdn.net/7.8.4/video-js.css" rel="stylesheet" />
-<script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
+    <link rel="stylesheet" href="{{asset('css/rtop.videoPlayer.1.0.2.min.css')}}"/>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"crossorigin="anonymous"/>
 @endsection
 @section('contents')
@@ -29,26 +27,6 @@
                         <div class="col-md-12">
                             <div class="big-video-testimonial-block">
 {{--                                <div class="video-thumbnail"><img src="img/glry/img1.jpg" alt="" class="img-fluid"></div>--}}
-                                <video
-                                    id="my-video"
-                                    class="video-js myVideo"
-                                    controls
-                                    preload="auto"
-                                    width="640"
-                                    height="264"
-                                    poster="{{$video->image}}"
-                                    data-setup="{}"
-                                >
-                                    <source src="{{$video->video_url}}" />
-{{--                                    <source src="MY_VIDEO.webm" type="video/webm" />--}}
-                                    <p class="vjs-no-js">
-                                        To view this video please enable JavaScript, and consider upgrading to a
-                                        web browser that
-                                        <a href="https://videojs.com/html5-video-support/" target="_blank"
-                                        >supports HTML5 video</a
-                                        >
-                                    </p>
-                                </video>
                                 <div class="myVideo" id="my_video" data-video="{{$video->video_url}}" data-type="video/mp4" data-poster="{{$video->image}}">
                                 </div>
                             </div>
@@ -86,18 +64,17 @@
 
 
 @section('scripts')
-    <script src="https://vjs.zencdn.net/7.8.4/video.js"></script>
-{{--    <script src="{{asset('js/rtop.videoPlayer.1.0.2.min.js')}}"></script>--}}
-{{--    <script>--}}
+    <script src="{{asset('js/rtop.videoPlayer.1.0.2.min.js')}}"></script>
+    <script>
 
-{{--        $(document).ready(function(){--}}
-{{--            $("#my_video").RTOP_VideoPlayer({--}}
-{{--                showFullScreen: true,--}}
-{{--                showTimer: true,--}}
-{{--                showSoundControl: true,--}}
-{{--                autoPlay:true--}}
-{{--            });--}}
-{{--        });--}}
+        $(document).ready(function(){
+            $("#my_video").RTOP_VideoPlayer({
+                showFullScreen: true,
+                showTimer: true,
+                showSoundControl: true,
+                autoPlay:true
+            });
+        });
 
-{{--    </script>--}}
+    </script>
 @endsection
