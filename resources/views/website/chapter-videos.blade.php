@@ -29,7 +29,7 @@
 {{--                                <div class="video-thumbnail"><img src="img/glry/img1.jpg" alt="" class="img-fluid"></div>--}}
 {{--                                <div class="myVideo" id="my_video" data-video="{{$video->video_url}}" data-type="video/mp4" data-poster="{{$video->image}}">--}}
 {{--                                </div>--}}
-                                <video id='video1' width="640" height="360" poster="{{$video->image}}" controls>
+                                <video id='video1' width="640" height="360" poster="{{$video->image}}">
                                     <source src="{{$video->video_url}}">
                                 </video>
                             </div>
