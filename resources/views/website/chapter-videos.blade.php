@@ -85,7 +85,8 @@
         $(document).ready(function(){
 
             $('#video1').videoExtend({
-                autoPlay: true,
+                responsive: true,
+                autoPlay: true
             })
 
         });
