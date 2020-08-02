@@ -27,8 +27,11 @@
                         <div class="col-md-12">
                             <div class="big-video-testimonial-block">
 {{--                                <div class="video-thumbnail"><img src="img/glry/img1.jpg" alt="" class="img-fluid"></div>--}}
-                                <div class="myVideo" id="my_video" data-video="{{$video->video_url}}" data-type="video/mp4" data-poster="{{$video->image}}">
-                                </div>
+{{--                                <div class="myVideo" id="my_video" data-video="{{$video->video_url}}" data-type="video/mp4" data-poster="{{$video->image}}">--}}
+{{--                                </div>--}}
+                                <video width="640" height="360" data-logo="{{$video->image}}" >
+                                    <source src="{{$video->video_url}}">
+                                </video>
                             </div>
                         </div>
                         <div class="col-md-12 py-4">
@@ -64,16 +67,24 @@
 
 
 @section('scripts')
-    <script src="{{asset('js/rtop.videoPlayer.1.0.2.min.js')}}"></script>
+{{--    <script src="{{asset('js/rtop.videoPlayer.1.0.2.min.js')}}"></script>--}}
+    <script src="{{asset('js/video-extend.js')}}"></script>
     <script>
 
+        // $(document).ready(function(){
+        //     $("#my_video").RTOP_VideoPlayer({
+        //         showFullScreen: true,
+        //         showTimer: true,
+        //         showSoundControl: true,
+        //         autoPlay:true
+        //     });
+        // });
+
+
+
         $(document).ready(function(){
-            $("#my_video").RTOP_VideoPlayer({
-                showFullScreen: true,
-                showTimer: true,
-                showSoundControl: true,
-                autoPlay:true
-            });
+
+            $('#video1').videoExtend()
         });
 
     </script>
