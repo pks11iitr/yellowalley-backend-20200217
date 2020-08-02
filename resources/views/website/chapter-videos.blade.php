@@ -84,9 +84,10 @@
 
         $(document).ready(function(){
 
-            $('#video1').videoExtend()
+            $('#video1').videoExtend({
+                autoPlay: true,
+            })
 
-            $('#video1').get(0).play();
         });
 
     </script>
