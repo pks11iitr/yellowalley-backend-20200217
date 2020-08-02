@@ -85,6 +85,8 @@
         $(document).ready(function(){
 
             $('#video1').videoExtend()
+
+            $('#video1').get(0).play();
         });
 
     </script>
