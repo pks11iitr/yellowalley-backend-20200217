@@ -64,7 +64,7 @@
 
                         </div>
                         <div class="form-group text-center">
-                            <button type="submit" class="btn btn-blms btn-block">Submit Doubt</button>
+                            <button type="submit" class="btn btn-blms btn-block">Submit</button>
                         </div>
 
 
