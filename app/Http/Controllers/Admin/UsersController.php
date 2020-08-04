@@ -148,7 +148,7 @@ class UsersController extends Controller
 
         var_dump($months);die();*/
         $user=User::create(array_merge($request->only(['name','gender','email','mobile','address','status','dob', 'pincode','city','qualification', 'referred_by','subscription_required','signup_complete']),['subscription_expiry'=>$expdate, 'signup_complete'=>true]));
-
+        $user->assignRole(2);
         if($request->is_paid==1){
 
             $payment=Payment::where('user_id', $user->id)->where('status', 'paid')->first();
