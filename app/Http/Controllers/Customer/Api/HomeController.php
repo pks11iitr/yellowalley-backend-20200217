@@ -2,22 +2,21 @@
 
 namespace App\Http\Controllers\Customer\Api;
 
+use App\Http\Controllers\Controller;
 use App\Models\Banner;
 use App\Models\Category;
 use App\Models\Chapter;
 use App\Models\Partners;
 use App\Models\Products;
-use App\Models\Question;
 use App\Models\Score;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
 class HomeController extends Controller
 {
     public function index(Request $request){
         $user=auth()->user();
         $banners=Banner::active()->get();
-        $userscore=$user->totalScore();
+        $userscore=$user->questionsAnswered();
         $totalscore=Score::totalscore();
         if($user->isSubscriptionActive()){
             $lastvideo=$user->lastPlayedVideo;

@@ -18,7 +18,7 @@ class HomeController extends Controller
             return redirect()->route('login');
 
         $banners=Banner::active()->get();
-        $userscore=$user?$user->totalScore():0;
+        $userscore=$user?$user->questionsAnswered():0;
         $totalscore=Score::totalscore();
         if($user && $user->isSubscriptionActive()){
             $lastvideo=$user->lastPlayedVideo;

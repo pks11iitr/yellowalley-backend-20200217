@@ -10,4 +10,8 @@ class Answer extends Model
 
     protected $fillable=['question_id','answer','iscorrect', 'test_id'];
 
+    public function test(){
+        return $this->belongsTo('App\Models\Test', 'test_id');
+    }
+
 }

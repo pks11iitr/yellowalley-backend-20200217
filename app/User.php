@@ -2,10 +2,12 @@
 
 namespace App;
 
+use App\Models\Answer;
 use App\Models\Configuration;
 use App\Models\Video;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\DB;
 use Kodeine\Acl\Traits\HasRole;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 
@@ -147,6 +149,16 @@ class User extends Authenticatable implements JWTSubject
 
     public function payments(){
         return $this->hasMany('App\Models\Payment', 'user_id');
+    }
+
+    public function questionsAnswered(){
+        $answer=Answer:://with('test')
+        whereHas('test', function($test){
+            $test->where('user_id', $this->id);
+        })
+            ->select(DB::raw('distinct(question_id)'))->get();
+
+        return count($answer);
     }
 
 }
