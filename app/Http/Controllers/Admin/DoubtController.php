@@ -10,8 +10,6 @@ class DoubtController extends Controller
 {
     public function index(Request $request){
 
-
-
         if(isset($request->search)){
             $doubts=Doubt::where(function($doubts) use ($request){
                 $doubts->where('name', 'like', "%".$request->search."%")
@@ -31,7 +29,10 @@ class DoubtController extends Controller
 
         $doubts =$doubts->orderBy('id', 'desc')->paginate(20);
 
-
         return view('siteadmin.doubtslist',['doubts'=>$doubts]);
+    }
+    public function delete(Request $request,$id){
+             Doubt::where('id',$id)->delete();
+        return redirect()->back()->with('success', 'Doubts has been deleted');
     }
 }

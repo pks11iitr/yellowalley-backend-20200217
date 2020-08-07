@@ -61,11 +61,11 @@ class UsersController extends Controller
             $users=$users->where('users.created_at', '>=',$request->datefrom.' 00:00:00');
 
         if(isset($request->dateto))
-            $users=$users->where('users.created_at', '<=', $request->datefrom.' 23:59:59');
+            $users=$users->where('users.created_at', '<=', $request->dateto.' 23:59:59');
 
 
 
-        $users=$users->where('users.id','!=',1)->paginate(20);
+        $users=$users->where('users.id','!=',1)->orderBy('id', 'desc')->paginate(20);
         return view('siteadmin.users',['users'=>$users]);
     }
 

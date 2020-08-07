@@ -85,9 +85,15 @@ Route::group(['domain' => env('PORTAL_DOMAIN')], function() {
         });
         Route::group(['prefix' => 'doubts'], function () {
             Route::get('/', 'Admin\DoubtController@index')->name('doubts.list');
+            Route::get('delete/{id}','Admin\DoubtController@delete')->name('doutes.delete');
         });
         Route::group(['prefix' => 'userscore'], function () {
             Route::get('/', 'Admin\UserscoresController@index')->name('userscore.list');
+        });
+
+        Route::group(['prefix' => 'contact'], function () {
+            Route::get('/', 'Admin\ContactController@index')->name('contact.list');
+            Route::get('delete/{id}', 'Admin\ContactController@delete')->name('contact.delete');
         });
 
     });
