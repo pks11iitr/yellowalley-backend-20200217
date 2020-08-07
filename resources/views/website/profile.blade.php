@@ -73,7 +73,7 @@
                         </div>
 
                         <div class="form-group text-center">
-                            <button type="submit" class="btn btn-blms btn-block">Update</button>
+                            <button type="submit" class="btn btn-blms btn-block">Update Now</button>
                         </div>
 
 

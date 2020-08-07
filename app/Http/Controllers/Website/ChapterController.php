@@ -64,7 +64,7 @@ class ChapterController extends Controller
                 return view('website.chapter-videos', compact('chapter','video'));
             }
             else{
-                return redirect()->route('website.payment.info')->with('error', 'Please subscribe to view this chapter videos');
+                return redirect()->route('website.payment.info')->with('error', 'Please Pay Now to access complete course!');
             }
 
         }

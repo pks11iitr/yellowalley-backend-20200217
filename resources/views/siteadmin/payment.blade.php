@@ -66,13 +66,13 @@
                                 <tbody>
                                 @foreach($payments as $payment)
                                     <tr>
-                                        <td>{{$payment->user->name}}</td>
-                                        <td>{{$payment->user->referred_by}}</td>
-                                        <td>{{$payment->refid}}</td>
-                                        <td>{{$payment->razorpay_order_id}}</td>
-                                        <td>{{$payment->amount}}</td>
-                                        <td>{{$payment->status}}</td>
-                                        <td>{{$payment->updated_at}}</td>
+                                        <td>{{$payment->user->name??''}}</td>
+                                        <td>{{$payment->user->referred_by??''}}</td>
+                                        <td>{{$payment->refid??''}}</td>
+                                        <td>{{$payment->razorpay_order_id??''}}</td>
+                                        <td>{{$payment->amount??''}}</td>
+                                        <td>{{$payment->status??''}}</td>
+                                        <td>{{$payment->updated_at??''}}</td>
                                     </tr>
                                 @endforeach
                                 </tbody>

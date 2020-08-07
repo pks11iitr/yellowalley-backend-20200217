@@ -21,7 +21,7 @@
                         <div class="form-group text-center">
                             <h5>Your Score</h5>
                             <h4>{{$result['score']}}/{{$result['totalscore']}}</h4>
-                            <h6>Result Status: {{$result['pass_status']=='no'?'Failed':'Pass'}}</h6>
+                            <h6>Result Status : {{$result['pass_status']=='no'?'Failed':'Pass'}}</h6>
                             <h7>@if($result['pass_status']=='yes')
                                     @if($result['next_chapter_id']=='completed')
                                         Congratulations! <br>You Have Completed All Chapters. You Can Download Your Certificate.

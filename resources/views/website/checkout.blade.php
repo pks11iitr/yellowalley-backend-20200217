@@ -5,7 +5,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h4 class="">Subscribe</h4>
+                    <h4 class="">Pay Now</h4>
                 </div>
             </div>
         </div>
@@ -15,7 +15,7 @@
             <div class="row p-5">
                 <div class="col-md-8 offset-md-2 text-center p-3" style="border: 2px solid #e2e2e2; border-radius: 4px;">
                     <h3 class="py-5">Pay now to access the full course <br> Total:Rs. {{$payment->amount}} </h3>
-                
+
                 <a href="{{route('website.pay')}}" class="btn btn-blms">Continue</a>
                 </div>
             </div>
