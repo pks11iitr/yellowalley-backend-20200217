@@ -53,10 +53,10 @@
                                 <tbody>
                                 @foreach($userscores as $user)
                                     <tr>
-                                        <td>{{$user->user->name}}</td>
-                                        <td>{{$user->chapter->title}}</td>
-                                        <td>{{$user->score}}</td>
-                                        <td>{{$user->updated_at}}</td>
+                                        <td>{{$user->user->name??''}}</td>
+                                        <td>{{$user->chapter->title??''}}</td>
+                                        <td>{{$user->score??''}}</td>
+                                        <td>{{$user->updated_at??''}}</td>
                                     </tr>
                                 @endforeach
                                 </tbody>
