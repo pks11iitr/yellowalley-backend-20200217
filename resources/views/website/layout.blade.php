@@ -58,11 +58,11 @@
         <div class="social_login_con">
         <div class="social_icon">
         <ul>
-        <li><a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-        <li><a href=""><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-        <li><a href=""><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-        <li><a href=""><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
-        <li><a href=""><i class="fa fa-whatsapp" aria-hidden="true"></i></a></li>
+        <li><a href="https://www.facebook.com/Yellow-Alley-Education-106575204301068" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+        <li><a href="https://www.linkedin.com/company/yellow-alley-education/" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+        <li><a href="https://www.instagram.com/yellowalleyeducation/" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+        <li><a href="https://www.youtube.com/channel/UCzmEhSSct4y0-0xxRDuFHLQ/" target="_blank"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
+        <li><a href="https://api.whatsapp.com/send?phone=918595205921" target="_blank"><i class="fa fa-whatsapp" aria-hidden="true"></i></a></li>
         </ul>
         </div>
         <div class="login_conta">
@@ -74,7 +74,7 @@
 						<i class="fa fa-user"></i> Hi {{ucwords(auth()->user()->name)}}
 					  </a>
 					  <div class="dropdown-menu" style = "transform: none !important;">
-                          <a class="dropdown-item" href="{{route('website.profile')}}"><i class="fa fa-user-circle-o" aria-hidden="true"></i> My Home</a>
+                          <a class="dropdown-item" href="http://www.yellowalley.org/"><i class="fa fa-user-circle-o" aria-hidden="true"></i>Main Home</a>
 						<a class="dropdown-item" href="{{route('website.profile')}}"><i class="fa fa-user-circle-o" aria-hidden="true"></i> My Profile</a>
 						<a class="dropdown-item" href="{{ route('logout') }}"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                             <i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a>
@@ -115,11 +115,11 @@
         </div>
         <div class="social_icon">
         <ul>
-        <li><a href="https://www.facebook.com/Yellow-Alley-Education-106575204301068"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-        <li><a href="https://www.linkedin.com/company/yellow-alley-education/"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-        <li><a href="https://www.instagram.com/yellowalleyeducation/"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-        <li><a href="https://www.youtube.com/channel/UCzmEhSSct4y0-0xxRDuFHLQ/"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
-        <li><a href="https://api.whatsapp.com/send?phone=918595205921"><i class="fa fa-whatsapp" aria-hidden="true"></i></a></li>
+        <li><a href="https://www.facebook.com/Yellow-Alley-Education-106575204301068" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+        <li><a href="https://www.linkedin.com/company/yellow-alley-education/" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+        <li><a href="https://www.instagram.com/yellowalleyeducation/" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+        <li><a href="https://www.youtube.com/channel/UCzmEhSSct4y0-0xxRDuFHLQ/" target="_blank"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
+        <li><a href="https://api.whatsapp.com/send?phone=918595205921" target="_blank"><i class="fa fa-whatsapp" aria-hidden="true"></i></a></li>
         </ul>
         </div>
         <div class="login_conta">
@@ -131,7 +131,7 @@
 						<i class="fa fa-user"></i> Hi {{ucwords(auth()->user()->name)}}
 					  </a>
 					  <div class="dropdown-menu" style = "transform: none !important;">
-                          <a class="dropdown-item" href="{{route('website.home')}}"><i class="fa fa-user-circle-o" aria-hidden="true"></i> My Home</a>
+                          <a class="dropdown-item" href="http://www.yellowalley.org/"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Main Home</a>
 						<a class="dropdown-item" href="{{route('website.profile')}}"><i class="fa fa-user-circle-o" aria-hidden="true"></i> My Profile</a>
 						<a class="dropdown-item" href="{{ route('logout') }}"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                             <i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a>
@@ -163,7 +163,7 @@
                     </button>
                     <div class="collapse navbar-right navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav ml-auto">
-                            <li class="nav-item my_menu"><a class="nav-link active" href="http://yellowalley.org">Home</a></li>
+                            <li class="nav-item my_menu"><a class="nav-link active" href="{{route('website.home')}}">Home</a></li>
                             <li class="nav-item my_menu"><a class="nav-link" href="{{route('website.chapters')}}">Course</a></li>
                             <li class="nav-item my_menu"><a class="nav-link" href="{{route('website.certificate.info')}}">Certificate</a></li>
                             <li class="nav-item my_menu"><a class="nav-link" href="{{route('website.submit.doubt')}}">Submit Your Doubts</a></li>
@@ -349,11 +349,11 @@ setTimeout(function() {
             <div class="socail_footer">
             <div class="social_icon f_social">
         <ul>
-            <li><a href="https://www.facebook.com/Yellow-Alley-Education-106575204301068"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-            <li><a href="https://www.linkedin.com/company/yellow-alley-education/"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-            <li><a href="https://www.instagram.com/yellowalleyeducation/"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-            <li><a href="https://www.youtube.com/channel/UCzmEhSSct4y0-0xxRDuFHLQ/"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
-            <li><a href="https://api.whatsapp.com/send?phone=918595205921"><i class="fa fa-whatsapp" aria-hidden="true"></i></a></li>
+            <li><a href="https://www.facebook.com/Yellow-Alley-Education-106575204301068" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+            <li><a href="https://www.linkedin.com/company/yellow-alley-education/" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+            <li><a href="https://www.instagram.com/yellowalleyeducation/" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+            <li><a href="https://www.youtube.com/channel/UCzmEhSSct4y0-0xxRDuFHLQ/" target="_blank"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
+            <li><a href="https://api.whatsapp.com/send?phone=918595205921" target="_blank"><i class="fa fa-whatsapp" aria-hidden="true"></i></a></li>
         </ul>
         </div>
             </div>
