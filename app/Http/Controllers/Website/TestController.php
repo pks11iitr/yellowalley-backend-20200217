@@ -131,9 +131,9 @@ class TestController extends Controller
                 $font->align('center');
                 $font->angle(0);
             });
-            $img->save(public_path("uploads/certificates/$code.jpg"));
+            $img->save(public_path("uploads/certificates/".(str_replace(' ', '-', $user->name.'-'.$user->id))."jpg"));
 
-            return response()->download(public_path("uploads/certificates/$code.jpg"));
+            return response()->download(public_path("uploads/certificates/".(str_replace(' ', '-', $user->name.'-'.$user->id))."jpg"));
 
         }else{
             return redirect()->back()->with('error', 'Please complete all test to download certificate');
