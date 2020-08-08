@@ -90,7 +90,7 @@ class LoginController extends Controller
             //send OTP
             return response()->json([
                 'status'=>'failed',
-                'message'=>'invalid login attempt',
+                'message'=>'This Account Is Blocked',
                 'errors'=>[
 
                 ]],200);
@@ -98,7 +98,7 @@ class LoginController extends Controller
             if(empty(array_intersect($user->getRoles(), config('allowedusers.apiusers')))){
                 return response()->json([
                     'status'=>'failed',
-                    'message'=>'invalid login attempt',
+                    'message'=>'Invalid Login Attempt',
                     'errors'=>[
 
                     ],
