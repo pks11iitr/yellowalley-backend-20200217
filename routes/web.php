@@ -15,7 +15,7 @@ Route::group(['domain' => env('PORTAL_DOMAIN')], function() {
             Route::post('password/reset', '\App\Http\Controllers\Auth\ResetPasswordController@reset')->name('admin.password.update');
 
         });
-        Route::post('logout', '\App\Http\Controllers\Auth\LoginController@logout')->name('admin.logout');
+        Route::post('admin-logout', '\App\Http\Controllers\Auth\LoginController@logout')->name('admin.logout');
     });
 
 
