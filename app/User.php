@@ -74,15 +74,17 @@ class User extends Authenticatable implements JWTSubject
     }*/
 
 
+    // only paid and subscription expiry will be active
     public function isSubscriptionActive(){
         if(!$this->subscription_required)
             return '1';
         $currentdate=date('Y-m-d H:i:s');
-        if(!empty($this->subscription_expiry) && $currentdate<=$this->subscription_expiry)
+        if(!empty($this->subscription_expiry) && $currentdate<=$this->subscription_expiry && $this->subscription_payment_status=='paid')
             return '1';
         return '0';
     }
 
+    // on activation subscription_payment_status will be set
     public function activateSubscription($reset=true){
         $validity=Configuration::where('param_name', 'plan_validity')->first();
         $months=(int)$validity->param_value;
@@ -94,7 +96,7 @@ class User extends Authenticatable implements JWTSubject
             $this->last_qualified_chapter=2;
             $this->last_played_video=null;
         }
-
+        $this->subscription_payment_status='paid';
         $this->save();
     }
 

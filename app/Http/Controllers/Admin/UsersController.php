@@ -48,6 +48,19 @@ class UsersController extends Controller
         }
 
         if(isset($request->payment_status)){
+            if($request->payment_status=='paid'){
+                $users=$users->where(function($users){
+                    $users->where('subscription_expiry', '>=', date('Y-m-d'))
+                        ->where('payment_status', 'paid');
+                });
+            }else{
+                $users=$users->where(function($users){
+                    $users->where('subscription_expiry', '<', date('Y-m-d'))
+                        ->orWhere('payment_status', '!=', 'paid');
+                });
+            }
+
+
             $users=$users->whereHas('payments', function($payments) use($request){
                 $payments->where('payments.status', $request->payment_status);
             });
@@ -162,14 +175,24 @@ class UsersController extends Controller
     }
     public function edit(Request $request,$id){
         $useredit =User::find($id);
-        $payment=Payment::where('user_id', $useredit->id)->where('status', 'paid')->first();
-        if($payment){
+//        $payment=Payment::where('user_id', $useredit->id)->where('status', 'paid')->first();
+//        if($payment){
+//            $is_paid=1;
+//        }else{
+//            $is_paid=0;
+//        }
+
+        if($useredit->subscription_expiry  >= date('Y-m-d') && $useredit->subscription_payment_status == 'paid'){
             $is_paid=1;
         }else{
             $is_paid=0;
         }
+
         return view('siteadmin.usersedit',['useredit'=>$useredit,'is_paid'=>$is_paid]);
+
     }
+
+    // always set subscription expiry when maken a customer paid
     public function update(Request $request,$id){
         if($request->subscription_expiry>0){
             $expdate = date('Y-m-d', strtotime('+'. $request->subscription_expiry .'month', strtotime("now")));
@@ -183,13 +206,20 @@ class UsersController extends Controller
 
 
 
-        if($request->is_paid==1){
+        if($request->is_paid==1 && $useredit->subscription_payment_status!='paid'){
 
             $payment=Payment::where('user_id', $useredit->id)->where('status', 'paid')->first();
             if(!$payment){
                 $rid=date('Y-m-d H:i:s');
                 Payment::create(['user_id'=>$useredit->id, 'refid'=>$rid, 'amount'=>2999, 'status'=>'paid', 'razorpay_order_id'=>'offline_'.$rid]);
             }
+
+            //mark as paid
+            $useredit->subscription_payment_status='paid';
+            $useredit->save();
+        }else if($request->is_paid==0){
+            $useredit->subscription_payment_status='pending';
+            $useredit->save();
         }
 
         return redirect(route('users.list'))->with('success','users has been updated');
