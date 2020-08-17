@@ -26,7 +26,7 @@
                 <div class="col-12">
                     <div class="card card-primary">
                         <div class="card-header ">
-                            <h3 class="card-title">Total Doubts: {{$doubts->total()}}</h3>
+                            <h3 class="card-title">Total Contacts: {{$contacts->total()}}</h3>
                         </div>
                         <div class="card-header">
                             <form>
@@ -47,29 +47,27 @@
                                     <th>Name</th>
                                     <th>Mobile</th>
                                     <th>Email</th>
-                                    <th>Subject</th>
-                                    <th>Description</th>
+                                    <th>Message</th>
                                     <th>Date Time</th>
                                     <th>Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($doubts as $doubt)
+                                @foreach($contacts as $contact)
                                     <tr>
-                                        <td>{{$doubt->name}}</td>
-                                        <td>{{$doubt->mobile}}</td>
-                                        <td>{{$doubt->email}}</td>
-                                        <td>{{$doubt->subject}}</td>
-                                        <td>{{$doubt->description}}</td>
-                                        <td>{{$doubt->created_at}}</td>
-                                        <td><a href="{{route('doutes.delete',['id'=>$doubt->id])}}" class="btn btn-warning">Delete</a></td>
+                                        <td>{{$contact->name}}</td>
+                                        <td>{{$contact->mobile}}</td>
+                                        <td>{{$contact->email}}</td>
+                                        <td>{{$contact->message}}</td>
+                                        <td>{{$contact->created_at}}</td>
+                                        <td><a href="{{route('contact.delete',['id'=>$contact->id])}}" class="btn btn-warning">Delete</a></td>
                                     </tr>
                                 @endforeach
                                 </tbody>
                             </table>
                         </div>
-                        {{$doubts->links()}}
-                        <!-- /.card-body -->
+                    {{$contacts->links()}}
+                    <!-- /.card-body -->
                     </div>
                     <!-- /.card -->
                 </div>
