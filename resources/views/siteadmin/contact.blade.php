@@ -12,7 +12,7 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item"><a href="#" >Home</a></li>
                             <li class="breadcrumb-item active">Doubts</li>
                         </ol>
                     </div>
@@ -37,6 +37,7 @@
                                 <label>Search:</label>
                                 <input name="search" type="text" value="{{request('search')}}">
                                 <button type="submit" class="btn" style="background-color: black;color: white">Apply</button>
+                                <a type="submit" class="btn" style="background-color: black;color: white" href="{{route('contact.list')}}">Reset</a>
                             </form>
                         </div>
                         <!-- /.card-header -->
