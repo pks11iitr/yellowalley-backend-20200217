@@ -50,8 +50,8 @@
                                 </label>
                             </div>
                             <div class="form-check mb-2">
-                                <input class="form-check-input" type="radio" name="answer" id="exampleRadios2" value="4">
-                                <label class="form-check-label" for="exampleRadios2">
+                                <input class="form-check-input" type="radio" name="answer" id="exampleRadios4" value="4">
+                                <label class="form-check-label" for="exampleRadios4">
                                     D.&nbsp;&nbsp; {{$question->option4}}
                                 </label>
                             </div>

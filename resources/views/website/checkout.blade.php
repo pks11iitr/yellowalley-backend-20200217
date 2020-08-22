@@ -32,11 +32,9 @@
             data-buttontext="Pay with Razorpay"
             data-name="Yellow Alley"
             data-description=""
-            data-image="http://yellowalley.org/img/logo.png"
             data-prefill.name=""
             data-prefill.email=""
             data-prefill.contact=""
-            data-theme.color="#F37254"
         ></script>
         <input type="hidden" custom="Hidden Element" name="hidden">
     </form>

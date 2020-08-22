@@ -28,7 +28,7 @@
                         @csrf
 
                         <div class="form-group text-center">
-                            <h4>Congratulations! Your Test is Completed.Click On Submit To Receive Your Score</h4>
+                            <h4>Congratulations! Your Test is Completed. Click On Submit To Receive Your Score</h4>
                         </div>
 
                         <div class="form-group text-center">

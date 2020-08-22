@@ -90,6 +90,43 @@
                 <!-- /.row -->
             </div><!-- /.container-fluid -->
         </section>
+        <section class="content">
+            <div class="callout callout-info">
+                <h4 style="background-color: #ffc800;">About Company</h4>
+
+                <p style="text-align: justify">We are a group of passionate people with a vision to disseminate knowledge among students rather teaching. Yellow Alley is fueled by wisdom and motivation of its pioneer faculty members who teaches with all the dedication in their specialized field. The organization has been established with a goal to strengthen the capabilities and empower a student’s practical knowledge through our courses.</p>
+            </div>
+            <!-- Default box -->
+
+            <!-- /.box -->
+        </section>
+        <section class="content">
+            <div class="callout callout-info">
+                <h4 style="background-color: #ffc800">About App</h4>
+
+                <p style="text-align: justify">Yellow Alley is a full-service Digital Marketing Course offering a wide range of Topics. From executing innovative and path-breaking ideas to developing cutting edge strategies on all Digital Marketing platform along with real time examples and case studies to provide in depth and effective knowledge. Yellow Alley Digital Marketing Course is at the forefront of exploding digital landscape. This Course is a born-in Digital Company that uniquely combines the power of technology, analytics, creative and content for digital transformation.</p>
+            </div>
+            <!-- Default box -->
+
+            <!-- /.box -->
+        </section>
+        <section class="content">
+            <div class="callout callout-info">
+                <h4 style="background-color: #ffc800">Company History</h4>
+
+                <p style="text-align: justify">Unlike most of the institutes we are not limited to theory and study materials rather we focus on individual learning by providing practical guidance and hand on experience with real life examples. Established by a team of highly motivated and enthusiastic industry experts, Yellow Alley aspire to make their student’s dream come true.</p>
+<p style="text-align: justify">
+                    We are a group of passionate people who have the potential to understand the context of education era in the education world. Yellow Alley has been formed with an idea to change the concept of education. We are true believers of avant-garde education on the web which results in virality!
+</p>
+                <p style="text-align: justify">
+                    We promote the ideas of innovation and encourage students to learn by exploring and experimenting. It is the specialization that enables us to guide our students step by step towards overall excellence that leads to success.
+
+                </p>
+            </div>
+            <!-- Default box -->
+
+            <!-- /.box -->
+        </section>
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->

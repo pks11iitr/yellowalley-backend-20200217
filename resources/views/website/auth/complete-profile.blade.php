@@ -105,7 +105,7 @@
                                 <option value="12th">12th</option>
                                 <option value="Diploma">Diploma</option>
                                 <option value="Graduate">Graduate</option>
-                                <option value="Post Graduate">Male</option>
+                                <option value="Post Graduate">Post Graduate</option>
                             </select>
                   <label>Select Qualification</label>
                 </div>

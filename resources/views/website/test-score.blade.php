@@ -24,7 +24,7 @@
                             <h6>Result Status : {{$result['pass_status']=='no'?'Failed':'Pass'}}</h6>
                             <h7>@if($result['pass_status']=='yes')
                                     @if($result['next_chapter_id']=='completed')
-                                        Congratulations! <br>You Have Completed All Chapters. You Can Download Your Certificate.
+                                        Congratulations! <br><b>You Have Completed All Chapters. You Can Download Your Certificate.</b>
                                     @else
                                         Congratulations! <br>Click Continue To Unlock Next Chapter
                                     @endif
