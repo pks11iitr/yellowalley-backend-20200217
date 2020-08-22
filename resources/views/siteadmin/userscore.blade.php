@@ -35,7 +35,8 @@
                                         <input type="text" name="user" value="{{request('user')}}">
 
 
-                                <button type="submit">Apply</button>
+                                <button type="submit" class="btn" style="background-color: black;color: white">Apply</button>
+                                <a type="submit" class="btn" style="background-color: black;color: white" href="{{route('userscore.list')}}">Reset</a>
                             </form>
                         </div>
                         <!-- /.card-header -->

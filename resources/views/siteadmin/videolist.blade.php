@@ -40,6 +40,7 @@
                             </select>
                             <label>Text To Search:</label> <input type="text" name="search" value="{{request('search')}}">
                             <button type="submit" class="btn" style="background-color: black;color: white">Apply</button>
+                            <a type="submit" class="btn" style="background-color: black;color: white" href="{{route('video.list')}}">Reset</a>
                         </form>
                         </div>
                         <!-- /.card-header -->

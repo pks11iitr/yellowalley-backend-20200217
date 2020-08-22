@@ -37,6 +37,7 @@
                                 <label>Search:</label>
                                 <input name="search" type="text" value="{{request('search')}}">
                                 <button type="submit" class="btn" style="background-color: black;color: white">Apply</button>
+                                <a type="submit" class="btn" style="background-color: black;color: white" href="{{route('doubts.list')}}">Reset</a>
                             </form>
                         </div>
                         <!-- /.card-header -->

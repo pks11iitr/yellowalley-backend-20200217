@@ -15,8 +15,13 @@ class QuestionController extends Controller
         if(isset($request->chapter))//die;
             $questions=$questions->where('chapter_id', $request->chapter);
         if(isset($request->search))
-            $questions=$questions->where('question', 'like', "%".$request->search."%");
-        $questions=$questions->paginate(20);
+            $questions=$questions->where('question', 'like', "%".$request->search."%")
+                ->orWhere('option1', 'like', "%".$request->search."%")
+                ->orWhere('option2', 'like', "%".$request->search."%")
+                ->orWhere('option3', 'like', "%".$request->search."%")
+                ->orWhere('option4', 'like', "%".$request->search."%")
+                ->orWhere('answer', 'like', "%".$request->search."%");
+            $questions=$questions->paginate(5);
 
         $chapters=Chapter::active()->get();
         return view('siteadmin.question',['questions'=>$questions, 'chapters'=>$chapters]);

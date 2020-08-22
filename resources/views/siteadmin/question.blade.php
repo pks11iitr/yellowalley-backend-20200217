@@ -39,9 +39,11 @@
                                 </select>
                                 <label>Text To Search:</label> <input type="text" name="search" value="{{request('search')}}">
                                 <button type="submit" class="btn" style="background-color: black;color: white">Apply</button>
+                                <a type="submit" class="btn" style="background-color: black;color: white" href="{{route('question.list')}}">Reset</a>
                             </form>
                         </div>
-                        <!-- /.card-header -->
+
+                            <!-- /.card-header -->
                         <div class="card-body">
                             {{$questions->appends(request()->query())->links()}}
                             <table id="example1" class="table table-bordered table-striped">
