@@ -51,19 +51,19 @@ class UsersController extends Controller
             if($request->payment_status=='paid'){
                 $users=$users->where(function($users){
                     $users->where('subscription_expiry', '>=', date('Y-m-d'))
-                        ->where('payment_status', 'paid');
+                        ->where('subscription_payment_status', 'paid');
                 });
             }else{
                 $users=$users->where(function($users){
                     $users->where('subscription_expiry', '<', date('Y-m-d'))
-                        ->orWhere('payment_status', '!=', 'paid');
+                        ->orWhere('subscription_payment_status', '!=', 'paid');
                 });
             }
 
 
-            $users=$users->whereHas('payments', function($payments) use($request){
-                $payments->where('payments.status', $request->payment_status);
-            });
+//            $users=$users->whereHas('payments', function($payments) use($request){
+//                $payments->where('payments.status', $request->payment_status);
+//            });
         }
 
         if(isset($request->status)){
@@ -208,11 +208,11 @@ class UsersController extends Controller
 
         if($request->is_paid==1 && $useredit->subscription_payment_status!='paid'){
 
-            $payment=Payment::where('user_id', $useredit->id)->where('status', 'paid')->first();
-            if(!$payment){
+//            $payment=Payment::where('user_id', $useredit->id)->where('status', 'paid')->first();
+//            if(!$payment){
                 $rid=date('Y-m-d H:i:s');
                 Payment::create(['user_id'=>$useredit->id, 'refid'=>$rid, 'amount'=>2999, 'status'=>'paid', 'razorpay_order_id'=>'offline_'.$rid]);
-            }
+//            }
 
             //mark as paid
             $useredit->subscription_payment_status='paid';
