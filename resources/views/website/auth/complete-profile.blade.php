@@ -32,7 +32,7 @@
                         <div class="containermat">
                 <div class="material-textfield">
                 <input type="email" class="form-control form-blms email_icon" name="email" placeholder=" " required>
-                  <label>Email Id</label>
+                  <label>Email ID</label>
                 </div>
               </div>
 
@@ -41,7 +41,7 @@
                             <div class="containermat">
                                 <div class="material-textfield">
                             <input type="phone" class="form-control form-blms "  name="mobile" placeholder="Mobile Number" disabled value="{{$user->mobile}}" required>
-                                    <label>Mobile no</label>
+                                    <label>Mobile No.</label>
                                 </div>
                             </div>
                         </div>

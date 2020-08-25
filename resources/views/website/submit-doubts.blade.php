@@ -30,7 +30,7 @@
                         <div class="containermat">
                 <div class="material-textfield">
                 <input type="phone" class="form-control form-blms call_icon"  name="mobile" placeholder=" " required maxlength="10">
-                  <label>Mobile no</label>
+                  <label>Mobile No.</label>
                 </div>
               </div>
 
