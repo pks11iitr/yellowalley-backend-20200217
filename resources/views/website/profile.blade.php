@@ -68,7 +68,6 @@
                                 <option value="12th" @if($user->qualification=='12th'){{'selected'}}@endif>12th</option>
                                 <option value="Diploma" @if($user->qualification=='Diploma'){{'selected'}}@endif>Diploma</option>
                                 <option value="Graduate" @if($user->qualification=='Graduate'){{'selected'}}@endif>Graduate</option>
-                                <option value="Post Graduate" @if($user->qualification=='Post Graduate'){{'selected'}}@endif>Male</option>
                             </select>
                         </div>
 
