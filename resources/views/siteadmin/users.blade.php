@@ -80,16 +80,12 @@
                                     <td>{{$s->address.''.$s->city.' '}}</td>
                                     <td>{{$s->status==0?'Inactive':($s->status==1?'Active':'Block')}}</td>
                                     <td>{{$s->referral_code}}</td>
-                                    @php
-                                        $payment_status='pending';
-                                        foreach($s->payments as $payment){
-                                            if($payment->status=='paid'){
-                                                $payment_status='paid';
-                                                break;
-                                            }
-                                        }
-                                    @endphp
-                                    <td>{{$payment_status}}</td>
+                                    @if($s->subscription_payment_status=='paid' && $s->subscription_expiry >= date('Y-m-d'))
+                                        <td>Paid</td>
+                                    @else
+                                        <td>Pending</td>
+                                    @endif
+
                                     <td>{{$s->created_at}}</td>
                                     <td><a href="{{route('users.edit',['id'=>$s->id])}}" class="btn btn-warning">Edit</a>&nbsp;&nbsp;<a href="{{route('users.delete',['id'=>$s->id])}}" class="btn btn-warning">Delete</a></td>
                                 </tr>
