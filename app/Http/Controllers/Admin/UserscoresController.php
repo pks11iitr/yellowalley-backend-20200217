@@ -13,9 +13,9 @@ class UserscoresController extends Controller
         if(isset($request->user)){
             $userscores =Score::with('user')->whereHas('user', function($user) use ($request){
                 $user->where('name', 'like', "%".$request->user."%");
-            })->paginate(20);
+            })->orderBy('user_scores.updated_at', 'desc')->paginate(20);
         }else{
-            $userscores =Score::orderBy('updated_at', 'desc')->paginate(20);
+            $userscores =Score::orderBy('user_scores.updated_at', 'desc')->paginate(20);
         }
 
         $users=User::select('id', 'name')->get();
