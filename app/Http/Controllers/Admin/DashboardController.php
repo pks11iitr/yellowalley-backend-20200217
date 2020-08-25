@@ -26,9 +26,8 @@ class DashboardController extends Controller
 
         $usersnew=User::where('id','>', 1)->where('created_at', '>=', $this_week_sd.' 00:00:00')->where('created_at', '<=', $this_week_ed.' 23:59:59')->count();
 
-        $paidusers = User::whereHas('payments', function($payments) {
-            $payments->where('status','paid');
-        })
+        $paidusers = User::where('subscription_payment_status', 'paid')
+            ->where('subscription_expiry', '>=', date('Y-m-d'))
         ->where('users.id','>', 1)->count();
 
         $chapterscount=Chapter::active()->count();
