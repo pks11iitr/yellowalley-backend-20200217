@@ -140,7 +140,8 @@
     $(document).ready(function(){
         $( "#date-picker" ).datepicker({
             dateFormat: "yy-mm-dd",
-            changeYear:true
+            changeYear:true,
+            yearRange: "1920:2050"
         });
     });
 
