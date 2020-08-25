@@ -15,7 +15,7 @@ class UserscoresController extends Controller
                 $user->where('name', 'like', "%".$request->user."%");
             })->paginate(20);
         }else{
-            $userscores =Score::paginate(20);
+            $userscores =Score::orderBy('updated_at', 'desc')->paginate(20);
         }
 
         $users=User::select('id', 'name')->get();
