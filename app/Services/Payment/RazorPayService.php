@@ -9,8 +9,8 @@ class RazorPayService
 {
 
     public $merchantkey='EPGSjVVzv07F0l';
-    public $api_key='rzp_test_x8wFaxFW3KL1d7';
-    protected $api_secret='s6zlFAgYXFm5MemLZny4dBCY';
+    public $api_key='rzp_live_jNmmo5Szrq1hS5';
+    protected $api_secret='DUA1zdl1dcOlpellP6m7JDFa';
 
     protected $endpoint='https://api.razorpay.com/v1/orders';
 
