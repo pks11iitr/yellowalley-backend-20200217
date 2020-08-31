@@ -38,7 +38,7 @@ class VideoController extends Controller
             $file = $request->image;
 
 
-            $name = str_replace(' ', '_', $request->image->getClientOriginalName());
+            $name = rand(1111,9999).'_'.str_replace(' ', '_', $request->image->getClientOriginalName());
 
             $path = 'videos/' . $name;
 
@@ -52,7 +52,7 @@ class VideoController extends Controller
             $file2 = $request->video_url;
 
 
-            $name2 = str_replace(' ', '_', $request->video_url->getClientOriginalName());
+            $name2 = rand(1111,9999).'_'.str_replace(' ', '_', $request->video_url->getClientOriginalName());
 
             $path2 = 'videos/' . $name2;
 
@@ -89,7 +89,7 @@ class VideoController extends Controller
             $file=$request->image;
 
 
-            $name=str_replace(' ', '_', $request->image->getClientOriginalName());
+            $name=rand(1111,9999).'_'.str_replace(' ', '_', $request->image->getClientOriginalName());
 
             $path='videos/'.$name;
 
@@ -102,7 +102,7 @@ class VideoController extends Controller
         if(isset($request->video_url)){
             $file2=$request->video_url;
 
-            $name2=str_replace(' ', '_', $request->video_url->getClientOriginalName());
+            $name2=rand(1111,9999).'_'.str_replace(' ', '_', $request->video_url->getClientOriginalName());
 
             $path2='videos/'.$name2;
 

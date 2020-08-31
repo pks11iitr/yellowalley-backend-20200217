@@ -33,7 +33,7 @@ class BannerController extends Controller
 
                       		$file=$request->doc_path->path();
 
-                      		$name=str_replace(' ', '_', $request->doc_path->getClientOriginalName());
+                      		$name=rand(1111,9999).'_'.str_replace(' ', '_', $request->doc_path->getClientOriginalName());
 
                       		$path='banner/'.$name;
 
@@ -68,7 +68,7 @@ class BannerController extends Controller
                   if($request->doc_path){
                         $file=$request->doc_path->path();
 
-                      $name=str_replace(' ', '_', $request->doc_path->getClientOriginalName());
+                      $name=rand(1111,9999).'_'.str_replace(' ', '_', $request->doc_path->getClientOriginalName());
 
                       $path='banner/'.$name;
 

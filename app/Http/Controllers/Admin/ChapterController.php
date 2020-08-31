@@ -26,7 +26,7 @@ class ChapterController extends Controller
         if(isset($request->image)){
             $file=$request->image->path();
 
-            $name=str_replace(' ', '_', $request->image->getClientOriginalName());
+            $name=rand(1111,9999).'_'.str_replace(' ', '_', $request->image->getClientOriginalName());
 
             $path='chapters/'.$name;
 
@@ -57,7 +57,7 @@ class ChapterController extends Controller
         if(isset($request->image)){
             $file=$request->image->path();
 
-            $name=str_replace(' ', '_', $request->image->getClientOriginalName());
+            $name=rand(1111,9999).'_'.str_replace(' ', '_', $request->image->getClientOriginalName());
 
             $path='chapters/'.$name;
 
