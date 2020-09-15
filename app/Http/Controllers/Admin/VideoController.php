@@ -78,10 +78,10 @@ class VideoController extends Controller
     }
     public function update(Request $request, $id){
 
-        $request->validate([
-            'image'=>'image',
-            'video_url'=>'mimes:mp4,mov,ogg,qt,flv,m3u8,ts,3gp,avi,wmv'
-        ]);
+//        $request->validate([
+//            'image'=>'image',
+//            'video_url'=>'mimes:mp4,mov,ogg,qt,flv,m3u8,ts,3gp,avi,wmv'
+//        ]);
 
         $category=Video::findOrFail($id);
 
@@ -100,6 +100,8 @@ class VideoController extends Controller
         }
 
         if(isset($request->video_url)){
+
+            $old_path=$category->getOriginal('video_url');
             $file2=$request->video_url;
 
             $name2=rand(1111,9999).'_'.str_replace(' ', '_', $request->video_url->getClientOriginalName());
@@ -107,6 +109,10 @@ class VideoController extends Controller
             $path2='videos/'.$name2;
 
             Storage::put($path2, file_get_contents($file2));
+            if(!empty($old_path)){
+                Storage::delete($old_path);
+            }
+
         }else{
             $path2=$category->getOriginal('video_url');
         }
