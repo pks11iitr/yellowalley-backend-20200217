@@ -9,7 +9,7 @@ class Nimbusit
     protected static $USERID;
     protected static $PASSWORD;
     protected static $SENDERID;
-    protected static $DLT_ID;
+    protected static $DLT_TEMPLATE_ID;
     protected static $ENTITY_ID;
 
     public static function send($mobile, $message){
